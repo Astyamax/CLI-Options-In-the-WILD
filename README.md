@@ -95,9 +95,9 @@ If you have run out of energy or time for your project, put a note at the top of
 ## Project Members
 *Students :*
 - Théophile BERTHELOT
-- Loïs CHOW-CHINE GALINAUD
+- Loïs CHOW-CHINE-GALINAUD
 - Yoan FRANCOIS
 - Baptiste GUERIF
 
-*Supervisor teacher : *
+*Supervisor teacher :*
 - Xhevahire TËRNAVA
