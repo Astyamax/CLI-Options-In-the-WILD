@@ -1,6 +1,31 @@
 # CLI Options in the Wild
 
+#planning
 
+gantt
+    title Planning de Projet : CLI Options in the Wild
+    dateFormat  YYYY-MM-DD
+    axisFormat  %d/%m
+
+    section P3 : Apprentissage &amp; Prototypage
+    S1 : Comptage manuel &amp; Lecture Dan Luu        :done, s1, 2026-02-16, 7d
+    S2-S3 : Prototypage script (5 progs simples)  :active, s2, 2026-02-23, 14d
+    S4-S5 : Gestion alias et options cachées      :s4, 2026-03-09, 14d
+    S6 : Cas complexes (sous-commandes, pagers)   :s6, 2026-03-23, 7d
+
+    section P4 : Passage à l&#39;échelle &amp; Analyse
+    S7-S8 : Script Git (Clonage, checkout, build) :s7, 2026-03-30, 14d
+    S9-S10 : Exécution massive (20-50+ progs)     :s9, 2026-04-13, 14d
+    S11 : Semaine Buffer &amp; Débogage               :s11, 2026-04-27, 7d
+    S12 : Visualisation (Matplotlib) &amp; Analyse    :s12, 2026-05-04, 7d
+    S13-S14 : Rapport, Nettoyage &amp; Open Source    :s13, 2026-05-11, 14d
+
+    section Livrables &amp; Points de synchro
+    Rendu du planning initial                     :milestone, m1, 2026-02-20, 0d
+    Point Encadrants: Choix techno &amp; Écarts       :milestone, m2, 2026-03-09, 0d
+    Démo du script de parsing validé              :milestone, m3, 2026-03-30, 0d
+    Check de l&#39;intégrité de la base de données    :milestone, m4, 2026-04-27, 0d
+    Rapport final &amp; Release GitLab                :milestone, m5, 2026-05-24, 0d
 
 ## Getting started
 
