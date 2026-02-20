@@ -13,3 +13,7 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
 
 ### Objectifs prochaine séance
 - Répartir les tâches entre nous
+- Planifier des meetings entre nous et avec l'encadrante
+
+## 23 Février 2026 (S2)
+
