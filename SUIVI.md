@@ -1,5 +1,5 @@
 ## Suivi Projet Artishow
-## 15 Février 2026
+## 15 Février 2026 (S0)
 Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puisse nous introduire le projet et nous expliquer ce qu'on doit réaliser.
 
 ## 16 Février 2026
@@ -8,7 +8,7 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
 - Préparer un planning global
 - Tester le premier code
 
-## 20 Février 2026
+## 20 Février 2026 (S1)
 *Tout le monde* : Entretien pour présenter notre première version du planning.
 
 ### Objectifs prochaine séance
