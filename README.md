@@ -1,29 +1,6 @@
 # CLI Options in the Wild
 
-#planning
 
-gantt
-    title Planning de Projet : CLI Options in the Wild
-    dateFormat  YYYY-MM-DD
-    axisFormat  %d/%m
-
-    section P3 : Apprentissage & Prototypage
-    Comptage manuel & Lecture Dan Luu        :done, s1, 2026-02-16, 7d
-    Rendu du planning initial                :milestone, m1, 2026-02-20, 0d
-    Prototypage script (5 progs simples)     :active, s2, 2026-02-23, 14d
-    Point Encadrants (Choix techno)          :milestone, m2, 2026-03-09, 0d
-    Gestion alias et options cachées         :s4, 2026-03-09, 14d
-    Cas complexes (sous-commandes, pagers)   :s6, 2026-03-23, 7d
-    Démo du script de parsing validé         :milestone, m3, 2026-03-30, 0d
-
-    section P4 : Passage à l'échelle & Analyse
-    Script Git (Clonage, checkout, build)    :s7, 2026-03-30, 14d
-    Exécution massive (20-50+ progs)         :s9, 2026-04-13, 14d
-    Check de l'intégrité de la base de données:milestone, m4, 2026-04-27, 0d
-    Semaine Buffer & Débogage                :s11, 2026-04-27, 7d
-    Visualisation (Matplotlib) & Analyse     :s12, 2026-05-04, 7d
-    Rapport, Nettoyage & Open Source         :s13, 2026-05-11, 14d
-    Rapport final & Release GitLab           :milestone, m5, 2026-05-24, 0d
 ## Getting started
 
 To make it easy for you to get started with GitLab, here's a list of recommended next steps.
