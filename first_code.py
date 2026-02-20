@@ -10,15 +10,9 @@ if len(sys.argv) != 2:
 
 prog = sys.argv[1]
 
-try:
-     result = subprocess.run(
-        [programme, "--help"],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.STDOUT,
-        text=True
-    )
 
-    # Fichier temporaire
-    with tempfile.NamedTemporaryFile(mode="w+", delete=True) as f:
-        f.write(result.stdout)
-        f.seek(0)  # Retour au début du fichier
+result = subprocess.run([prog, "--help", ">> tmp.txt"])
+
+
+    
+
