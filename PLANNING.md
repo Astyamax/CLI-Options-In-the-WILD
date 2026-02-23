@@ -22,7 +22,44 @@ gantt
     tickInterval 1month
     weekday monday
 
-    ... (colle tout le reste du code ici) ...
+    section Phases du Projet
+    S1 – Cadrage et Planification                :milestone, m1, 2026-02-20, 0d
+    S2-S3 – Prototypage et Choix Technique       :s2, 2026-02-23, 2026-03-13
+    S4-S5 – Gestion de la diversite (Debut)      :s4, 2026-03-16, 2026-04-03
+    Pause                                         :crit, pause, 2026-04-04, 2026-04-09
+    S7-S8 – Cas complexes et Pipeline            :s7, 2026-04-10, 2026-04-15
+    S9-S10 – Voyage dans le temps (Git)          :s9, 2026-04-21, 2026-05-05
+    S11 – Passage a l echelle massive            :s11, 2026-05-13, 2026-05-19
+    S12 – Buffer / Debogage                      :s12, 2026-05-27, 2026-06-02
+    S13-S14 – Analyse et Visualisation           :s13, 2026-06-10, 2026-06-15
+    Derniere semaine – Vulgarisation et Soutenance :last, 2026-06-16, 2026-06-22
+
+    section Taches Asynchrones
+    Lecture article + comptage manuel 10 prog        :a1, 2026-02-20, 1d
+    Compteur Bash minimal + test 5 prog              :a2, 2026-02-23, 2026-03-13
+    Parsing – alias et options cachees               :a4a, 2026-03-16, 2026-04-03
+    Git – script automatisation execution            :a4b, 2026-03-16, 2026-04-03
+    Sous-commandes et pagers                         :a7, 2026-04-10, 2026-04-15
+    Git – clone, checkout tags, compiler             :a9a, 2026-04-21, 2026-05-05
+    Parsing – securisation erreurs                   :a9b, 2026-04-21, 2026-05-05
+    Lancement scripts 20-50+ programmes              :a11, 2026-05-13, 2026-05-19
+    Traitement erreurs et documentation              :a12, 2026-05-27, 2026-06-02
+    Graphiques Matplotlib et analyse LoC             :a13, 2026-06-10, 2026-06-15
+    README, poster et idees creatives                :alast, 2026-06-16, 2026-06-22
+
+    section Taches Synchrones / Livrables
+    Livrable S1 + point attentes                     :milestone, t1, 2026-02-20, 0d
+    Revue de code croisee                            :milestone, t4, 2026-04-03, 0d
+    Fusion Git et Parsing                            :milestone, t9, 2026-05-05, 0d
+    Hackathon interne                                :milestone, t12, 2026-06-02, 0d
+    Analyse conjointe resultats                      :milestone, t13, 2026-06-15, 0d
+
+    section Points Encadrants (horaires ICS)
+    S1 Point attentes – 20/02 08h30-10h00 + 10h15-11h45          :milestone, enc1, 2026-02-20, 0d
+    S2-S3 Decision Bash/Python – 13/03 08h30-10h00 + 10h15-11h45 :milestone, enc2, 2026-03-13, 0d
+    S7-S8 Demo script – 15/04 08h30-10h00 + 10h15-11h45          :milestone, enc3, 2026-04-15, 0d
+    S11 Integrite BDD – 13/05 (pas de seance ICS cette semaine)   :crit, milestone, enc4, 2026-05-13, 0d
+    Soutenance – 22/06 08h30-10h00 + 10h15-11h45 + 13h30-16h45   :milestone, enc5, 2026-06-22, 0d
 
     section Equipe
     Yoan Francois – Application Interface            :active, eq1, 2026-02-20, 2026-06-22
