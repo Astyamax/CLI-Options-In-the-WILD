@@ -12,7 +12,9 @@
 
 ## Tasks
 
-| Yoan François | Interface application |
-| Baptiste Guerif | Code application |
-| Loïs Chow-Chine-Galinaud | Etude des dépos Git |
-| Théophille Berthelot | Annalyse des données |
+| Name | Tasks |
+| :--- | :--- |
+| Yoan François | Application Interface |
+| Baptiste Guerif | Application Code |
+| Loïs Chow-Chine-Galinaud | Git repos analysis |
+| Théophille Berthelot | Data analysis |
