@@ -11,3 +11,22 @@
 | **S12** (27/05)  | Semaine de Buffer/Débogage  | Traitement des cas d'erreur (programmes qui refusent de compiler ou dont le format d'aide a muté au fil des décennies) et documentation du code. | Session "Hackathon" interne pour finaliser la collecte de données. |
 | **S13-S14** (10/06-15/06)  | Analyse & Visualisation  | Utilisation de Matplotlib pour générer les graphiques et comparaison de la croissance des options vs Lignes de Code (LoC). | Analyse conjointe des résultats : L'IA a-t-elle eu un impact ? Quels programmes explosent ?  |
 | Dernière semaine  | Vulgarisation de notre travail et finalisation du suivi.md  | Faire le readme.md et faire un poster (autres idées créatives). | Répétition de la soutenance (si applicable) et vérification de l'arborescence du GitLab. |
+
+```mermaid
+%%{init: { 'theme': 'default', 'gantt': { 'leftPadding': 200 } } }%%
+gantt
+    title Suivi de Projet – CLI Options in the Wild
+    dateFormat YYYY-MM-DD
+    excludes weekends
+    axisFormat %e %b %y
+    tickInterval 1month
+    weekday monday
+
+    ... (colle tout le reste du code ici) ...
+
+    section Equipe
+    Yoan Francois – Application Interface            :active, eq1, 2026-02-20, 2026-06-22
+    Baptiste Guerif – Application Code               :active, eq2, 2026-02-20, 2026-06-22
+    Lois Chow-Chine-Galinaud – Git repos analysis   :active, eq3, 2026-02-20, 2026-06-22
+    Theophille Berthelot – Data analysis              :active, eq4, 2026-02-20, 2026-06-22
+```
