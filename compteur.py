@@ -37,38 +37,35 @@ def parse_args() -> argparse.Namespace:
         "--output",
         help="Chemin du fichier de sortie (texte ou JSON selon --json).",
     )
+    parser.add_argument(
+        "--timeout",
+        type=float,
+        default=5.0,
+        help="Timeout en secondes pour chaque commande --help (defaut: 5).",
+    )
     return parser.parse_args()
 
 
-def analyze_program(program: str) -> Dict[str, object]:
+def analyze_program(program: str, timeout: float) -> Dict[str, object]:
     if shutil.which(program) is None:
         return {"program": program, "status": "N/A (introuvable)", "count": None, "options": []}
 
-    result = subprocess.run(
-        [program, "--help"],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.STDOUT,
-        text=True,
-        check=False,
-    )
+    try:
+        result = subprocess.run(
+            [program, "--help"],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+            check=False,
+            timeout=timeout,
+        )
+    except subprocess.TimeoutExpired:
+        return {"program": program, "status": "Timeout", "count": None, "options": []}
+    except OSError as exc:
+        return {"program": program, "status": f"Erreur execution: {exc}", "count": None, "options": []}
 
     options = sorted(set(OPTION_PATTERN.findall(result.stdout)))
     return {"program": program, "status": "ok", "count": len(options), "options": options}
-
-
-def print_table(results: List[Dict[str, object]], verbose: bool) -> None:
-    print(f"{'programme':<12} nb_options")
-    print(f"{'-' * 9:<12} {'-' * 10}")
-
-    for item in results:
-        if item["status"] != "ok":
-            print(f"{item['program']:<12} {item['status']}")
-            continue
-
-        print(f"{item['program']:<12} {item['count']}")
-        if verbose:
-            joined = ", ".join(item["options"])
-            print(f"  options: {joined}")
 
 
 def as_text(results: List[Dict[str, object]], verbose: bool) -> str:
@@ -87,7 +84,8 @@ def as_text(results: List[Dict[str, object]], verbose: bool) -> str:
 def main() -> int:
     args = parse_args()
     programs = args.programs if args.programs else DEFAULT_PROGRAMS
-    results = [analyze_program(program) for program in programs]
+    results = [analyze_program(program, args.timeout) for program in programs]
+    results.sort(key=lambda item: (item["status"] != "ok", -(item["count"] or 0), item["program"]))
 
     if args.json:
         output_text = json.dumps(results, indent=2, ensure_ascii=False)
@@ -105,4 +103,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
