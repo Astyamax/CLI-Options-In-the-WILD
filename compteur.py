@@ -47,7 +47,6 @@ def parse_args() -> argparse.Namespace:
 def analyze_program(program: str, timeout: float) -> Dict[str, object]:
     if shutil.which(program) is None:
         return {"program": program, "status": "N/A (introuvable)", "count": None, "options": []}
-
     try:
         result = subprocess.run(
             [program, "--help"],
