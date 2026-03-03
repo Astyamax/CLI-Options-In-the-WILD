@@ -23,5 +23,19 @@ def count_options(program: str) -> str:
     options = set(OPTION_PATTERN.findall(result.stdout))
     return str(len(options))
 
+def main() -> int:
+    programs = sys.argv[1:] if len(sys.argv) > 1 else DEFAULT_PROGRAMS
 
+    print(f"{'programme':<12} nb_options")
+    print(f"{'-' * 9:<12} {'-' * 10}")
+
+    for program in programs:
+        count = count_options(program)
+        print(f"{program:<12} {count}")
+
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
 
