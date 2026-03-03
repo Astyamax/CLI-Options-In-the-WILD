@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+import json
 import re
 import shutil
 import subprocess
@@ -25,6 +26,16 @@ def parse_args() -> argparse.Namespace:
         "--verbose",
         action="store_true",
         help="Affiche les options detectees pour chaque programme.",
+    )
+    parser.add_argument(
+        "--json",
+        action="store_true",
+        help="Affiche les resultats au format JSON.",
+    )
+    parser.add_argument(
+        "-o",
+        "--output",
+        help="Chemin du fichier de sortie (texte ou JSON selon --json).",
     )
     return parser.parse_args()
 
@@ -60,15 +71,38 @@ def print_table(results: List[Dict[str, object]], verbose: bool) -> None:
             print(f"  options: {joined}")
 
 
+def as_text(results: List[Dict[str, object]], verbose: bool) -> str:
+    lines = [f"{'programme':<12} nb_options", f"{'-' * 9:<12} {'-' * 10}"]
+    for item in results:
+        if item["status"] != "ok":
+            lines.append(f"{item['program']:<12} {item['status']}")
+            continue
+        lines.append(f"{item['program']:<12} {item['count']}")
+        if verbose:
+            joined = ", ".join(item["options"])
+            lines.append(f"  options: {joined}")
+    return "\n".join(lines)
+
+
 def main() -> int:
     args = parse_args()
     programs = args.programs if args.programs else DEFAULT_PROGRAMS
     results = [analyze_program(program) for program in programs]
-    print_table(results, args.verbose)
+
+    if args.json:
+        output_text = json.dumps(results, indent=2, ensure_ascii=False)
+    else:
+        output_text = as_text(results, args.verbose)
+
+    print(output_text)
+
+    if args.output:
+        with open(args.output, "w", encoding="utf-8") as out:
+            out.write(output_text + "\n")
+
     return 0
 
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
 
