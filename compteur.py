@@ -102,6 +102,26 @@ def as_text(results: List[Dict[str, object]], verbose: bool) -> str:
         if verbose:
             joined = ", ".join(item["options"])
             lines.append(f"  options: {joined}")
+
+    ok_results = [item for item in results if item["status"] == "ok" and item["count"] is not None]
+    total_programs = len(results)
+    success_programs = len(ok_results)
+    total_options = sum(int(item["count"]) for item in ok_results)
+    avg_options = (total_options / success_programs) if success_programs else 0.0
+    top3 = sorted(ok_results, key=lambda item: int(item["count"]), reverse=True)[:3]
+
+    lines.append("")
+    lines.append("summary")
+    lines.append("-------")
+    lines.append(f"programmes_total: {total_programs}")
+    lines.append(f"programmes_ok: {success_programs}")
+    lines.append(f"options_total: {total_options}")
+    lines.append(f"options_moyenne: {avg_options:.2f}")
+    if top3:
+        top3_text = ", ".join(f"{item['program']}({item['count']})" for item in top3)
+    else:
+        top3_text = "N/A"
+    lines.append(f"top3: {top3_text}")
     return "\n".join(lines)
 
 
