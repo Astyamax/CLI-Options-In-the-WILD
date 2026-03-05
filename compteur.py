@@ -1,8 +1,10 @@
 import argparse
+import csv
 import json
 import re
 import shutil
 import subprocess
+from io import StringIO
 from typing import Dict, List
 
 
@@ -31,9 +33,14 @@ def parse_args() -> argparse.Namespace:
         help="Affiche les resultats au format JSON.",
     )
     parser.add_argument(
+        "--csv",
+        action="store_true",
+        help="Affiche les resultats au format CSV.",
+    )
+    parser.add_argument(
         "-o",
         "--output",
-        help="Chemin du fichier de sortie (texte ou JSON selon --json).",
+        help="Chemin du fichier de sortie (texte, JSON ou CSV).",
     )
     parser.add_argument(
         "--timeout",
@@ -78,14 +85,29 @@ def as_text(results: List[Dict[str, object]], verbose: bool) -> str:
     return "\n".join(lines)
 
 
+def as_csv(results: List[Dict[str, object]]) -> str:
+    buffer = StringIO()
+    writer = csv.writer(buffer)
+    writer.writerow(["program", "status", "count", "options"])
+    for item in results:
+        options = ";".join(item["options"])
+        writer.writerow([item["program"], item["status"], item["count"], options])
+    return buffer.getvalue().strip("\n")
+
+
 def main() -> int:
     args = parse_args()
     programs = args.programs if args.programs else DEFAULT_PROGRAMS
     results = [analyze_program(program, args.timeout) for program in programs]
     results.sort(key=lambda item: (item["status"] != "ok", -(item["count"] or 0), item["program"]))
 
+    if args.json and args.csv:
+        raise SystemExit("Erreur: utilise seulement un format entre --json et --csv.")
+
     if args.json:
         output_text = json.dumps(results, indent=2, ensure_ascii=False)
+    elif args.csv:
+        output_text = as_csv(results)
     else:
         output_text = as_text(results, args.verbose)
 
