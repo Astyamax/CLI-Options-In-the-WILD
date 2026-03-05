@@ -1,0 +1,3 @@
+program,status,count,options
+python3,ok,29,--check-hash-based-pycs;--help;--help-all;--help-env;--help-xoptions;--version;-1;-2;-B;-E;-I;-O;-P;-S;-U;-V;-W;-X;-b;-c;-d;-h;-i;-m;-q;-s;-u;-v;-x
+git,ok,25,--bare;--config-env;--exec-path;--git-dir;--help;--html-path;--info-path;--man-path;--namespace;--no-advice;--no-lazy-fetch;--no-optional-locks;--no-pager;--no-replace-objects;--paginate;--version;--work-tree;-C;-P;-a;-c;-g;-h;-p;-v
