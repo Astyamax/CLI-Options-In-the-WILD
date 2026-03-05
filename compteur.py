@@ -48,10 +48,29 @@ def parse_args() -> argparse.Namespace:
         default=5.0,
         help="Timeout en secondes pour chaque commande --help (defaut: 5).",
     )
+    filter_group = parser.add_mutually_exclusive_group()
+    filter_group.add_argument(
+        "--short-only",
+        action="store_true",
+        help="Ne compte que les options courtes de type -x.",
+    )
+    filter_group.add_argument(
+        "--long-only",
+        action="store_true",
+        help="Ne compte que les options longues de type --option.",
+    )
     return parser.parse_args()
 
 
-def analyze_program(program: str, timeout: float) -> Dict[str, object]:
+def filter_options(options: List[str], short_only: bool, long_only: bool) -> List[str]:
+    if short_only:
+        return [opt for opt in options if opt.startswith("-") and not opt.startswith("--")]
+    if long_only:
+        return [opt for opt in options if opt.startswith("--")]
+    return options
+
+
+def analyze_program(program: str, timeout: float, short_only: bool, long_only: bool) -> Dict[str, object]:
     if shutil.which(program) is None:
         return {"program": program, "status": "N/A (introuvable)", "count": None, "options": []}
     try:
@@ -69,6 +88,7 @@ def analyze_program(program: str, timeout: float) -> Dict[str, object]:
         return {"program": program, "status": f"Erreur execution: {exc}", "count": None, "options": []}
 
     options = sorted(set(OPTION_PATTERN.findall(result.stdout)))
+    options = filter_options(options, short_only=short_only, long_only=long_only)
     return {"program": program, "status": "ok", "count": len(options), "options": options}
 
 
@@ -98,7 +118,15 @@ def as_csv(results: List[Dict[str, object]]) -> str:
 def main() -> int:
     args = parse_args()
     programs = args.programs if args.programs else DEFAULT_PROGRAMS
-    results = [analyze_program(program, args.timeout) for program in programs]
+    results = [
+        analyze_program(
+            program,
+            args.timeout,
+            short_only=args.short_only,
+            long_only=args.long_only,
+        )
+        for program in programs
+    ]
     results.sort(key=lambda item: (item["status"] != "ok", -(item["count"] or 0), item["program"]))
 
     if args.json and args.csv:
