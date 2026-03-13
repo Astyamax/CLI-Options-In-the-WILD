@@ -14,7 +14,9 @@ PROGRAM_CONFIGS = {
     "sed": ["--help"],
     "sort": ["--help"],
     "curl": ["--help", "all"],
-    "tar": ["--help"]
+    "tar": ["--help"],
+    "git commit": ["-h"], 
+    "git push": ["-h"]     
 }
 
 OPTION_PATTERN = re.compile(r"--[A-Za-z0-9][A-Za-z0-9-]*|-[A-Za-z0-9]")
