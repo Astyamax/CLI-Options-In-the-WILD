@@ -17,7 +17,6 @@ PROGRAM_CONFIGS = {
     "tar": ["--help"]
 }
 
-
 OPTION_PATTERN = re.compile(r"--[A-Za-z0-9][A-Za-z0-9-]*|-[A-Za-z0-9]")
 
 
@@ -80,11 +79,19 @@ def filter_options(options: List[str], short_only: bool, long_only: bool) -> Lis
 
 
 def analyze_program(program: str, timeout: float, short_only: bool, long_only: bool) -> Dict[str, object]:
+    # 1. Vérifie si le programme existe sur le système
     if shutil.which(program) is None:
         return {"program": program, "status": "N/A (introuvable)", "count": None, "options": []}
+    
+    # 2. Prépare la commande spécifique avec le dictionnaire
+    # On cherche les arguments dans PROGRAM_CONFIGS. Si on ne trouve pas le programme, on utilise ["--help"]
+    help_args = PROGRAM_CONFIGS.get(program, ["--help"])
+    command_to_run = [program] + help_args
+
+    # 3. Exécute la commande et capture la sortie
     try:
         result = subprocess.run(
-            [program, "--help"],
+            command_to_run,  # On utilise notre nouvelle commande sur mesure ici !
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             text=True,
@@ -96,8 +103,10 @@ def analyze_program(program: str, timeout: float, short_only: bool, long_only: b
     except OSError as exc:
         return {"program": program, "status": f"Erreur execution: {exc}", "count": None, "options": []}
 
+    # 4. Extrait et filtre les options trouvées
     options = sorted(set(OPTION_PATTERN.findall(result.stdout)))
     options = filter_options(options, short_only=short_only, long_only=long_only)
+    
     return {"program": program, "status": "ok", "count": len(options), "options": options}
 
 
