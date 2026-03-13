@@ -7,7 +7,6 @@ import subprocess
 from io import StringIO
 from typing import Dict, List
 
-# --- NOUVEAU CODE ICI ---
 PROGRAM_CONFIGS = {
     "cat": ["--help"],
     "ls": ["--help"],
@@ -17,7 +16,7 @@ PROGRAM_CONFIGS = {
     "curl": ["--help", "all"],
     "tar": ["--help"]
 }
-# ------------------------
+
 
 OPTION_PATTERN = re.compile(r"--[A-Za-z0-9][A-Za-z0-9-]*|-[A-Za-z0-9]")
 
