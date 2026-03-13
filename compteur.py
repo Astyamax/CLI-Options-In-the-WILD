@@ -7,8 +7,18 @@ import subprocess
 from io import StringIO
 from typing import Dict, List
 
+# --- NOUVEAU CODE ICI ---
+PROGRAM_CONFIGS = {
+    "cat": ["--help"],
+    "ls": ["--help"],
+    "grep": ["--help"],
+    "sed": ["--help"],
+    "sort": ["--help"],
+    "curl": ["--help", "all"],
+    "tar": ["--help"]
+}
+# ------------------------
 
-DEFAULT_PROGRAMS = ["cat", "ls", "grep", "sed", "sort"]
 OPTION_PATTERN = re.compile(r"--[A-Za-z0-9][A-Za-z0-9-]*|-[A-Za-z0-9]")
 
 
