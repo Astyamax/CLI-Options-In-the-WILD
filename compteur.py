@@ -81,14 +81,16 @@ def filter_options(options: List[str], short_only: bool, long_only: bool) -> Lis
 
 
 def analyze_program(program: str, timeout: float, short_only: bool, long_only: bool) -> Dict[str, object]:
+    command_parts = program.split()
+    executable = command_parts[0] #séparation de la chaîne de caractères
     # 1. Vérifie si le programme existe sur le système
-    if shutil.which(program) is None:
+    if shutil.which(executable) is None:
         return {"program": program, "status": "N/A (introuvable)", "count": None, "options": []}
     
     # 2. Prépare la commande spécifique avec le dictionnaire
     # On cherche les arguments dans PROGRAM_CONFIGS. Si on ne trouve pas le programme, on utilise ["--help"]
     help_args = PROGRAM_CONFIGS.get(program, ["--help"])
-    command_to_run = [program] + help_args
+    command_to_run = command_parts + help_args
 
     # 3. Exécute la commande et capture la sortie
     try:
