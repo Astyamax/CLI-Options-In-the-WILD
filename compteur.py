@@ -20,7 +20,7 @@ PROGRAM_CONFIGS = {
 }
 
 OPTION_PATTERN = re.compile(r"--[A-Za-z0-9][A-Za-z0-9-]*|-[A-Za-z0-9]")
-
+DEFAULT_PROGRAMS = list (PROGRAM_CONFIGS.keys())
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
