@@ -77,7 +77,8 @@ def parse_args() -> argparse.Namespace:
     )
     return parser.parse_args()
 
-
+#on peut préciser si on souhaite compter que les options longues ou que les courtes 
+#si on précise pas, ça compte les 2
 def filter_options(options: List[str], short_only: bool, long_only: bool) -> List[str]:
     if short_only:
         return [opt for opt in options if opt.startswith("-") and not opt.startswith("--")]
@@ -94,7 +95,7 @@ def analyze_program(program: str, timeout: float, short_only: bool, long_only: b
         return {"program": program, "status": "N/A (introuvable)", "count": None, "options": []}
     
     #prépare la commande spécifique avec le dictionnaire
-    #cherche les arguments dans PROGRAM_CONFIGS. Si on ne trouve pas le programme, on utilise ["--help"]
+    #cherche les arguments dans PROGRAM_CONFIGS. Si on ne trouve pas le programme, on utilise ["--help"], donc limie si le programme en question a besoin de help all
     help_args = PROGRAM_CONFIGS.get(program, ["--help"])
     command_to_run = command_parts + help_args
 
@@ -120,6 +121,7 @@ def analyze_program(program: str, timeout: float, short_only: bool, long_only: b
     return {"program": program, "status": "ok", "count": len(options), "options": options}
 
 
+#formate en tableau propre pour le terminal
 def as_text(results: List[Dict[str, object]], verbose: bool) -> str:
     lines = [f"{'programme':<12} nb_options", f"{'-' * 9:<12} {'-' * 10}"]
     for item in results:
@@ -152,7 +154,7 @@ def as_text(results: List[Dict[str, object]], verbose: bool) -> str:
     lines.append(f"top3: {top3_text}")
     return "\n".join(lines)
 
-
+#formate les résultats en csv
 def as_csv(results: List[Dict[str, object]]) -> str:
     buffer = StringIO()
     writer = csv.writer(buffer)
@@ -164,8 +166,8 @@ def as_csv(results: List[Dict[str, object]]) -> str:
 
 
 def main() -> int:
-    args = parse_args()
-    programs = args.programs if args.programs else DEFAULT_PROGRAMS
+    args = parse_args() #lit les arguments
+    programs = args.programs if args.programs else DEFAULT_PROGRAMS #choisit les programmes à analyser
     results = [
         analyze_program(
             program,
