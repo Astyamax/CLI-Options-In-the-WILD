@@ -16,17 +16,18 @@ PROGRAM_CONFIGS = {
     "sort": ["--help"],
     "curl": ["--help", "all"],
     "tar": ["--help"],
-    "git commit": ["-h"], 
+    "git commit": ["-h"], #-h pour ne pas ouvrir de pager et bloquer le script
     "git push": ["-h"]     
 }
 
 #expression régulière qui détecte les options
-#options longue * options courtes 
+#options longue | options courtes 
 OPTION_PATTERN = re.compile(r"--[A-Za-z0-9][A-Za-z0-9-]*|-[A-Za-z0-9]")
 
 #liste des programmes analysés si aucun argument n'est rentré
 DEFAULT_PROGRAMS = list (PROGRAM_CONFIGS.keys())
 
+#
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Compte les options CLI detectees dans la sortie --help."
@@ -88,19 +89,19 @@ def filter_options(options: List[str], short_only: bool, long_only: bool) -> Lis
 def analyze_program(program: str, timeout: float, short_only: bool, long_only: bool) -> Dict[str, object]:
     command_parts = program.split()
     executable = command_parts[0] #séparation de la chaîne de caractères
-    # 1. Vérifie si le programme existe sur le système
+    #vérifie si le programme existe sur le système
     if shutil.which(executable) is None:
         return {"program": program, "status": "N/A (introuvable)", "count": None, "options": []}
     
-    # 2. Prépare la commande spécifique avec le dictionnaire
-    # On cherche les arguments dans PROGRAM_CONFIGS. Si on ne trouve pas le programme, on utilise ["--help"]
+    #prépare la commande spécifique avec le dictionnaire
+    #cherche les arguments dans PROGRAM_CONFIGS. Si on ne trouve pas le programme, on utilise ["--help"]
     help_args = PROGRAM_CONFIGS.get(program, ["--help"])
     command_to_run = command_parts + help_args
 
-    # 3. Exécute la commande et capture la sortie
+    #éxécute la commande et capture la sortie
     try:
         result = subprocess.run(
-            command_to_run,  # On utilise notre nouvelle commande sur mesure ici !
+            command_to_run,  
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             text=True,
@@ -112,7 +113,7 @@ def analyze_program(program: str, timeout: float, short_only: bool, long_only: b
     except OSError as exc:
         return {"program": program, "status": f"Erreur execution: {exc}", "count": None, "options": []}
 
-    # 4. Extrait et filtre les options trouvées
+    #extrait et filtre les options trouvées
     options = sorted(set(OPTION_PATTERN.findall(result.stdout)))
     options = filter_options(options, short_only=short_only, long_only=long_only)
     
