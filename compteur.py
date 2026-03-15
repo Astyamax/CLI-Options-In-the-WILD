@@ -189,6 +189,7 @@ def main() -> int:
 
     print(output_text)
 
+    #écrit dans le fichier 
     if args.output:
         with open(args.output, "w", encoding="utf-8") as out:
             out.write(output_text + "\n")
