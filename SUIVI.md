@@ -15,3 +15,13 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
 ### Objectifs prochaine séance
 - Répartir les tâches entre nous
 - Planifier des meetings entre nous et avec l'encadrante
+
+## 16 mars 2026
+*Tout le monde* : Entretien pour présenter notre première version du compteur
+- Choix de la stratégie de comptage
+- Création d'un document pour instaurer les règles de comptage pour les futurs clients
+
+
+## Objectifs prochaine séance
+- Diversification 
+- Début de visualisation du nombre d'options
