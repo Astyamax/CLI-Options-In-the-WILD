@@ -103,8 +103,6 @@ def analyze_program(program: str, timeout: float, short_only: bool, long_only: b
     try:
         result = subprocess.run(
             command_to_run,  
-            stdout=subprocess.PIPE,
-            stderr=subprocess.STDOUT,
             text=True,
             check=False,
             timeout=timeout,
