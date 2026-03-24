@@ -102,7 +102,8 @@ def analyze_program(program: str, timeout: float, short_only: bool, long_only: b
     #éxécute la commande et capture la sortie
     try:
         result = subprocess.run(
-            command_to_run,  
+            command_to_run, 
+            capture_output=True 
             text=True,
             check=False,
             timeout=timeout,
@@ -113,6 +114,7 @@ def analyze_program(program: str, timeout: float, short_only: bool, long_only: b
         return {"program": program, "status": f"Erreur execution: {exc}", "count": None, "options": []}
 
     #extrait et filtre les options trouvées
+    texte_aide = result.stdout + result.stderr
     options = sorted(set(OPTION_PATTERN.findall(result.stdout)))
     options = filter_options(options, short_only=short_only, long_only=long_only)
     
