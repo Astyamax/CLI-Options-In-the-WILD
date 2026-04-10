@@ -25,3 +25,7 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
 ## Objectifs prochaine séance
 - Diversification 
 - Début de visualisation du nombre d'options
+
+## 2 Avril 2026
+- Code capable de compter les programmes de base (ls,cat, grep, sed, sort...) avec la commande help 
+- Objectif: améliorer le code pour compter le nombre d'options avec des programmes utilisant autre chose que help
