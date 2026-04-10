@@ -21,6 +21,6 @@
 
 ## Rules regarding the counter 
 
-- Works for: --help, 
+- Works for: --help, -h, -help, help
 - Long options, court options: counts twice for the same feature (10 April)
 
