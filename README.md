@@ -18,3 +18,6 @@
 | Baptiste Guerif | Application Code |
 | Loïs Chow-Chine-Galinaud | Git repos analysis |
 | Théophille Berthelot | Data analysis |
+
+## Rules regarding the counter 
+
