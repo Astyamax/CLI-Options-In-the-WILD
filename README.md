@@ -18,3 +18,9 @@
 | Baptiste Guerif | Application Code |
 | Loïs Chow-Chine-Galinaud | Git repos analysis |
 | Théophille Berthelot | Data analysis |
+
+## Rules regarding the counter 
+
+- Works for: --help, -h, -help, help, --usage, -usage, usage, -?, --?, ?
+- Long options, court options: counts twice for the same feature (10 April)
+
