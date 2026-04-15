@@ -4,7 +4,8 @@ import re
 
 def lister_commandes(programme, aide):
 
-    result = subprocess.run([programme, aide], capture_output=True, text=True, check=True)
+    
+    result = subprocess.run([programme, aide], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, check=False)
     if result.returncode != 0:
         print("Erreur : impossible d'afficher l'aide avec ", aide)
         return []
@@ -16,6 +17,6 @@ def lister_commandes(programme, aide):
     options_uniques = set(options_trouvees)
 
     return list(options_uniques)
-
-print(lister_commandes("mysql", "--help"))
+if __name__ == "__main__":
+    print(lister_commandes("mysql", "--help"))
 

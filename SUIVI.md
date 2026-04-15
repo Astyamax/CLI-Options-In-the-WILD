@@ -30,4 +30,7 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
 - Code capable de compter les programmes de base (ls,cat, grep, sed, sort...) avec la commande help 
 - Objectif: améliorer le code pour compter le nombre d'options avec des programmes utilisant autre chose que help
 
-## 10 Avril 2026
+## 14 Avril 2026
+- Implémentation d'une interface graphique simple pour tester le code 
+- Les codes code_final.py et code_v2.py fonctionnent pour des programmes usuels
+- Objectifs prochaine séance: faire une documentation qui regroupe les sources, ajouter des features à l'interface graphique (détails, graphes crhonologiques, graphe option actuelle)
