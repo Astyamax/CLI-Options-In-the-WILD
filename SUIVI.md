@@ -30,4 +30,5 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
 - Code capable de compter les programmes de base (ls,cat, grep, sed, sort...) avec la commande help 
 - Objectif: améliorer le code pour compter le nombre d'options avec des programmes utilisant autre chose que help
 
-## 10 Avril 2026
+## 14 Avril 2026
+- Implémentation d'une interface graphique simple pour tester le code 
