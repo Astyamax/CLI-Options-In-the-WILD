@@ -32,3 +32,4 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
 
 ## 14 Avril 2026
 - Implémentation d'une interface graphique simple pour tester le code 
+- Les codes code_final.py et code_v2.py fonctionnent pour des programmes usuels
