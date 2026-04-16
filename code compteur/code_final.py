@@ -17,7 +17,7 @@ def compteur_generale(prog) :
             options_uniques.append(option)
     return options_uniques
 if __name__ == "__main__":
-    programme_a_tester = "git"
+    programme_a_tester = "ls"
     resultats_options = compteur_generale(programme_a_tester)
     print(len(resultats_options))
     print(resultats_options)
