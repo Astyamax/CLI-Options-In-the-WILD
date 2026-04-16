@@ -12,12 +12,12 @@ def lancer_comptage():
     try:
         options_trouvees = code_final.compteur_generale(prog)
         nombre_options = len(options_trouvees)
-        label_resultat.config(text=f"Le programme '{prog}' possède {nombre_options} option(s).")
+        label_resultat.config(text=f"Le programme '{prog}' possède {nombre_options} option(s) :\n{','.join(options_trouvees)}")
     
     except Exception as erreur:
         messagebox.showerror("Erreur", f"Une erreur s'est produite :\n{erreur}")
         label_resultat.config(text="Erreur lors de l'analyse.")
-        
+
 #création de la fenêtre 
 fenetre = tk.Tk()
 fenetre.title("Options in the Wild - Compteur")
