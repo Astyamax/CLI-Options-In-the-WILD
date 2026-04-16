@@ -3,7 +3,8 @@ import subprocess
 import re  
 
 def lister_commandes(programme, aide):
-
+    commande_base = programme.split()
+    commande_complete = commande_base + [aide]
     
     result = subprocess.run([programme, aide], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, check=False)
     if result.returncode != 0:
