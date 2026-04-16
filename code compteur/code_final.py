@@ -18,6 +18,6 @@ def compteur_generale(prog) :
     return options_uniques
 if __name__ == "__main__":
     programme_a_tester = "git"
-    resultats_options = compteur_generale(programmes_a_tester)
+    resultats_options = compteur_generale(programme_a_tester)
     print(len(resultats_options))
     print(resultats_options)
