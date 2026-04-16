@@ -16,8 +16,8 @@ def compteur_generale(prog) :
         if option not in options_uniques:
             options_uniques.append(option)
     return options_uniques
-if __name__ == "__main__":
-    programme_a_tester = "ls"
-    resultats_options = compteur_generale(programme_a_tester)
-    print(len(resultats_options))
-    print(resultats_options)
+#if __name__ == "__main__":
+    #programme_a_tester = "ls"
+    #resultats_options = compteur_generale(programme_a_tester)
+    #print(len(resultats_options))
+    #print(resultats_options)
