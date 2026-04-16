@@ -16,4 +16,6 @@ def compteur_generale(prog) :
         if option not in options_uniques:
             options_uniques.append(option)
     return options_uniques
-
+if __name__ == "__main__":
+    programme_a_tester = "git"
+    resultats_options = compteur_generale(programmes_a_tester)
