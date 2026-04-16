@@ -19,3 +19,4 @@ def compteur_generale(prog) :
 if __name__ == "__main__":
     programme_a_tester = "git"
     resultats_options = compteur_generale(programmes_a_tester)
+    print(len(resultats_options))
