@@ -9,31 +9,6 @@ import sys
 # Helpers
 # ─────────────────────────────────────────────
 
-def find_main_repo(name):
-    url = "https://api.github.com/search/repositories"
-    params = {"q": name, "per_page": 10}
-
-    r = requests.get(url, params=params)
-    r.raise_for_status()
-    items = r.json()["items"]
-
-    if not items:
-        return None
-
-    name_lower = name.lower()
-
-    for repo in items:
-        if repo["name"].lower() == name_lower:
-            return repo["clone_url"]
-
-    for repo in items:
-        if repo["full_name"].lower().endswith("/" + name_lower):
-            return repo["clone_url"]
-
-    items.sort(key=lambda r: r["stargazers_count"], reverse=True)
-    return items[0]["clone_url"]
-
-
 def ask_commands(prompt_label):
     """Ask the user to enter a list of shell commands, one per line.
     An empty line ends the input."""
@@ -81,14 +56,7 @@ def run_commands(commands, cwd, label):
 # 1. Locate and clone repo
 # ─────────────────────────────────────────────
 
-prg = input("Program: ").strip()
-repo_url = find_main_repo(prg)
-
-if not repo_url:
-    print("Repository not found.")
-    sys.exit(1)
-
-print(f"Found: {repo_url}")
+repo_url = input("repo URL : ")
 
 local_path = "downloads/tmp/"
 subprocess.run(["rm", "-rf", local_path])
@@ -144,6 +112,8 @@ for year in sorted(latest_per_year):
     repo.git.checkout(tag_name, force=True)
     # Clean untracked files to avoid stale build artifacts
     repo.git.clean("-fdx")
+    # Sync submodules to the exact versions this tag was pinned to
+    repo.git.submodule("update", "--init", "--recursive")
 
     # Build
     print("\n[BUILD]")
