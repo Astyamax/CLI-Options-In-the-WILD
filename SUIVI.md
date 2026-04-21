@@ -34,3 +34,6 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
 - Implémentation d'une interface graphique simple pour tester le code 
 - Les codes code_final.py et code_v2.py fonctionnent pour des programmes usuels
 - Objectifs prochaine séance: faire une documentation qui regroupe les sources et tout un tas d'explication, ajouter des features à l'interface graphique (détails, graphes crhonologiques, graphe option actuelle), faire un readme pour users 
+
+## 20 Avril 202§
+- Implémentation d'une solution pour renvoyer un fichier csv pour les futurs tracés
