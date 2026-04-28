@@ -35,7 +35,7 @@ entree_programme = tk.Entry(fenetre, font=("Arial", 14), width=20, justify="cent
 entree_programme.pack(pady=10)
 
 
-bouton_calculer = tk.Button(fenetre, text="Compter les options", font=("Arial", 12, "bold"), bg="#4CAF50", fg="white", command=lancer_comptage)
+bouton_calculer = tk.Button(fenetre, text="Compter les options", font=("Arial", 12, "bold"), fg="white", command=lancer_comptage)
 bouton_calculer.pack(pady=15)
 
 
