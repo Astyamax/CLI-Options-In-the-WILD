@@ -17,7 +17,7 @@ def afficher_graphique_seul(programme_cible):
     for prog in liste_programmes:
         print(f"Recherche des options pour '{prog}'")
         try:
-            options=code_final.compteur_general(prog)
+            options=code_final.compteur_generale(prog)
             noms.append(prog)
             comptes.append(len(options))
         except Exception as e:
