@@ -22,4 +22,20 @@ def afficher_graphique_seul(programme_cible):
             comptes.append(len(options))
         except Exception as e:
             print(f"Impossible d'analyser {prog} : {e}")
-            
+
+    plt.figure(figsize=(10,6))
+    couleurs = ['#FF6B6B' if nom == programme_cible else '#4ECDC4' for nom in noms]
+    barres = plt.bar(noms, comptes, color=couleurs, edgecolor='black')
+
+    for barre in barres:
+        hauteur = barre.get_height()
+        plt.text(barre.get_x() + barre.get_width()/2., hauteur,
+                 f'{int(hauteur)}', ha='center', va='bottom', fontweight='bold')
+    
+    plt.xlabel('Programmes', fontsize=12, fontweight='bold')
+    plt.ylabel("Nombre d'options", fontsize=12, fontweight='bold')
+    plt.title(f"Comparaison du nombre d'options ({programme_cible} en rouge)", fontsize=14, fontweight='bold')
+    plt.show()
+
+if __name__ == "__main__":
+    afficher_graphique_seul("git")
