@@ -42,4 +42,4 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
 - Yoan: modification visuelle de l'interface, réflexion sur la manière d'intégrer des graphiques à l'interface
 
 ## 1 Mai 2026
-- Yoan: création d'un fichier test pour tracer le nombre d'options en fonction des programmes testés 
+- Yoan: création d'un fichier test test_graph.py pour tracer le nombre d'options en fonction des programmes testés 
