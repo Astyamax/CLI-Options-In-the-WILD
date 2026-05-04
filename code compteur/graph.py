@@ -11,7 +11,7 @@ from code_final import compteur_generale
 CLASSIC_PROGRAMS = ["ls", "grep", "sed", "sort", "cat", "curl", "tar"]
 
 
-def compare_options_graph(main_program: str, comparison_programs: list = None, save_path: str = None, show: bool = True) -> dict:
+def compare_options_graph(main_program: str, comparison_programs: list = None, save_path: str = None, show: bool = True, return_fig: bool=False) -> dict:
     """
     Trace un graphe pour comparer le nombre d'options d'un programme avec d'autres.
     
@@ -48,7 +48,7 @@ def compare_options_graph(main_program: str, comparison_programs: list = None, s
     # Colorer le programme principal différemment
     colors = ['#FF6B6B' if p == main_program else '#4ECDC4' for p in programs]
     
-    plt.figure(figsize=(12, 6))
+    fig = plt.figure(figsize=(12, 6))
     bars = plt.bar(programs, counts, color=colors, edgecolor='black', linewidth=1.5)
     
     # Ajouter les valeurs sur les barres
@@ -71,6 +71,8 @@ def compare_options_graph(main_program: str, comparison_programs: list = None, s
         print(f"\n✓ Graphe sauvegardé: {save_path}")
     
     # Afficher le graphe
+    if return_fig:
+        return fig 
     if show:
         plt.show()
     else:
