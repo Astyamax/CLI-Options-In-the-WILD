@@ -24,7 +24,7 @@ def lancer_comptage():
         for widget in zone_graphique.winfo_children():
             widget.destroy()
 
-        figure_creee = graph.compare_options_graph(prog, shwo=False,return_fig=True)
+        figure_creee = graph.compare_options_graph(prog, show=False,return_fig=True)
 
         canvas = FigureCanvasTkAgg(figure_creee,master=zone_graphique)
         canvas.draw()
