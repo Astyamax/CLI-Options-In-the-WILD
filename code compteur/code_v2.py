@@ -6,7 +6,7 @@ def lister_commandes(programme, aide):
     commande_base = programme.split()
     commande_complete = commande_base + [aide]
     
-    result = subprocess.run(commande_complete, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,stdin=subprocess.DEVNULL text=True, check=False)
+    result = subprocess.run(commande_complete, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,stdin=subprocess.DEVNULL, text=True, check=False)
     if result.returncode != 0:
         print("Erreur : impossible d'afficher l'aide avec ", aide)
         return []
