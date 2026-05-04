@@ -43,3 +43,6 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
 
 ## 1 Mai 2026
 - Yoan: création d'un fichier test test_graph.py pour tracer le nombre d'options en fonction des programmes testés 
+
+## 4 Mai 2026
+-Yoan: succès du tracer pour le code test_graph.py, implémentation du tracer dans l'interface avec comparaison de quelques programmes 
