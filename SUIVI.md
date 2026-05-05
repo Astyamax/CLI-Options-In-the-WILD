@@ -62,8 +62,9 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
         - Il faut adapter notre algorithme aux programmes qui nécessitent -h full (ex. curl, ...), réfléchir à quoi considérer comme une option (avec les espace ou dash avant le nom de l'option)
         - Focus d'abord sur certains programme à analyser en profondeur avant d'automatiser tout notre algorithme
         - Tirer des static data (nos résultats qu'on a trouvé) et des dynamic data 
-        - Il faut mieux structurer notre projet et notre git(/src/.py et /src/.sh puis /src/script/version....py , /data/.csv , /docs, /codebases/curl et /codebases/cat etc, /analasis-visualisations_UI)
+        - Il faut mieux structurer notre projet et notre git(/src/.py et /src/.sh puis /src/script/version....py , /data/.csv , /docs, /codebases/curl et /codebases/cat etc, /analasis-visualisations_UI, presentations/)
         - Ne pas analyser les programmes installés
         - Pour Baptiste : télécharger la dernière version de certains programma et travailler dessus en documentant dans /doc la version, le repo git, etc (CLOC)
+        - Split les task pour le poster de présentation 
 
 *Objectifs pour la prochaine séance :* Adapter notre algortihme pour les programmes qui nécessitent "-h full" et renvoient une liste d'option sans dash.
