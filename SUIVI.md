@@ -45,10 +45,9 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
 - Yoan: création d'un fichier test test_graph.py pour tracer le nombre d'options en fonction des programmes testés 
 
 ## 4 Mai 2026
--Yoan: succès du tracer pour le code test_graph.py, implémentation du tracer dans l'interface avec comparaison de quelques programmes 
+-Yoan: succès du tracer pour le code test_graph.py, implémentation du tracer dans l'interface avec comparaison de quelques programmes usuels. Il semble qu'il y ait un problème avec le nombre d'options (cela n'affiche pas la totalité du nombre d'options).
 
 ## 5 Mai 2026
 -Baptiste: 
     - Ajout interface numero 2 
     - Amelioration de code_v2 et code_final : prise en compte des aides -h all et --help full
-    

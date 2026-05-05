@@ -7,3 +7,4 @@
 | Baptiste |Le module re | |https://docs.python.org/3/library/re.html |
 | Baptiste |Le module subprocess | |https://docs.python.org/3/library/subprocess.html |
 | Baptiste |Explication -h all et --help full | blog post |https://clig.dev/#help |
+| Théophile | Tracer des graphes avec des barres verticales | site python-simple | https://www.python-simple.com/python-matplotlib/barplot.php |
