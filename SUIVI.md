@@ -51,3 +51,9 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
 -Baptiste: 
     - Ajout interface numero 2 
     - Amelioration de code_v2 et code_final : prise en compte des aides -h all et --help full
+
+-Théophile:
+    - Ajout source
+    - Début programme pour tracer le graphique de l'évolution temporelle du nombre d'options d'un programme
+
+*Tout le monde* : Réunion avec Xhevahire TËRNAVA en présentiel à Télécom pour discuter de l'avancement.
