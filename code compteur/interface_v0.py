@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import messagebox
+from tkinter import messagebox #pour afficher une erreur si besoin 
 import code_final  
 import graph
 import matplotlib
@@ -8,21 +8,21 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 def lancer_comptage():
     
-    prog = entree_programme.get().strip()
+    prog = entree_programme.get().strip() #lit le texte tapé dans l'interface et enlève les espaces inutiles 
     
     if not prog:
         return
 
     label_resultat.config(text="Analyse en cours...")
-    fenetre.update() 
+    fenetre.update() #force la mise à jour de la fenêtre 
     
     try:
-        options_trouvees = code_final.compteur_generale(prog)
+        options_trouvees = code_final.compteur_generale(prog) #lance code_final avec le champ d'entrée
         nombre_options = len(options_trouvees)
         label_resultat.config(text=f"Le programme '{prog}' possède {nombre_options} option(s) :\n{','.join(options_trouvees)}")
     
         for widget in zone_graphique.winfo_children():
-            widget.destroy()
+            widget.destroy() #supprime les anciens widgets présents dans la zone graphique
 
         figure_creee = graph.compare_options_graph(prog, show=False,return_fig=True)
 
