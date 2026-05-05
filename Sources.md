@@ -6,4 +6,4 @@
 | Yoan | Documentation pour afficher un graphique matplotlib à l'intérieur d'une fenêtre tkinter | site matplotlib |https://matplotlib.org/stable/gallery/user_interfaces/embedding_in_tk_sgskip.html |
 | Baptiste |Le module re | |https://docs.python.org/3/library/re.html |
 | Baptiste |Le module subprocess | |https://docs.python.org/3/library/subprocess.html |
-| Théophile | | | |
+| Baptiste |Explication -h all et --help full | blog post |https://clig.dev/#help |

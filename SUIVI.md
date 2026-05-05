@@ -4,17 +4,12 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
 
 ## 16 Février 2026
 *Théophile* : Premier code permettant d'éxécuter pour un programme donné la commande "--help" dans le terminal et de copier la réponse dans un fichier temporaire.
-### Objectifs prochaine séance
-- Préparer un planning global
-- Tester le premier code
+
 
 ## 20 Février 2026 (S1)
 *Tout le monde* : Entretien pour présenter notre première version du planning.
--commit d'une première version du planning sur Git
-
-### Objectifs prochaine séance
-- Répartir les tâches entre nous
-- Planifier des meetings entre nous et avec l'encadrante
+- Baptiste: 
+    - Ajout du planning au format gantt
 
 ## 16 mars 2026
 *Tout le monde* : Entretien pour présenter notre première version du compteur
@@ -27,7 +22,8 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
 - Début de visualisation du nombre d'options
 
 ## 2 Avril 2026
-- Code capable de compter les programmes de base (ls,cat, grep, sed, sort...) avec la commande help 
+- Baptiste : 
+    - Code capable de compter les programmes de base (ls,cat, grep, sed, sort...) avec la commande help 
 - Objectif: améliorer le code pour compter le nombre d'options avec des programmes utilisant autre chose que help
 
 ## 14 Avril 2026
@@ -36,6 +32,10 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
 - Objectifs prochaine séance: faire une documentation qui regroupe les sources et tout un tas d'explication, ajouter des features à l'interface graphique (détails, graphes crhonologiques, graphe option actuelle), faire un readme pour users 
 
 ## 20 Avril 2026
+- Baptiste: 
+    - Tests du code code_final.py 
+    - Ajout de l'option -usage
+
 - Implémentation d'une solution pour renvoyer un fichier csv pour les futurs tracés
 
 ## 28 Avril 2026
@@ -46,3 +46,9 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
 
 ## 4 Mai 2026
 -Yoan: succès du tracer pour le code test_graph.py, implémentation du tracer dans l'interface avec comparaison de quelques programmes 
+
+## 5 Mai 2026
+-Baptiste: 
+    - Ajout interface numero 2 
+    - Amelioration de code_v2 et code_final : prise en compte des aides -h all et --help full
+    
