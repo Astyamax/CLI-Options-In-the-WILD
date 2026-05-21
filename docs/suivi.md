@@ -53,5 +53,25 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
     - Amelioration de code_v2 et code_final : prise en compte des aides -h all et --help full
 
 ## 13 Mai 2026
--Baptiste: 
-    - Restructuration complete du git selon les conseils de l'encadrantes.
+- Baptiste:
+    - Restructuration complete du git selon les conseils de l'encadrante.
+- Théophile:
+    - Ajout source
+    - Début programme pour tracer le graphique de l'évolution temporelle du nombre d'options d'un programme
+
+*Tout le monde* : Réunion avec Xhevahire TËRNAVA en présentiel à Télécom pour discuter de l'avancement.
+    => Feedbacks :
+        - Bonne interface et graph
+        - Il faut adapter notre algorithme aux programmes qui nécessitent -h full (ex. curl, ...), réfléchir à quoi considérer comme une option (avec les espaces ou dash avant le nom de l'option)
+        - Focus d'abord sur certains programmes à analyser en profondeur avant d'automatiser tout notre algorithme
+        - Tirer des static data (nos résultats qu'on a trouvé) et des dynamic data
+        - Il faut mieux structurer notre projet et notre git (/src/.py et /src/.sh puis /src/script/version....py , /data/.csv , /docs, /codebases/curl et /codebases/cat etc, /analysis-visualisations_UI, presentations/)
+        - Ne pas analyser les programmes installés
+        - Pour Baptiste : télécharger la dernière version de certains programmes et travailler dessus en documentant dans /docs la version, le repo git, etc (CLOC)
+        - Split les tâches pour le poster de présentation
+
+*Objectifs pour la prochaine séance :* Adapter notre algorithme pour les programmes qui nécessitent "-h full" et renvoient une liste d'options sans dash.
+
+## 21 Mai 2026
+- Baptiste:
+    - Renommage et modification des scripts python selon les conseils de l'encadrante.
