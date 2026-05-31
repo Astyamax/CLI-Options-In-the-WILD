@@ -5,7 +5,7 @@ from pathlib import Path
 # Ajouter le chemin vers code_compteur pour les imports
 sys.path.insert(0, str(Path(__file__).parent / "../compteur"))
 
-from code_final import compteur_generale
+from compteur import compteur_generale
 
 # Programmes classiques de référence pour la comparaison
 CLASSIC_PROGRAMS = ["ls", "grep", "sed", "sort", "cat", "curl", "tar"]
