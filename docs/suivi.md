@@ -75,3 +75,7 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
 ## 21 Mai 2026
 - Baptiste:
     - Renommage et modification des scripts python selon les conseils de l'encadrante.
+
+## 26 Mai 2026
+*Tout le monde* : Présentation de notre projet devant d'autres élèves.
+=> Feedbacks des audits : https://grist.r2.enst.fr/o/docs/dxB11dMKKnN4/Artishow-2026/p/16
