@@ -2,10 +2,11 @@ import sys
 import matplotlib.pyplot as plt
 from pathlib import Path
 
-# Ajouter le chemin vers code_compteur pour les imports
-sys.path.insert(0, str(Path(__file__).parent / "../compteur"))
+# Ajouter le chemin vers src/compteur pour les imports
+sys.path.insert(0, str(Path(__file__).parent / "../../src/compteur"))
 
-from code_final import compteur_generale
+# pyrefly: ignore [missing-import]
+from compteur import compteur_generale
 
 # Programmes classiques de référence pour la comparaison
 CLASSIC_PROGRAMS = ["ls", "grep", "sed", "sort", "cat", "curl", "tar"]

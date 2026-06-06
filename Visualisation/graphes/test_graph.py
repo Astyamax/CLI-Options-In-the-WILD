@@ -1,7 +1,13 @@
 import matplotlib
 matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
-import code_final
+import sys
+from pathlib import Path
+
+# Ajouter le chemin vers src/compteur pour les imports
+sys.path.insert(0, str(Path(__file__).parent / "../../src/compteur"))
+
+import compteur as code_final
 
 PROGRAMMES_CLASSIQUES = ["ls","grep","cat","tar"]
 

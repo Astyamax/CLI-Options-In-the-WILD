@@ -1,10 +1,19 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
-import code_final  
+import sys
+from pathlib import Path
+
+# Ajouter les chemins aux variables système pour permettre l'importation de modules
+_current_dir = Path(__file__).resolve().parent
+sys.path.insert(0, str(_current_dir.parent / "graphes"))
+sys.path.insert(0, str(_current_dir.parent.parent / "src" / "compteur"))
+
+import compteur
 import graph
 import matplotlib
 matplotlib.use('TkAgg')
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+
 
 def lancer_comptage():
     prog = entree_programme.get().strip()
@@ -17,7 +26,7 @@ def lancer_comptage():
     fenetre.update() 
     
     try:
-        options_trouvees = code_final.compteur_generale(prog)
+        options_trouvees = compteur.compteur_generale(prog)
         nombre_options = len(options_trouvees)
         
         liste_options = ', '.join(options_trouvees)
