@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Options in the Wild - Résultats</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 2px solid #4ECDC4;
+            margin-bottom: 40px;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            font-style: italic;
+        }
+        .section-title {
+            color: #2c3e50;
+            border-left: 4px solid #FF6B6B;
+            padding-left: 10px;
+            margin-top: 40px;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            border: 1px solid #eee;
+        }
+        .description {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Options in the Wild</h1>
+        <p class="subtitle">Cartographie de la complexité des lignes de commande</p>
+    </header>
+
+    <div class="description">
+        <h2 class="section-title">À propos du projet</h2>
+        <p>Ce projet explore la manière dont les différents programmes informatiques interagissent avec les requêtes d'aide des utilisateurs. À l'aide d'un script Python (via <code>subprocess</code> et des expressions régulières), nous avons automatisé la découverte et le comptage des options disponibles pour chaque outil, mettant en lumière le manque de standardisation dans la conception des CLI (Command Line Interfaces).</p>
+    </div>
+
+    <h2 class="section-title">Visualisation des Résultats</h2>
+
+    <div class="card">
+        <h3>Analyse du programme : Git</h3>
+        <p>Comparaison du nombre d'options de Git par rapport aux utilitaires standards UNIX.</p>
+        <img src="data/figures/graph_git.png" alt="Graphique comparatif pour Git">
+    </div>
+
+    <div class="card">
+        <h3>Analyse du programme : Curl</h3>
+        <p>L'outil de transfert de données révèle une complexité importante.</p>
+        <img src="data/figures/graph_curl.png" alt="Graphique comparatif pour Curl">
+    </div>
+
+</body>
+</html>

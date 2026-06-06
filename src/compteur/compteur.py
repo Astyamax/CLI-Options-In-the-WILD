@@ -1,4 +1,4 @@
-import script_compteur
+from . import script_compteur
 
 def compteur_generale(prog) :
     
