@@ -1,9 +1,18 @@
 import os
 import graph
 
-os.makedirs("public/images", exist_ok=True)
-print("\nAnalyses en cours pour GIT...")
+dossier_sauvegarde = "data/figures"
+os.makedirs(dossier_sauvegarde, exist_ok=True)
+
+print("\nAnalyses en cours pour git")
 graph.compare_options_graph(
     main_program="git", 
-    save_path="public/images/graph_git.png", 
+    save_path=f"{dossier_sauvegarde}/graph_git.png", 
     show=False )
+
+print("\nAnalyses en cours pour curl")
+graph.compare_options_graph(
+    main_program="curl", 
+    save_path=f"{dossier_sauvegarde}/graph_curl.png", 
+    show=False
+)
