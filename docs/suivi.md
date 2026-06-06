@@ -79,3 +79,8 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
 ## 26 Mai 2026
 *Tout le monde* : Présentation de notre projet devant d'autres élèves.
 => Feedbacks des audits : https://grist.r2.enst.fr/o/docs/dxB11dMKKnN4/Artishow-2026/p/16
+
+## 6 Juin 2026
+- Yoan:
+    - Ajout d'une page statique pour la présentation du projet
+
