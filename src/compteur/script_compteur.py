@@ -16,7 +16,7 @@ def lister_commandes(programme, aide):
 
 
     texte_aide = result.stdout
-    motif_option = re.compile(r"(--[a-zA-Z0-9-]+|-[a-zA-Z0-9])")
+    motif_option = re.compile(r"--[a-zA-Z0-9][a-zA-Z0-9._-]*|-[a-zA-Z0-9]+")
     options_trouvees = motif_option.findall(texte_aide)
     options_uniques = set(options_trouvees)
 
