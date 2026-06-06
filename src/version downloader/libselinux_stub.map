@@ -1,0 +1,12 @@
+LIBSELINUX_1.0 {
+    global:
+        fgetfilecon;
+        fgetfilecon_raw;
+        freecon;
+        getfilecon;
+        getfilecon_raw;
+        lgetfilecon;
+        lgetfilecon_raw;
+    local:
+        *;
+};
