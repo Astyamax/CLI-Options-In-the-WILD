@@ -1,14 +1,25 @@
 import sys
-import matplotlib.pyplot as plt
 from pathlib import Path
 
-# Ajouter le chemin vers code_compteur pour les imports
-sys.path.insert(0, str(Path(__file__).parent / "../compteur"))
+COMPTEUR_DIR = Path(__file__).resolve().parents[2] / "src" / "compteur"
+if str(COMPTEUR_DIR) not in sys.path:
+    sys.path.insert(0, str(COMPTEUR_DIR))
 
 from compteur import compteur_generale
 
 # Programmes classiques de référence pour la comparaison
 CLASSIC_PROGRAMS = ["ls", "grep", "sed", "sort", "cat", "curl", "tar"]
+
+
+def load_matplotlib():
+    try:
+        import matplotlib.pyplot as plt
+    except ModuleNotFoundError as exc:
+        raise RuntimeError(
+            "matplotlib est requis pour générer les graphes. "
+            "Installez les dépendances avec: pip install -r requirements.txt"
+        ) from exc
+    return plt
 
 
 def compare_options_graph(main_program: str, comparison_programs: list = None, save_path: str = None, show: bool = True, return_fig: bool=False) -> dict:
@@ -24,6 +35,8 @@ def compare_options_graph(main_program: str, comparison_programs: list = None, s
     Returns:
         dict: Dictionnaire avec le nombre d'options pour chaque programme
     """
+    plt = load_matplotlib()
+
     if comparison_programs is None:
         comparison_programs = CLASSIC_PROGRAMS
     
