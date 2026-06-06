@@ -1,10 +1,3 @@
-import sys
-from pathlib import Path
-
-COMPTEUR_DIR = Path(__file__).resolve().parents[2] / "src" / "compteur"
-if str(COMPTEUR_DIR) not in sys.path:
-    sys.path.insert(0, str(COMPTEUR_DIR))
-
 from compteur import compteur_generale
 
 # Programmes classiques de référence pour la comparaison

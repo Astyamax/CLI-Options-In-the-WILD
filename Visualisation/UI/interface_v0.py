@@ -4,14 +4,11 @@ import sys
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-COMPTEUR_DIR = PROJECT_ROOT / "src" / "compteur"
-GRAPHES_DIR = PROJECT_ROOT / "Visualisation" / "graphes"
-for path in (COMPTEUR_DIR, GRAPHES_DIR):
-    if str(path) not in sys.path:
-        sys.path.insert(0, str(path))
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
-from compteur import compteur_generale
-from graph import compare_options_graph
+from src.compteur.compteur import compteur_generale
+from Visualisation.graphes.graph import compare_options_graph
 
 def load_figure_canvas():
     try:
