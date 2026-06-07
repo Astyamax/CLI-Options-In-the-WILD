@@ -81,6 +81,10 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
 => Feedbacks des audits : https://grist.r2.enst.fr/o/docs/dxB11dMKKnN4/Artishow-2026/p/16
 
 ## 6 Juin 2026
+Réunion en présentiel avec tout le monde
 - Yoan:
     - Ajout d'une page statique pour la présentation du projet
+- Théophile : 
+    - Début du désign du poster qui résume notre projet. Réflexion sur le contenu du poster.
+    (lien : https://canva.link/pm4tcq6ijldun7b)
 
