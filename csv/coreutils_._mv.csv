@@ -1,4 +1,4 @@
-programme,version,commande,nombre_options,erreur
-coreutils,v5.93,./mv,20,
-coreutils,v6.7,./mv,20,
-coreutils,v6.9,./mv,20,
+programme,version,date,commande,nombre_options,erreur
+coreutils,v5.93,2005-11-06,./mv,20,
+coreutils,v6.7,2006-12-07,./mv,20,
+coreutils,v6.9,2007-03-22,./mv,20,

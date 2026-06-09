@@ -1,4 +1,4 @@
-programme,version,commande,nombre_options,erreur
-coreutils,v5.93,./cp,46,
-coreutils,v6.7,./cp,46,
-coreutils,v6.9,./cp,46,
+programme,version,date,commande,nombre_options,erreur
+coreutils,v5.93,2005-11-06,./cp,46,
+coreutils,v6.7,2006-12-07,./cp,46,
+coreutils,v6.9,2007-03-22,./cp,46,
