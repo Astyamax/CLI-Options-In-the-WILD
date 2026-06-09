@@ -5,7 +5,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from src.compteur.compteur import compteur_generale
+from src.compteur.compteur import lister_commandes
 
 
 # Programmes classiques de référence pour la comparaison
@@ -48,7 +48,12 @@ def compare_options_graph(main_program: str, comparison_programs: list = None, s
     options_count = {}
     for program in programs_to_analyze:
         try:
-            options = compteur_generale(program)
+            options_globales = set()
+            for mot in mots_aide:
+                resultats = lister_commandes(program, mot)
+                options_globales.update(resultats)
+            
+            options = list(options_globales)
             options_count[program] = len(options)
             print(f"✓ {program}: {len(options)} options")
         except Exception as e:
