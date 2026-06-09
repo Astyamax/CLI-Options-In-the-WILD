@@ -86,3 +86,9 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
 - Baptiste:
     - Amelioration du regex dans le script compteur
 
+## 9 Juin 2026
+- Yoan:
+    - Modif de interface2.py pour adopter le nouveau code compteur 
+    - Modif de graph.py pour adopter le nouveau code compteur
+    - Modif de la page statique
+
