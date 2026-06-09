@@ -1,0 +1,4 @@
+programme,version,commande,nombre_options,erreur
+coreutils,v5.93,./ginstall,30,
+coreutils,v6.7,./ginstall,30,
+coreutils,v6.9,./ginstall,30,
