@@ -1,7 +1,21 @@
-def compteur_generale(prog) :
+from . import script_compteur
+
+
+def compteur_generale(prog):
 
     options = []
-    aides = ["--help", "-h", "-help", "help", "-?","--usage", "--help full", "-h full", "--help all", "-h all"]
+    aides = [
+        "--help",
+        "-h",
+        "-help",
+        "help",
+        "-?",
+        "--usage",
+        "--help full",
+        "-h full",
+        "--help all",
+        "-h all",
+    ]
     for aide in aides:
         L = script_compteur.lister_commandes(prog, aide)
         if L:
