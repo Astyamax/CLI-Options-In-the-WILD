@@ -81,14 +81,20 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
 => Feedbacks des audits : https://grist.r2.enst.fr/o/docs/dxB11dMKKnN4/Artishow-2026/p/16
 
 ## 6 Juin 2026
-- Yoan:
+- Yoan :
     - Ajout d'une page statique pour la présentation du projet
-- Baptiste:
+- Baptiste :
     - Amelioration du regex dans le script compteur
+- Théophile :
+    - Début affiche de présentation du projet avec réflexion sur le contenu et la mise en page
+    => https://canva.link/pm4tcq6ijldun7b 
 
 ## 9 Juin 2026
-- Yoan:
+- Yoan :
     - Modif de interface2.py pour adopter le nouveau code compteur 
     - Modif de graph.py pour adopter le nouveau code compteur
     - Modif de la page statique
-
+- Loïs :
+    - Création de fichiers csv pour des dizaines de programme de Coreutils contenant le nombre d'options en fonction de la version du programme
+- Théophile et Loïs : 
+    - Traçage du graphe d'évolution temporelle du nombre d'options pour plusieurs programmes (à vérifier avec la prof encadrante car il n'y a pas vraiment d'augmentation globalement)
