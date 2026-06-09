@@ -1,7 +1,6 @@
 data/raw/downloads/tmp/
-.venv/
+venv/
 code compteur/venv/
 code compteur/__pycache__/
-.DS_Store
 __pycache__/
-.build/
+build/
