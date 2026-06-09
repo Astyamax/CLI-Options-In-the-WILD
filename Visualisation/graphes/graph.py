@@ -5,7 +5,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from src.compteur.compteur import lister_commandes
+from src.compteur.script_compteur import lister_commandes
 
 
 # Programmes classiques de référence pour la comparaison
