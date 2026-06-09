@@ -7,7 +7,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from src.compteur.script_compteur import compteur_generale
+from src.compteur.script_compteur import lister_commandes
 from Visualisation.graphes.graph import compare_options_graph
 
 def load_figure_canvas():
@@ -34,8 +34,17 @@ def lancer_comptage():
 
     try:
         FigureCanvasTkAgg = load_figure_canvas()
-        options_trouvees = compteur_generale(prog)
+        mots_aide = ["--help", "-h", "-help", "help", "--usage", "-usage", "?"]
+        options_globales = set()
+
+        for mot in mots_aide:
+            resultat = lister_commandes(prog, mot)
+            options_globales.update(resultat)
+        
+        options_trouvees = list(options_globales)
         nombre_options = len(options_trouvees)
+
+        liste_options = ', '.join(options_trouvees)
 
         liste_options = ', '.join(options_trouvees)
         if len(liste_options) > 150:
