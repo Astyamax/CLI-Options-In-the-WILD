@@ -1,12 +1,15 @@
 import os
 import sys
+from pathlib import Path
 
-sys.path.insert(0, './Visualisation/graphes')
+# Fonctionne que le script soit lancé depuis la racine ou depuis scripts/
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(PROJECT_ROOT / 'Visualisation' / 'graphes'))
 
 import graph
 
 
-dossier_sauvegarde = "data/figures"
+dossier_sauvegarde = str(PROJECT_ROOT / "data" / "figures")
 os.makedirs(dossier_sauvegarde, exist_ok=True)
 
 print("\nAnalyses en cours pour git")
