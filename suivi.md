@@ -105,6 +105,7 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
     - Présentation de la modif du code du compteur (modif REGEX)
     - Présentation des 2 graphes 
     - Présentation du début du poster
+    - Présentation de la page statique
 
 Feebacks : 
     - Essayer le programme avec ffmep
@@ -112,3 +113,5 @@ Feebacks :
     - Moins de texte
     - Vendre le projet en disant que c'est le premier outil de ce genre, que c'est super utile
     - Finir le poster en se posant la question du nombre d'option dans le futur avec l'usage de l'IA qui facilite la programmation
+    - Pour l'évolution faire une moyenne de l'augmentation du nombre d'options dans le temps 
+    - Sur la page statique faire un menu qui propose 2 choses: un outils statique qui permet de rentrer un programme et une version puis renvoie le nombre d'options (en s'appuyant sur notre base de données), ainsi que la possibilité de télécharger notre outils dynamique. 
