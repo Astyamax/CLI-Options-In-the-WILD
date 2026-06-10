@@ -97,4 +97,4 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
 - Loïs :
     - Création de fichiers csv pour des dizaines de programme de Coreutils contenant le nombre d'options en fonction de la version du programme
 - Théophile et Loïs : 
-    - Traçage du graphe d'évolution temporelle du nombre d'options pour plusieurs programmes (à vérifier avec la prof encadrante car il n'y a pas vraiment d'augmentation globalement)
+    - Tracer le graphe d'évolution temporelle du nombre d'options pour plusieurs programmes (à vérifier avec la prof encadrante car il n'y a pas vraiment d'augmentation globalement)
