@@ -114,4 +114,10 @@ Feebacks :
     - Vendre le projet en disant que c'est le premier outil de ce genre, que c'est super utile
     - Finir le poster en se posant la question du nombre d'option dans le futur avec l'usage de l'IA qui facilite la programmation
     - Pour l'évolution faire une moyenne de l'augmentation du nombre d'options dans le temps 
-    - Sur la page statique faire un menu qui propose 2 choses: un outils statique qui permet de rentrer un programme et une version puis renvoie le nombre d'options (en s'appuyant sur notre base de données), ainsi que la possibilité de télécharger notre outils dynamique. 
+    - Sur la page statique faire un menu qui propose 2 choses: un outils statique qui permet de rentrer un programme et une version puis renvoie le nombre d'options (en s'appuyant sur notre base de données), ainsi que la possibilité de télécharger notre outils dynamique ainsi qu'un readme pour dire aux utilisateurs comment run notre programme. 
+
+Objectifs:
+    - Loïs: implémenter toolbox
+    - Baptiste: aider à rendre le programme dynamique et remplir la base de données des csv files (pour l'outils statique)
+    - Yoan: intégrer les 2 outils dans la page statique (outils statique et dynamique)
+    - Théophile: modifier le poster pour le rendre plus lisible/attractif
