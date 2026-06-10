@@ -98,3 +98,17 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
     - Création de fichiers csv pour des dizaines de programme de Coreutils contenant le nombre d'options en fonction de la version du programme
 - Théophile et Loïs : 
     - Tracer le graphe d'évolution temporelle du nombre d'options pour plusieurs programmes (à vérifier avec la prof encadrante car il n'y a pas vraiment d'augmentation globalement)
+
+## 10 Juin 2026
+*Tout le monde* : Réunion avec Xhevahire TËRNAVA en présentiel à Télécom
+    - Présentation du programme qui permet de download toutes les versions disponibles et créer le fichier csv avec le nombre d'options selon la version.
+    - Présentation de la modif du code du compteur (modif REGEX)
+    - Présentation des 2 graphes 
+    - Présentation du début du poster
+
+Feebacks : 
+    - Essayer le programme avec ffmep
+    - Ne pas mettre un tableau sur le poster
+    - Moins de texte
+    - Vendre le projet en disant que c'est le premier outil de ce genre, que c'est super utile
+    - Finir le poster en se posant la question du nombre d'option dans le futur avec l'usage de l'IA qui facilite la programmation
