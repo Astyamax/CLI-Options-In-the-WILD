@@ -107,7 +107,7 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
     - Présentation du début du poster
     - Présentation de la page statique
 
-Feebacks : 
+- Feebacks : 
     - Essayer le programme avec ffmep
     - Ne pas mettre un tableau sur le poster
     - Moins de texte
@@ -116,7 +116,7 @@ Feebacks :
     - Pour l'évolution faire une moyenne de l'augmentation du nombre d'options dans le temps 
     - Sur la page statique faire un menu qui propose 2 choses: un outils statique qui permet de rentrer un programme et une version puis renvoie le nombre d'options (en s'appuyant sur notre base de données), ainsi que la possibilité de télécharger notre outils dynamique ainsi qu'un readme pour dire aux utilisateurs comment run notre programme. 
 
-Objectifs:
+- Objectifs:
     - Loïs: implémenter toybox
     - Baptiste: aider à rendre le programme dynamique et remplir la base de données des csv files (pour l'outils statique)
     - Yoan: intégrer les 2 outils dans la page statique (outils statique et dynamique). Faire un menu avec: côté dynamique (proposer le download de l'outil avec readme), côté "pick" (faire un outils où on rentre le nom du programme, l'implémentation (TOYBOX, GNU, BUSYBOX)), côté history (visuels sur l'évolution du nomnbre d'options), côté "about" (poster, pdf expliquant le projet).
