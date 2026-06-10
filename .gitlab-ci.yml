@@ -7,6 +7,7 @@ pages:
     - cp site/telecharger.html public/
     - cp -r data public/
     - cp -r downloads public/
+    - sed -i 's|src="../data/|src="data/|g' public/index.html
   artifacts:
     paths:
       - public
