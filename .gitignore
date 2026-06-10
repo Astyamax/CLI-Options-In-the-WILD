@@ -4,3 +4,5 @@ code compteur/venv/
 code compteur/__pycache__/
 __pycache__/
 build/
+create_zip.py
+.venv/

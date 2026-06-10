@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Télécharger l'interface - Options in the Wild</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* ── NAV (identique à index.html) ── */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            height: 60px;
+            background: #1a1f2e;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+        }
+        .nav-brand {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #4ECDC4;
+            text-decoration: none;
+            letter-spacing: -0.3px;
+        }
+        .nav-links { display: flex; gap: 6px; }
+        .nav-link {
+            color: #8892a4;
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        .nav-link:hover { color: #e2e8f0; background: rgba(255,255,255,0.07); }
+        .nav-link.active { color: #4ECDC4; background: rgba(78,205,196,0.1); }
+        .nav-link-cta {
+            color: #0d1117;
+            background: linear-gradient(135deg, #4ECDC4, #38b2ac);
+            font-weight: 700;
+            border-radius: 8px;
+            padding: 7px 16px;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .nav-link-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(78,205,196,0.3); }
+
+        /* ── CONTENU ── */
+        .page-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 2px solid #4ECDC4;
+            margin-bottom: 40px;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            font-style: italic;
+        }
+        .section-title {
+            color: #2c3e50;
+            border-left: 4px solid #FF6B6B;
+            padding-left: 10px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        /* ── CARTE DE TÉLÉCHARGEMENT ── */
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .card p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .btn-download {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: #4ECDC4;
+            color: #1a1f2e;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .btn-download:hover {
+            background-color: #38b2ac;
+        }
+
+        /* ── ÉTAPES ── */
+        .steps-list {
+            list-style: none;
+            counter-reset: step-counter;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+        .steps-list li {
+            counter-increment: step-counter;
+            background: white;
+            border-radius: 8px;
+            padding: 16px 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        .steps-list li::before {
+            content: counter(step-counter);
+            background-color: #4ECDC4;
+            color: #1a1f2e;
+            font-weight: 700;
+            font-size: 0.9rem;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .step-body { flex: 1; }
+        .step-body strong { color: #2c3e50; display: block; margin-bottom: 4px; }
+        .step-body p { color: #555; font-size: 0.9rem; margin: 0; }
+        code {
+            background: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 2px 8px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <a class="nav-brand" href="index.html">⚡ Options in the Wild</a>
+        <div class="nav-links">
+            <a class="nav-link" href="index.html">Accueil</a>
+            <a class="nav-link active" href="telecharger.html">Téléchargement</a>
+            <a class="nav-link-cta" href="downloads/interface_comptage.zip" download="interface_comptage.zip">
+                ⬇ Interface locale
+            </a>
+        </div>
+    </nav>
+
+    <div class="page-content">
+
+        <header>
+            <h1>Options in the Wild</h1>
+            <p class="subtitle">Interface de comptage dynamique</p>
+        </header>
+
+        <h2 class="section-title">Télécharger l'interface</h2>
+
+        <div class="card">
+            <p>
+                L'interface graphique permet d'analyser dynamiquement le nombre d'options
+                d'un programme en ligne de commande directement depuis votre machine.
+                Elle repose sur Python 3.8+ et la bibliothèque Tkinter.
+            </p>
+            <a id="btn-download" class="btn-download" href="downloads/interface_comptage.zip" download="interface_comptage.zip">
+                ⬇ Télécharger l'interface (.zip)
+            </a>
+        </div>
+
+        <h2 class="section-title">Comment démarrer ?</h2>
+
+        <ol class="steps-list">
+            <li>
+                <div class="step-body">
+                    <strong>Extraire l'archive</strong>
+                    <p>Décompressez <code>interface_comptage.zip</code> dans le dossier de votre choix.</p>
+                </div>
+            </li>
+            <li>
+                <div class="step-body">
+                    <strong>Installer les dépendances Python</strong>
+                    <p>Dans le dossier extrait, ouvrez un terminal et lancez :</p>
+                    <p style="margin-top: 6px;"><code>pip install -r requirements.txt</code></p>
+                </div>
+            </li>
+            <li>
+                <div class="step-body">
+                    <strong>Lancer l'interface</strong>
+                    <p>Exécutez le script principal depuis la racine du dossier extrait :</p>
+                    <p style="margin-top: 6px;"><code>python Visualisation/UI/interface2.py</code></p>
+                </div>
+            </li>
+            <li>
+                <div class="step-body">
+                    <strong>Analyser un programme</strong>
+                    <p>
+                        L'interface graphique s'ouvre. Entrez le nom d'un programme
+                        (ex : <code>git</code>, <code>curl</code>, <code>ffmpeg</code>)
+                        et cliquez sur <strong>Analyser</strong>.
+                    </p>
+                </div>
+            </li>
+        </ol>
+
+    </div>
+
+</body>
+</html>
