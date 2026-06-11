@@ -87,7 +87,7 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
     - Amelioration du regex dans le script compteur
 - Théophile :
     - Début affiche de présentation du projet avec réflexion sur le contenu et la mise en page
-    => https://canva.link/pm4tcq6ijldun7b 
+    => https://canva.link/iry1ais1wmsqqi1 
 
 ## 9 Juin 2026
 - Yoan :
