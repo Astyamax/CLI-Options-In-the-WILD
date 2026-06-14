@@ -1,0 +1,18 @@
+programme,version,date,commande,nombre_options,erreur
+toybox,v0.0.3,2007-06-17,./toybox inotifyd,0,commande absente dans cette version
+toybox,v0.0.7,2008-11-12,./toybox inotifyd,0,commande absente dans cette version
+toybox,v0.0.9.2,2009-04-19,./toybox inotifyd,0,commande absente dans cette version
+toybox,v0.4.1,2012-11-13,./toybox inotifyd,0,commande absente dans cette version
+toybox,v0.4.7,2013-11-19,./toybox inotifyd,0,commande absente dans cette version
+toybox,v0.5.1,2014-11-19,./toybox inotifyd,0,
+toybox,v0.6.1,2015-11-03,./toybox inotifyd,0,
+toybox,v0.7.2,2016-10-21,./toybox inotifyd,0,
+toybox,v0.7.5,2017-10-12,./toybox inotifyd,0,
+toybox,v0.7.8,2018-10-31,./toybox inotifyd,0,
+toybox,v0.8.2,2019-10-18,./toybox inotifyd,0,
+toybox,v0.8.4,2020-10-24,./toybox inotifyd,0,
+toybox,v0.8.6,2021-12-01,./toybox inotifyd,0,
+toybox,v0.8.8,2022-08-12,./toybox inotifyd,0,
+toybox,v0.8.10,2023-07-30,./toybox inotifyd,0,
+toybox,v0.8.11,2024-04-08,./toybox inotifyd,0,
+toybox,v0.8.13,2025-10-14,./toybox inotifyd,0,
