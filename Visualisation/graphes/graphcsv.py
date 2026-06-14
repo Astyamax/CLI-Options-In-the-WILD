@@ -142,17 +142,32 @@ def tracer_carte_thermique(donnees, sortie, afficher=False):
 def tracer_courbes(donnees, sortie, afficher=False):
     plt = charger_matplotlib()
     fig, axe = plt.subplots(figsize=(16, 9))
+    commandes = sorted(donnees)
+    couleurs = plt.get_cmap("tab20")
 
-    for commande in sorted(donnees):
+    for index, commande in enumerate(commandes):
         annees = sorted(donnees[commande])
         if not annees:
             continue
         nombres = [donnees[commande][annee][1] for annee in annees]
-        axe.plot(annees, nombres, marker="o", markersize=3, linewidth=1.4, label=commande)
+        style = "--" if commande.startswith("toybox ") else "-"
+        axe.plot(
+            annees,
+            nombres,
+            color=couleurs(index % 20),
+            linestyle=style,
+            marker="o",
+            markersize=3,
+            linewidth=1.6,
+            label=commande,
+        )
 
     axe.set_xlabel("Annee")
     axe.set_ylabel("Nombre d'options")
-    axe.set_title("Evolution du nombre d'options par commande")
+    axe.set_title(
+        "Evolution du nombre d'options de 15 commandes connues\n"
+        "Coreutils : trait plein - Toybox : pointilles"
+    )
     axe.grid(alpha=0.25)
     axe.legend(bbox_to_anchor=(1.02, 1), loc="upper left", fontsize=8)
 
