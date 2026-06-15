@@ -2,6 +2,7 @@ import argparse
 import csv
 from datetime import date
 from pathlib import Path
+from statistics import mean, median, quantiles
 
 
 RACINE_PROJET = Path(__file__).resolve().parents[2]
@@ -182,6 +183,181 @@ def tracer_courbes(donnees, sortie, afficher=False):
         plt.close(fig)
 
 
+def tracer_boxplot(donnees, sortie, afficher=False):
+    plt = charger_matplotlib()
+
+    mesures = []
+    for commande, valeurs_par_annee in donnees.items():
+        if not valeurs_par_annee:
+            continue
+
+        date_version, nombre_options = max(
+            valeurs_par_annee.values(),
+            key=lambda mesure: mesure[0],
+        )
+        mesures.append((commande, date_version, nombre_options))
+
+    if not mesures:
+        raise ValueError("No usable latest-version data found.")
+
+    mesures.sort(key=lambda mesure: (mesure[2], mesure[0]))
+    valeurs = [mesure[2] for mesure in mesures]
+    moyenne = mean(valeurs)
+    mediane = median(valeurs)
+    minimum = min(valeurs)
+    maximum = max(valeurs)
+    premier_quartile, _, troisieme_quartile = quantiles(
+        valeurs,
+        n=4,
+        method="inclusive",
+    )
+
+    fig, axe = plt.subplots(figsize=(12, 10))
+    axe.boxplot(
+        valeurs,
+        vert=True,
+        widths=0.32,
+        whis=(0, 100),
+        showmeans=True,
+        showfliers=False,
+        patch_artist=True,
+        boxprops={"facecolor": "#dbeafe", "edgecolor": "#1f2937", "linewidth": 1.5},
+        whiskerprops={"color": "#1f2937", "linewidth": 1.5},
+        capprops={"color": "#1f2937", "linewidth": 1.5},
+        medianprops={"color": "#dc2626", "linewidth": 2},
+        meanprops={
+            "marker": "D",
+            "markerfacecolor": "#f59e0b",
+            "markeredgecolor": "#92400e",
+            "markersize": 8,
+        },
+    )
+
+    nombre_mesures = len(mesures)
+    points = []
+
+    for index, (commande, date_version, nombre_options) in enumerate(mesures):
+        decalage = ((index % 5) - 2) * 0.055
+        position_x = 1 + decalage
+        est_toybox = commande.startswith("toybox ")
+        couleur = "#0f766e" if est_toybox else "#2563eb"
+
+        axe.scatter(
+            position_x,
+            nombre_options,
+            color=couleur,
+            edgecolor="white",
+            linewidth=0.7,
+            s=48,
+            zorder=3,
+        )
+
+        points.append(
+            {
+                "commande": commande,
+                "date": date_version,
+                "valeur": nombre_options,
+                "x": position_x,
+                "couleur": couleur,
+                "cote_droit": not est_toybox,
+            }
+        )
+
+    def repartir_positions(points_cote, ecart=2.2):
+        points_tries = sorted(points_cote, key=lambda point: point["valeur"])
+        position_precedente = None
+
+        for point in points_tries:
+            position = point["valeur"]
+            if position_precedente is not None:
+                position = max(position, position_precedente + ecart)
+            point["position_etiquette"] = position
+            position_precedente = position
+
+        return points_tries
+
+    for cote_droit in (False, True):
+        points_cote = repartir_positions(
+            [point for point in points if point["cote_droit"] == cote_droit]
+        )
+        position_texte = 1.24 if cote_droit else 0.76
+        alignement = "left" if cote_droit else "right"
+
+        for point in points_cote:
+            axe.annotate(
+                (
+                    f"{point['commande']}: {point['valeur']} "
+                    f"({point['date'].year})"
+                ),
+                xy=(point["x"], point["valeur"]),
+                xytext=(position_texte, point["position_etiquette"]),
+                ha=alignement,
+                va="center",
+                fontsize=8,
+                color=point["couleur"],
+                bbox={
+                    "facecolor": "white",
+                    "edgecolor": "none",
+                    "alpha": 0.82,
+                    "pad": 0.4,
+                },
+                arrowprops={
+                    "arrowstyle": "-",
+                    "color": point["couleur"],
+                    "alpha": 0.45,
+                    "linewidth": 0.8,
+                },
+            )
+
+    axe.axhline(moyenne, color="#f59e0b", linestyle="--", linewidth=1.3, alpha=0.8)
+    axe.axhline(mediane, color="#dc2626", linestyle=":", linewidth=1.3, alpha=0.8)
+
+    resume = (
+        f"Commands: {nombre_mesures}\n"
+        f"Minimum: {minimum}\n"
+        f"Maximum: {maximum}\n"
+        f"Mean: {moyenne:.1f}\n"
+        f"Median: {mediane:.1f}\n"
+        f"Q1: {premier_quartile:.1f}\n"
+        f"Q3: {troisieme_quartile:.1f}"
+    )
+    axe.text(
+        0.98,
+        0.98,
+        resume,
+        transform=axe.transAxes,
+        ha="right",
+        va="top",
+        fontsize=10,
+        bbox={"facecolor": "white", "edgecolor": "#9ca3af", "alpha": 0.9},
+    )
+
+    axe.scatter([], [], color="#2563eb", label="Coreutils")
+    axe.scatter([], [], color="#0f766e", label="Toybox")
+    axe.plot([], [], color="#dc2626", linestyle=":", label="Median")
+    axe.plot([], [], color="#f59e0b", linestyle="--", label="Mean")
+    axe.legend(loc="upper left")
+
+    axe.set_xticks([1], ["Latest available version"])
+    axe.set_ylabel("Number of options")
+    axe.set_title(
+        "Distribution of option counts for 15 selected commands\n"
+        "One point per command, using its latest available version"
+    )
+    axe.grid(axis="y", alpha=0.25)
+    axe.set_xlim(0.55, 1.45)
+
+    fig.tight_layout()
+    sortie.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(sortie, dpi=200, bbox_inches="tight")
+    print(f"Graph generated: {sortie}")
+
+    if afficher:
+        plt.show()
+    else:
+        plt.close(fig)
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Genere un graphe du nombre d'options par commande et par annee."
@@ -200,9 +376,9 @@ def main():
     )
     parser.add_argument(
         "--mode",
-        choices=("heatmap", "courbes"),
+        choices=("heatmap", "courbes", "boxplot"),
         default="heatmap",
-        help="Type de graphe. La heatmap est recommandee pour toutes les commandes.",
+        help="Type de graphe : heatmap, courbes ou boxplot.",
     )
     parser.add_argument(
         "--commandes",
@@ -230,6 +406,8 @@ def main():
 
     if args.mode == "courbes":
         tracer_courbes(donnees, args.output, args.show)
+    elif args.mode == "boxplot":
+        tracer_boxplot(donnees, args.output, args.show)
     else:
         tracer_carte_thermique(donnees, args.output, args.show)
 
