@@ -30,6 +30,20 @@ DATES_TOYBOX = {
     "v0.8.13": "2025-10-14",
 }
 
+DATES_FFMPEG = {
+    "n4.2": "2019-08-05",
+    "n4.4": "2021-04-08",
+    "n5.1": "2022-07-22",
+    "n6.1": "2023-11-10",
+    "n7.1": "2024-09-30",
+}
+
+MOTIF_OPTION_FFMPEG = re.compile(
+    r"^\s*(-{1,2}[A-Za-z][A-Za-z0-9_.-]*)\b",
+    re.MULTILINE,
+)
+
+
 def lister_versions(dossier_programme):
     versions = []
     for dossier in dossier_programme.iterdir():
@@ -252,6 +266,72 @@ def generer_csv_toybox(dossier_programme, dossier_csv):
     return 0
 
 
+def compter_options_ffmpeg(binaire):
+    try:
+        resultat = subprocess.run(
+            [str(binaire), "-hide_banner", "-help", "full"],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            stdin=subprocess.DEVNULL,
+            text=True,
+            timeout=30,
+        )
+    except subprocess.TimeoutExpired:
+        return 0, "timeout"
+
+    if resultat.returncode != 0:
+        lignes = resultat.stdout.strip().splitlines()
+        erreur = lignes[0] if lignes else f"code retour {resultat.returncode}"
+        return 0, erreur
+
+    options = set(MOTIF_OPTION_FFMPEG.findall(resultat.stdout))
+    return len(options), ""
+
+
+def generer_csv_ffmpeg(dossier_programme, dossier_csv):
+    versions = [
+        dossier
+        for dossier in lister_versions(dossier_programme)
+        if (dossier / "ffmpeg").is_file()
+    ]
+
+    if not versions:
+        print(f"Aucune version FFmpeg trouvee dans {dossier_programme}")
+        return 1
+
+    dossier_csv.mkdir(parents=True, exist_ok=True)
+    chemin_csv = dossier_csv / "ffmpeg_._ffmpeg.csv"
+
+    with chemin_csv.open("w", newline="", encoding="utf-8") as fichier:
+        writer = csv.writer(fichier, lineterminator="\n")
+        writer.writerow(
+            ["programme", "version", "date", "commande", "nombre_options", "erreur"]
+        )
+
+        for dossier_version in versions:
+            version = dossier_version.name
+            nombre_options, erreur = compter_options_ffmpeg(
+                dossier_version / "ffmpeg"
+            )
+            writer.writerow(
+                [
+                    "ffmpeg",
+                    version,
+                    DATES_FFMPEG.get(version, ""),
+                    "./ffmpeg",
+                    nombre_options,
+                    erreur,
+                ]
+            )
+            print(
+                f"{version}: {nombre_options} options"
+                + (f" - {erreur}" if erreur else "")
+            )
+
+    print(f"CSV FFmpeg genere : {chemin_csv}")
+    return 0
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Execute une commande shell dans chaque dossier de version disponible."
@@ -268,7 +348,7 @@ def main():
     parser.add_argument(
         "--tous-csv",
         action="store_true",
-        help="Genere un CSV pour chaque commande Toybox disponible.",
+        help="Genere les CSV du programme analyse.",
     )
     parser.add_argument(
         "--csv-dir",
@@ -286,9 +366,11 @@ def main():
         return 1
 
     if args.tous_csv:
-        if args.programme != "toybox":
-            parser.error("--tous-csv est actuellement disponible uniquement pour toybox")
-        return generer_csv_toybox(dossier_programme, args.csv_dir)
+        if args.programme == "toybox":
+            return generer_csv_toybox(dossier_programme, args.csv_dir)
+        if args.programme == "ffmpeg":
+            return generer_csv_ffmpeg(dossier_programme, args.csv_dir)
+        parser.error("--tous-csv est disponible pour toybox et ffmpeg")
 
     if not args.commande:
         parser.error("commande est obligatoire sans --tous-csv")

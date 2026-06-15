@@ -1,0 +1,6 @@
+programme,version,date,commande,nombre_options,erreur
+ffmpeg,n4.2,2019-08-05,./ffmpeg,874,
+ffmpeg,n4.4,2021-04-08,./ffmpeg,932,
+ffmpeg,n5.1,2022-07-22,./ffmpeg,951,
+ffmpeg,n6.1,2023-11-10,./ffmpeg,977,
+ffmpeg,n7.1,2024-09-30,./ffmpeg,983,
