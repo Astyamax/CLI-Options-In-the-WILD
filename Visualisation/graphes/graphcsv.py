@@ -87,6 +87,31 @@ def filtrer_commandes(donnees, commandes):
     }
 
 
+def extraire_dernieres_mesures(donnees):
+    mesures = []
+
+    for commande, valeurs_par_annee in donnees.items():
+        if not valeurs_par_annee:
+            continue
+
+        date_version, nombre_options = max(
+            valeurs_par_annee.values(),
+            key=lambda mesure: mesure[0],
+        )
+        mesures.append((commande, date_version, nombre_options))
+
+    mesures.sort(key=lambda mesure: (mesure[2], mesure[0]))
+    return mesures
+
+
+def categorie_commande(commande):
+    if commande == "ffmpeg":
+        return "FFmpeg", "#7c3aed"
+    if commande.startswith("toybox "):
+        return "Toybox", "#0f766e"
+    return "Coreutils", "#2563eb"
+
+
 def tracer_carte_thermique(donnees, sortie, afficher=False):
     plt = charger_matplotlib()
 
@@ -186,21 +211,11 @@ def tracer_courbes(donnees, sortie, afficher=False):
 def tracer_boxplot(donnees, sortie, afficher=False):
     plt = charger_matplotlib()
 
-    mesures = []
-    for commande, valeurs_par_annee in donnees.items():
-        if not valeurs_par_annee:
-            continue
-
-        date_version, nombre_options = max(
-            valeurs_par_annee.values(),
-            key=lambda mesure: mesure[0],
-        )
-        mesures.append((commande, date_version, nombre_options))
+    mesures = extraire_dernieres_mesures(donnees)
 
     if not mesures:
         raise ValueError("No usable latest-version data found.")
 
-    mesures.sort(key=lambda mesure: (mesure[2], mesure[0]))
     valeurs = [mesure[2] for mesure in mesures]
     moyenne = mean(valeurs)
     mediane = median(valeurs)
@@ -241,8 +256,7 @@ def tracer_boxplot(donnees, sortie, afficher=False):
     for index, (commande, date_version, nombre_options) in enumerate(mesures):
         decalage = (((index * 37) % 101) - 50) / 500
         position_x = 1 + decalage
-        est_toybox = commande.startswith("toybox ")
-        couleur = "#0f766e" if est_toybox else "#2563eb"
+        categorie, couleur = categorie_commande(commande)
 
         axe.scatter(
             position_x,
@@ -261,7 +275,7 @@ def tracer_boxplot(donnees, sortie, afficher=False):
                 "valeur": nombre_options,
                 "x": position_x,
                 "couleur": couleur,
-                "cote_droit": not est_toybox,
+                "cote_droit": categorie != "Toybox",
             }
         )
 
@@ -337,6 +351,7 @@ def tracer_boxplot(donnees, sortie, afficher=False):
 
     axe.scatter([], [], color="#2563eb", label="Coreutils")
     axe.scatter([], [], color="#0f766e", label="Toybox")
+    axe.scatter([], [], color="#7c3aed", label="FFmpeg")
     axe.plot([], [], color="#dc2626", linestyle=":", label="Median")
     axe.plot([], [], color="#f59e0b", linestyle="--", label="Mean")
     axe.legend(loc="upper left")
@@ -349,6 +364,114 @@ def tracer_boxplot(donnees, sortie, afficher=False):
     )
     axe.grid(axis="y", alpha=0.25)
     axe.set_xlim(0.55, 1.45)
+
+    fig.tight_layout()
+    sortie.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(sortie, dpi=200, bbox_inches="tight")
+    print(f"Graph generated: {sortie}")
+
+    if afficher:
+        plt.show()
+    else:
+        plt.close(fig)
+
+
+def tracer_violinplot(donnees, sortie, afficher=False):
+    plt = charger_matplotlib()
+    mesures = extraire_dernieres_mesures(donnees)
+
+    if not mesures:
+        raise ValueError("No usable latest-version data found.")
+
+    valeurs = [mesure[2] for mesure in mesures]
+    moyenne = mean(valeurs)
+    mediane = median(valeurs)
+    minimum = min(valeurs)
+    maximum = max(valeurs)
+    premier_quartile, _, troisieme_quartile = quantiles(
+        valeurs,
+        n=4,
+        method="inclusive",
+    )
+
+    fig, axe = plt.subplots(figsize=(12, 10))
+    violin = axe.violinplot(
+        valeurs,
+        positions=[1],
+        widths=0.7,
+        orientation="vertical",
+        showmeans=True,
+        showmedians=True,
+        showextrema=True,
+        quantiles=[[0.25, 0.75]],
+    )
+
+    for corps in violin["bodies"]:
+        corps.set_facecolor("#bfdbfe")
+        corps.set_edgecolor("#1f2937")
+        corps.set_alpha(0.75)
+        corps.set_linewidth(1.3)
+
+    for nom_element in ("cbars", "cmins", "cmaxes", "cquantiles"):
+        violin[nom_element].set_color("#1f2937")
+        violin[nom_element].set_linewidth(1.2)
+
+    violin["cmeans"].set_color("#f59e0b")
+    violin["cmeans"].set_linewidth(2)
+    violin["cmedians"].set_color("#dc2626")
+    violin["cmedians"].set_linewidth(2)
+
+    for index, (commande, _, nombre_options) in enumerate(mesures):
+        decalage = (((index * 37) % 101) - 50) / 360
+        _, couleur = categorie_commande(commande)
+        axe.scatter(
+            1 + decalage,
+            nombre_options,
+            color=couleur,
+            edgecolor="white",
+            linewidth=0.45,
+            s=28,
+            alpha=0.72,
+            zorder=3,
+        )
+
+    resume = (
+        f"Commands: {len(mesures)}\n"
+        f"Minimum: {minimum}\n"
+        f"Maximum: {maximum}\n"
+        f"Mean: {moyenne:.1f}\n"
+        f"Median: {mediane:.1f}\n"
+        f"Q1: {premier_quartile:.1f}\n"
+        f"Q3: {troisieme_quartile:.1f}"
+    )
+    axe.text(
+        0.98,
+        0.98,
+        resume,
+        transform=axe.transAxes,
+        ha="right",
+        va="top",
+        fontsize=10,
+        bbox={"facecolor": "white", "edgecolor": "#9ca3af", "alpha": 0.9},
+    )
+
+    axe.scatter([], [], color="#2563eb", label="Coreutils")
+    axe.scatter([], [], color="#0f766e", label="Toybox")
+    axe.scatter([], [], color="#7c3aed", label="FFmpeg")
+    axe.plot([], [], color="#dc2626", linewidth=2, label="Median")
+    axe.plot([], [], color="#f59e0b", linewidth=2, label="Mean")
+    axe.legend(loc="upper left")
+
+    axe.set_xticks([1], ["Latest available version"])
+    axe.set_ylabel("Number of options (symlog scale)")
+    axe.set_title(
+        "Distribution of option counts for all available commands\n"
+        "One point per command, using its latest available version"
+    )
+    axe.grid(axis="y", alpha=0.25)
+    axe.set_xlim(0.5, 1.5)
+    axe.set_yscale("symlog", linthresh=10, linscale=1.2)
+    axe.set_ylim(bottom=min(0, minimum))
 
     fig.tight_layout()
     sortie.parent.mkdir(parents=True, exist_ok=True)
@@ -379,9 +502,9 @@ def main():
     )
     parser.add_argument(
         "--mode",
-        choices=("heatmap", "courbes", "boxplot"),
+        choices=("heatmap", "courbes", "boxplot", "violin"),
         default="heatmap",
-        help="Type de graphe : heatmap, courbes ou boxplot.",
+        help="Type de graphe : heatmap, courbes, boxplot ou violin.",
     )
     parser.add_argument(
         "--commandes",
@@ -411,6 +534,8 @@ def main():
         tracer_courbes(donnees, args.output, args.show)
     elif args.mode == "boxplot":
         tracer_boxplot(donnees, args.output, args.show)
+    elif args.mode == "violin":
+        tracer_violinplot(donnees, args.output, args.show)
     else:
         tracer_carte_thermique(donnees, args.output, args.show)
 
