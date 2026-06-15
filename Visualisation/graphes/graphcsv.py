@@ -236,8 +236,10 @@ def tracer_boxplot(donnees, sortie, afficher=False):
     nombre_mesures = len(mesures)
     points = []
 
+    afficher_etiquettes = nombre_mesures <= 30
+
     for index, (commande, date_version, nombre_options) in enumerate(mesures):
-        decalage = ((index % 5) - 2) * 0.055
+        decalage = (((index * 37) % 101) - 50) / 500
         position_x = 1 + decalage
         est_toybox = commande.startswith("toybox ")
         couleur = "#0f766e" if est_toybox else "#2563eb"
@@ -263,51 +265,52 @@ def tracer_boxplot(donnees, sortie, afficher=False):
             }
         )
 
-    def repartir_positions(points_cote, ecart=2.2):
-        points_tries = sorted(points_cote, key=lambda point: point["valeur"])
-        position_precedente = None
+    if afficher_etiquettes:
+        def repartir_positions(points_cote, ecart=2.2):
+            points_tries = sorted(points_cote, key=lambda point: point["valeur"])
+            position_precedente = None
 
-        for point in points_tries:
-            position = point["valeur"]
-            if position_precedente is not None:
-                position = max(position, position_precedente + ecart)
-            point["position_etiquette"] = position
-            position_precedente = position
+            for point in points_tries:
+                position = point["valeur"]
+                if position_precedente is not None:
+                    position = max(position, position_precedente + ecart)
+                point["position_etiquette"] = position
+                position_precedente = position
 
-        return points_tries
+            return points_tries
 
-    for cote_droit in (False, True):
-        points_cote = repartir_positions(
-            [point for point in points if point["cote_droit"] == cote_droit]
-        )
-        position_texte = 1.24 if cote_droit else 0.76
-        alignement = "left" if cote_droit else "right"
-
-        for point in points_cote:
-            axe.annotate(
-                (
-                    f"{point['commande']}: {point['valeur']} "
-                    f"({point['date'].year})"
-                ),
-                xy=(point["x"], point["valeur"]),
-                xytext=(position_texte, point["position_etiquette"]),
-                ha=alignement,
-                va="center",
-                fontsize=8,
-                color=point["couleur"],
-                bbox={
-                    "facecolor": "white",
-                    "edgecolor": "none",
-                    "alpha": 0.82,
-                    "pad": 0.4,
-                },
-                arrowprops={
-                    "arrowstyle": "-",
-                    "color": point["couleur"],
-                    "alpha": 0.45,
-                    "linewidth": 0.8,
-                },
+        for cote_droit in (False, True):
+            points_cote = repartir_positions(
+                [point for point in points if point["cote_droit"] == cote_droit]
             )
+            position_texte = 1.24 if cote_droit else 0.76
+            alignement = "left" if cote_droit else "right"
+
+            for point in points_cote:
+                axe.annotate(
+                    (
+                        f"{point['commande']}: {point['valeur']} "
+                        f"({point['date'].year})"
+                    ),
+                    xy=(point["x"], point["valeur"]),
+                    xytext=(position_texte, point["position_etiquette"]),
+                    ha=alignement,
+                    va="center",
+                    fontsize=8,
+                    color=point["couleur"],
+                    bbox={
+                        "facecolor": "white",
+                        "edgecolor": "none",
+                        "alpha": 0.82,
+                        "pad": 0.4,
+                    },
+                    arrowprops={
+                        "arrowstyle": "-",
+                        "color": point["couleur"],
+                        "alpha": 0.45,
+                        "linewidth": 0.8,
+                    },
+                )
 
     axe.axhline(moyenne, color="#f59e0b", linestyle="--", linewidth=1.3, alpha=0.8)
     axe.axhline(mediane, color="#dc2626", linestyle=":", linewidth=1.3, alpha=0.8)
@@ -341,7 +344,7 @@ def tracer_boxplot(donnees, sortie, afficher=False):
     axe.set_xticks([1], ["Latest available version"])
     axe.set_ylabel("Number of options")
     axe.set_title(
-        "Distribution of option counts for 15 selected commands\n"
+        "Distribution of option counts for all available commands\n"
         "One point per command, using its latest available version"
     )
     axe.grid(axis="y", alpha=0.25)
