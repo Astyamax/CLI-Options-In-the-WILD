@@ -211,10 +211,14 @@ def tracer_courbes(donnees, sortie, afficher=False):
 def tracer_boxplot(donnees, sortie, afficher=False):
     plt = charger_matplotlib()
 
-    mesures = extraire_dernieres_mesures(donnees)
+    mesures = [
+        mesure
+        for mesure in extraire_dernieres_mesures(donnees)
+        if mesure[2] > 0
+    ]
 
     if not mesures:
-        raise ValueError("No usable latest-version data found.")
+        raise ValueError("No positive latest-version option count found.")
 
     valeurs = [mesure[2] for mesure in mesures]
     moyenne = mean(valeurs)
@@ -230,7 +234,7 @@ def tracer_boxplot(donnees, sortie, afficher=False):
     fig, axe = plt.subplots(figsize=(12, 10))
     axe.boxplot(
         valeurs,
-        vert=True,
+        orientation="vertical",
         widths=0.32,
         whis=(0, 100),
         showmeans=True,
@@ -356,11 +360,11 @@ def tracer_boxplot(donnees, sortie, afficher=False):
     axe.plot([], [], color="#f59e0b", linestyle="--", label="Mean")
     axe.legend(loc="upper left")
 
-    axe.set_xticks([1], ["Latest available version"])
+    axe.set_xticks([1], ["Latest available version (> 0 options)"])
     axe.set_ylabel("Number of options")
     axe.set_title(
-        "Distribution of option counts for all available commands\n"
-        "One point per command, using its latest available version"
+        "Distribution of positive option counts for all available commands\n"
+        "One point per command, using its latest available version; zero values excluded"
     )
     axe.grid(axis="y", alpha=0.25)
     axe.set_xlim(0.55, 1.45)
