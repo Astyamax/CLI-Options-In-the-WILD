@@ -1,7 +1,11 @@
-pages:
-  stage: deploy
+stages:
+  - build
+  - deploy
+
+build_site:
+  stage: build
   script:
-    - echo "Création du site statique en respectant l'architecture..."
+    - echo "Building static site..."
     - mkdir public
     - cp site/index.html public/
     - cp site/telecharger.html public/
@@ -11,5 +15,37 @@ pages:
   artifacts:
     paths:
       - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+
+pages:
+  stage: deploy
+  needs: [build_site]
+  script:
+    - echo "Deploying to GitLab Pages..."
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+
+deploy_cliscan:
+  stage: deploy
+  image: ubuntu:22.04
+  needs: [build_site]
+  before_script:
+    - apt-get update -qq && apt-get install -qq -y rsync openssh-client
+    - mkdir -p ~/.ssh
+    - >
+      if [ -f "$SSH_KNOWN_HOSTS" ]; then
+        cp "$SSH_KNOWN_HOSTS" ~/.ssh/known_hosts
+      else
+        echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+      fi
+    - echo "$SSH_PRIVATE_KEY_B64" | base64 -d > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+  script:
+    - echo "Deploying public/ to ${DEPLOY_USER}@${DEPLOY_HOST}:${SSH_PORT:-22}..."
+    - rsync -az --no-perms --no-owner --no-group --delete --omit-dir-times -e "ssh -i ~/.ssh/id_rsa -p ${SSH_PORT:-22}" public/ ${DEPLOY_USER}@${DEPLOY_HOST}:/srv/www/
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
