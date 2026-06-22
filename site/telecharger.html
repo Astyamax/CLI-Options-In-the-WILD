@@ -125,6 +125,33 @@
             background-color: #38b2ac;
         }
 
+        /* ── PRÉREQUIS BADGES ── */
+        .prereq-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 16px;
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #eef9f8;
+            border: 1px solid #b2e8e4;
+            color: #2a7a74;
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+        .badge .dot {
+            width: 8px;
+            height: 8px;
+            background: #4ECDC4;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
         /* ── ÉTAPES ── */
         .steps-list {
             list-style: none;
@@ -170,6 +197,50 @@
             font-size: 0.85rem;
             color: #2c3e50;
         }
+
+        /* ── BLOCS DE COMMANDE COPIABLES ── */
+        .cmd-block {
+            position: relative;
+            background: #1a1f2e;
+            border-radius: 8px;
+            padding: 14px 50px 14px 18px;
+            margin-top: 10px;
+        }
+        .cmd-block code {
+            background: none;
+            border: none;
+            color: #4ECDC4;
+            font-size: 0.9rem;
+            padding: 0;
+        }
+        .cmd-copy {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(78,205,196,0.15);
+            border: 1px solid rgba(78,205,196,0.3);
+            color: #4ECDC4;
+            border-radius: 5px;
+            padding: 3px 8px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .cmd-copy:hover { background: rgba(78,205,196,0.3); }
+        .cmd-copy.copied { color: #a3e8a3; border-color: #a3e8a3; }
+
+        /* ── ALERTE DÉPANNAGE ── */
+        .alert-info {
+            background: #fff8e1;
+            border-left: 4px solid #f6c90e;
+            border-radius: 6px;
+            padding: 14px 18px;
+            margin-top: 24px;
+            font-size: 0.9rem;
+            color: #5a4a00;
+        }
+        .alert-info strong { display: block; margin-bottom: 4px; color: #3d3300; }
     </style>
 </head>
 <body>
@@ -198,9 +269,20 @@
                 d'un programme en ligne de commande directement depuis votre machine.
                 Elle repose sur Python 3.8+ et la bibliothèque Tkinter.
             </p>
-            <a id="btn-download" class="btn-download" href="downloads/interface_comptage.zip" download="interface_comptage.zip">
-                ⬇ Télécharger l'interface (.zip)
-            </a>
+
+            <!-- Prérequis -->
+            <div class="prereq-bar">
+                <span class="badge"><span class="dot"></span> Python 3.8+</span>
+                <span class="badge"><span class="dot"></span> pip</span>
+                <span class="badge"><span class="dot"></span> Tkinter (inclus avec Python)</span>
+                <span class="badge"><span class="dot"></span> Linux / macOS / Windows</span>
+            </div>
+
+            <div style="margin-top: 20px;">
+                <a id="btn-download" class="btn-download" href="downloads/interface_comptage.zip" download="interface_comptage.zip">
+                    ⬇ Télécharger l'interface (.zip)
+                </a>
+            </div>
         </div>
 
         <h2 class="section-title">Comment démarrer ?</h2>
@@ -216,29 +298,65 @@
                 <div class="step-body">
                     <strong>Installer les dépendances Python</strong>
                     <p>Dans le dossier extrait, ouvrez un terminal et lancez :</p>
-                    <p style="margin-top: 6px;"><code>pip install -r requirements.txt</code></p>
+                    <div class="cmd-block">
+                        <code id="cmd-pip">pip install -r requirements.txt</code>
+                        <button class="cmd-copy" onclick="copyCmd('cmd-pip', this)">Copier</button>
+                    </div>
                 </div>
             </li>
             <li>
                 <div class="step-body">
                     <strong>Lancer l'interface</strong>
                     <p>Exécutez le script principal depuis la racine du dossier extrait :</p>
-                    <p style="margin-top: 6px;"><code>python Visualisation/UI/interface2.py</code></p>
+                    <div class="cmd-block">
+                        <code id="cmd-launch">python Visualisation/UI/interface2.py</code>
+                        <button class="cmd-copy" onclick="copyCmd('cmd-launch', this)">Copier</button>
+                    </div>
                 </div>
             </li>
             <li>
                 <div class="step-body">
                     <strong>Analyser un programme</strong>
                     <p>
-                        L'interface graphique s'ouvre. Entrez le nom d'un programme
-                        (ex : <code>git</code>, <code>curl</code>, <code>ffmpeg</code>)
+                        L'interface graphique s'ouvre. Saisissez le nom d'un programme
+                        (ex&nbsp;: <code>git</code>, <code>curl</code>, <code>ffmpeg</code>)
                         et cliquez sur <strong>Analyser</strong>.
                     </p>
                 </div>
             </li>
         </ol>
 
+        <div class="card">
+            <h2 class="section-title" style="margin-top: 0;">⚡ Récapitulatif rapide</h2>
+            <p style="margin-bottom: 12px; color: #555;">Copiez-collez ces deux commandes dans un terminal depuis le dossier extrait :</p>
+            <div class="cmd-block">
+                <code id="cmd-full">pip install -r requirements.txt &amp;&amp; python Visualisation/UI/interface2.py</code>
+                <button class="cmd-copy" onclick="copyCmd('cmd-full', this)">Copier</button>
+            </div>
+            <div class="alert-info">
+                <strong>🔧 Dépannage &mdash; Tkinter introuvable ?</strong>
+                Sur certaines distributions Linux, Tkinter n'est pas installé par défaut. Lancez :<br>
+                <code>sudo apt install python3-tk</code>&nbsp; (Debian / Ubuntu)<br>
+                <code>sudo dnf install python3-tkinter</code>&nbsp; (Fedora / RHEL)
+            </div>
+        </div>
+
     </div>
+
+    <script>
+        function copyCmd(id, btn) {
+            const text = document.getElementById(id).textContent
+                .replace(/&amp;&amp;/g, '&&').trim();
+            navigator.clipboard.writeText(text).then(() => {
+                btn.textContent = '✓ Copié';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = 'Copier';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
 
 </body>
 </html>
