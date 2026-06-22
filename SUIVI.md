@@ -123,3 +123,18 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
 - Baptiste : 
     - Création de programme créant le fichier zip
     - Création de la page HTML "téléchargement" pour le site
+
+## 22 Juin 2026
+*Tout le monde* : Réunion avec Xhevahire TËRNAVA en présentiel à Télécom
+    - Objectifs d'ici la fin de semaine : 
+        -   Finir la static page pour qu'elle présente nos résultats et les télécharger dans un fichier .csv, le fonctionnement et permette de télécharger l'outil dans un fichier .zip
+        - Créer un csv avec les données historiques et un csv avce les résultats de la dernière version (exclure les programmes pour lesquels l'outil n'a pas fonctionné ou alors qui ont 0 option). Supprimer tous les csv propres à chaque fichier
+        - Enumérer dans les technical details les programmes qu'on a test et énumérer ceux pour lesquels l'outil n'a pas fonctionné
+        - Préparer la présentation orale + démo (devant les jurys le 26 juin) pour le 25 juin (présentation devant l'encadrante)
+        - Clean le fichier de suivi et l'organiser 
+        - Clean le git
+        
+    - A faire pour la prochaine réunion du 24 juin : 
+        - Finir Static Page
+        - Créer fichiers csv
+        - Réfléchir à la technical demonstration
