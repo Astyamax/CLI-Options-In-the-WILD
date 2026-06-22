@@ -136,5 +136,5 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
         
     - A faire pour la prochaine réunion du 24 juin : 
         - Finir Static Page
-        - Créer fichiers csv
+        - Créer fichiers csv (23 juin minuit)
         - Réfléchir à la technical demonstration
