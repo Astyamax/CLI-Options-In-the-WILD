@@ -147,3 +147,7 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
     - Baptiste :
         - Ecriture du pdf : technical details
         - Ajout de celui ci sur la static page
+    - Théophile : 
+        - Ajout du programme data/create_csv pour créer un csv "latest" avec le nombre d'options de chaque dernière version des programmes ou un csv "history" donnant pour chaque programme le nombre d'option par année
+        - Création du csv "latest" et "history" à partir de la base de données établies dans le dossier csv
+        - Création du fichier texte "failed_programs.txt" qui répertorie les programmes pour lesquels on ne parvient pas à déterminer le nombre d'options avec notre outil
