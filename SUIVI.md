@@ -142,4 +142,3 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
     - Baptiste :
         - Fix d'un bug du telechargement du fichier zip
         - Rajout de la page telechargement sur la static page (qui avait été momentanément supprimé)
-        
