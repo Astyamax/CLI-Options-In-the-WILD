@@ -1,0 +1,335 @@
+programme,commande,version,date,nombre_options
+coreutils,./basename,v9.11,2026-04-20,9
+coreutils,./cat,v9.11,2026-04-20,23
+coreutils,./chgrp,v9.11,2026-04-20,23
+coreutils,./chmod,v9.11,2026-04-20,23
+coreutils,./chown,v9.11,2026-04-20,23
+coreutils,./chroot,v9.11,2026-04-20,7
+coreutils,./cksum,v9.11,2026-04-20,27
+coreutils,./comm,v9.11,2026-04-20,14
+coreutils,./cp,v6.9,2007-03-22,46
+coreutils,./csplit,v9.11,2026-04-20,17
+coreutils,./cut,v9.11,2026-04-20,25
+coreutils,./date,v9.11,2026-04-20,31
+coreutils,./dd,v9.11,2026-04-20,7
+coreutils,./dir,v9.11,2026-04-20,97
+coreutils,./dircolors,v9.11,2026-04-20,12
+coreutils,./dirname,v9.11,2026-04-20,6
+coreutils,./du,v9.11,2026-04-20,49
+coreutils,./echo,v9.11,2026-04-20,11
+coreutils,./env,v9.11,2026-04-20,23
+coreutils,./expand,v9.11,2026-04-20,7
+coreutils,./expr,v9.11,2026-04-20,6
+coreutils,./factor,v9.11,2026-04-20,5
+coreutils,./false,v9.11,2026-04-20,0
+coreutils,./fmt,v9.11,2026-04-20,18
+coreutils,./fold,v9.11,2026-04-20,11
+coreutils,./ginstall,v6.9,2007-03-22,30
+coreutils,./head,v9.11,2026-04-20,14
+coreutils,./hostid,v9.11,2026-04-20,3
+coreutils,./id,v9.11,2026-04-20,0
+coreutils,./join,v9.11,2026-04-20,20
+coreutils,./kill,v9.6,2025-01-17,9
+coreutils,./link,v9.11,2026-04-20,3
+coreutils,./ln,v9.11,2026-04-20,31
+coreutils,./logname,v9.11,2026-04-20,3
+coreutils,./ls,v9.11,2026-04-20,97
+coreutils,./md5sum,v9.11,2026-04-20,21
+coreutils,./mkdir,v9.11,2026-04-20,11
+coreutils,./mkfifo,v9.11,2026-04-20,7
+coreutils,./mknod,v9.11,2026-04-20,7
+coreutils,./mv,v6.9,2007-03-22,20
+coreutils,./nice,v9.11,2026-04-20,6
+coreutils,./nl,v9.11,2026-04-20,32
+coreutils,./nohup,v9.11,2026-04-20,3
+coreutils,./od,v9.11,2026-04-20,33
+coreutils,./paste,v9.11,2026-04-20,9
+coreutils,./pathchk,v9.11,2026-04-20,7
+coreutils,./pinky,v9.11,2026-04-20,15
+coreutils,./pr,v9.11,2026-04-20,53
+coreutils,./printenv,v9.11,2026-04-20,5
+coreutils,./printf,v9.11,2026-04-20,9
+coreutils,./ptx,v9.11,2026-04-20,36
+coreutils,./pwd,v9.11,2026-04-20,11
+coreutils,./readlink,v9.11,2026-04-20,19
+coreutils,./rm,v9.11,2026-04-20,19
+coreutils,./rmdir,v9.11,2026-04-20,9
+coreutils,./seq,v9.11,2026-04-20,10
+coreutils,./sha1sum,v9.11,2026-04-20,23
+coreutils,./shred,v9.11,2026-04-20,19
+coreutils,./sleep,v9.11,2026-04-20,4
+coreutils,./sort,v9.11,2026-04-20,59
+coreutils,./split,v9.11,2026-04-20,27
+coreutils,./stat,v9.11,2026-04-20,15
+coreutils,./stty,v9.11,2026-04-20,61
+coreutils,./sum,v9.11,2026-04-20,7
+coreutils,./sync,v9.11,2026-04-20,7
+coreutils,./tac,v9.11,2026-04-20,10
+coreutils,./tail,v9.11,2026-04-20,24
+coreutils,./test,v9.11,2026-04-20,0
+coreutils,./touch,v6.9,2007-03-22,15
+coreutils,./tr,v9.11,2026-04-20,13
+coreutils,./true,v9.11,2026-04-20,3
+coreutils,./tsort,v9.11,2026-04-20,3
+coreutils,./tty,v9.11,2026-04-20,6
+coreutils,./uname,v9.11,2026-04-20,22
+coreutils,./unexpand,v9.11,2026-04-20,8
+coreutils,./uniq,v9.11,2026-04-20,23
+coreutils,./unlink,v9.11,2026-04-20,3
+coreutils,./uptime,v9.6,2025-01-17,2
+coreutils,./users,v9.11,2026-04-20,3
+coreutils,./vdir,v9.11,2026-04-20,99
+coreutils,./wc,v9.11,2026-04-20,17
+coreutils,./who,v9.11,2026-04-20,32
+coreutils,./whoami,v9.11,2026-04-20,4
+coreutils,./yes,v9.11,2026-04-20,3
+ffmpeg,./ffmpeg,n7.1,2024-09-30,983
+toybox,./toybox :,v0.8.13,2025-10-14,0
+toybox,./toybox [,v0.8.13,2025-10-14,0
+toybox,./toybox acpi,v0.8.13,2025-10-14,5
+toybox,./toybox arch,v0.8.13,2025-10-14,0
+toybox,./toybox ascii,v0.8.13,2025-10-14,0
+toybox,./toybox base32,v0.8.13,2025-10-14,3
+toybox,./toybox base64,v0.8.13,2025-10-14,3
+toybox,./toybox basename,v0.8.13,2025-10-14,2
+toybox,./toybox blkdiscard,v0.8.13,2025-10-14,10
+toybox,./toybox blkid,v0.8.13,2025-10-14,4
+toybox,./toybox blockdev,v0.8.13,2025-10-14,13
+toybox,./toybox bunzip2,v0.8.13,2025-10-14,5
+toybox,./toybox bzcat,v0.8.13,2025-10-14,0
+toybox,./toybox cal,v0.8.13,2025-10-14,1
+toybox,./toybox cat,v0.8.13,2025-10-14,4
+toybox,./toybox catv,v0.8.13,2025-10-14,0
+toybox,./toybox cd,v0.8.13,2025-10-14,0
+toybox,./toybox chattr,v0.8.13,2025-10-14,3
+toybox,./toybox chgrp,v0.8.13,2025-10-14,8
+toybox,./toybox chmod,v0.8.13,2025-10-14,4
+toybox,./toybox chown,v0.8.13,2025-10-14,8
+toybox,./toybox chroot,v0.8.13,2025-10-14,0
+toybox,./toybox chrt,v0.8.13,2025-10-14,8
+toybox,./toybox chvt,v0.8.13,2025-10-14,0
+toybox,./toybox cksum,v0.8.13,2025-10-14,5
+toybox,./toybox clear,v0.8.13,2025-10-14,0
+toybox,./toybox cmp,v0.8.13,2025-10-14,5
+toybox,./toybox comm,v0.8.13,2025-10-14,0
+toybox,./toybox count,v0.8.13,2025-10-14,1
+toybox,./toybox cp,v0.8.13,2025-10-14,23
+toybox,./toybox cpio,v0.8.13,2025-10-14,19
+toybox,./toybox crc32,v0.8.13,2025-10-14,0
+toybox,./toybox cut,v0.8.13,2025-10-14,13
+toybox,./toybox date,v0.8.13,2025-10-14,8
+toybox,./toybox dd,v0.8.13,2025-10-14,0
+toybox,./toybox deallocvt,v0.8.13,2025-10-14,0
+toybox,./toybox devmem,v0.8.13,2025-10-14,3
+toybox,./toybox df,v0.8.13,2025-10-14,7
+toybox,./toybox dirname,v0.8.13,2025-10-14,0
+toybox,./toybox dmesg,v0.8.13,2025-10-14,12
+toybox,./toybox dnsdomainname,v0.8.13,2025-10-14,0
+toybox,./toybox dos2unix,v0.8.13,2025-10-14,0
+toybox,./toybox du,v0.8.13,2025-10-14,13
+toybox,./toybox echo,v0.8.13,2025-10-14,3
+toybox,./toybox egrep,v0.8.13,2025-10-14,43
+toybox,./toybox eject,v0.8.13,2025-10-14,3
+toybox,./toybox env,v0.8.13,2025-10-14,4
+toybox,./toybox exit,v0.8.13,2025-10-14,0
+toybox,./toybox expand,v0.8.13,2025-10-14,1
+toybox,./toybox factor,v0.8.13,2025-10-14,2
+toybox,./toybox fallocate,v0.8.13,2025-10-14,2
+toybox,./toybox false,v0.8.13,2025-10-14,0
+toybox,./toybox fgrep,v0.8.13,2025-10-14,43
+toybox,./toybox file,v0.8.13,2025-10-14,5
+toybox,./toybox find,v0.8.13,2025-10-14,2
+toybox,./toybox flock,v0.8.13,2025-10-14,4
+toybox,./toybox fmt,v0.8.13,2025-10-14,1
+toybox,./toybox fold,v0.8.13,2025-10-14,3
+toybox,./toybox free,v0.8.13,2025-10-14,5
+toybox,./toybox freeramdisk,v0.8.13,2025-10-14,0
+toybox,./toybox fsfreeze,v0.8.13,2025-10-14,2
+toybox,./toybox fstype,v0.8.13,2025-10-14,0
+toybox,./toybox fsync,v0.8.13,2025-10-14,1
+toybox,./toybox ftpget,v0.8.13,2025-10-14,13
+toybox,./toybox ftpput,v0.8.13,2025-10-14,13
+toybox,./toybox getconf,v0.8.13,2025-10-14,2
+toybox,./toybox getopt,v0.8.13,2025-10-14,11
+toybox,./toybox gpiodetect,v0.8.13,2025-10-14,0
+toybox,./toybox gpiofind,v0.8.13,2025-10-14,0
+toybox,./toybox gpioget,v0.8.13,2025-10-14,1
+toybox,./toybox gpioinfo,v0.8.13,2025-10-14,0
+toybox,./toybox gpioset,v0.8.13,2025-10-14,1
+toybox,./toybox grep,v0.8.13,2025-10-14,43
+toybox,./toybox groups,v0.8.13,2025-10-14,0
+toybox,./toybox gunzip,v0.8.13,2025-10-14,14
+toybox,./toybox halt,v0.8.13,2025-10-14,3
+toybox,./toybox hd,v0.8.13,2025-10-14,0
+toybox,./toybox head,v0.8.13,2025-10-14,6
+toybox,./toybox hello,v0.8.13,2025-10-14,0
+toybox,./toybox help,v0.8.13,2025-10-14,3
+toybox,./toybox hexedit,v0.8.13,2025-10-14,1
+toybox,./toybox host,v0.8.13,2025-10-14,3
+toybox,./toybox hostid,v0.8.13,2025-10-14,0
+toybox,./toybox hostname,v0.8.13,2025-10-14,5
+toybox,./toybox httpd,v0.8.13,2025-10-14,1
+toybox,./toybox hwclock,v0.8.13,2025-10-14,15
+toybox,./toybox i2cdetect,v0.8.13,2025-10-14,6
+toybox,./toybox i2cdump,v0.8.13,2025-10-14,2
+toybox,./toybox i2cget,v0.8.13,2025-10-14,2
+toybox,./toybox i2cset,v0.8.13,2025-10-14,2
+toybox,./toybox i2ctransfer,v0.8.13,2025-10-14,3
+toybox,./toybox iconv,v0.8.13,2025-10-14,4
+toybox,./toybox id,v0.8.13,2025-10-14,5
+toybox,./toybox ifconfig,v0.8.13,2025-10-14,2
+toybox,./toybox inotifyd,v0.8.13,2025-10-14,0
+toybox,./toybox insmod,v0.8.13,2025-10-14,0
+toybox,./toybox install,v0.8.13,2025-10-14,11
+toybox,./toybox ionice,v0.8.13,2025-10-14,4
+toybox,./toybox iorenice,v0.8.13,2025-10-14,0
+toybox,./toybox iotop,v0.8.13,2025-10-14,15
+toybox,./toybox kill,v0.8.13,2025-10-14,2
+toybox,./toybox killall,v0.8.13,2025-10-14,6
+toybox,./toybox killall5,v0.8.13,2025-10-14,3
+toybox,./toybox link,v0.8.13,2025-10-14,0
+toybox,./toybox linux32,v0.8.13,2025-10-14,0
+toybox,./toybox ln,v0.8.13,2025-10-14,7
+toybox,./toybox logger,v0.8.13,2025-10-14,3
+toybox,./toybox login,v0.8.13,2025-10-14,3
+toybox,./toybox logname,v0.8.13,2025-10-14,0
+toybox,./toybox losetup,v0.8.13,2025-10-14,12
+toybox,./toybox ls,v0.8.13,2025-10-14,39
+toybox,./toybox lsattr,v0.8.13,2025-10-14,6
+toybox,./toybox lsmod,v0.8.13,2025-10-14,0
+toybox,./toybox lspci,v0.8.13,2025-10-14,7
+toybox,./toybox lsusb,v0.8.13,2025-10-14,2
+toybox,./toybox makedevs,v0.8.13,2025-10-14,1
+toybox,./toybox mcookie,v0.8.13,2025-10-14,4
+toybox,./toybox md5sum,v0.8.13,2025-10-14,5
+toybox,./toybox mdev,v0.8.13,2025-10-14,0
+toybox,./toybox memeater,v0.8.13,2025-10-14,1
+toybox,./toybox microcom,v0.8.13,2025-10-14,2
+toybox,./toybox mix,v0.8.13,2025-10-14,4
+toybox,./toybox mkdir,v0.8.13,2025-10-14,5
+toybox,./toybox mkfifo,v0.8.13,2025-10-14,1
+toybox,./toybox mknod,v0.8.13,2025-10-14,2
+toybox,./toybox mkpasswd,v0.8.13,2025-10-14,3
+toybox,./toybox mkswap,v0.8.13,2025-10-14,1
+toybox,./toybox mktemp,v0.8.13,2025-10-14,7
+toybox,./toybox modinfo,v0.8.13,2025-10-14,4
+toybox,./toybox mount,v0.8.13,2025-10-14,10
+toybox,./toybox mountpoint,v0.8.13,2025-10-14,3
+toybox,./toybox mv,v0.8.13,2025-10-14,11
+toybox,./toybox nbd-client,v0.8.13,2025-10-14,3
+toybox,./toybox nbd-server,v0.8.13,2025-10-14,1
+toybox,./toybox nbd_client,v0.8.13,2025-10-14,3
+toybox,./toybox nbd_server,v0.8.13,2025-10-14,1
+toybox,./toybox nc,v0.8.13,2025-10-14,18
+toybox,./toybox netcat,v0.8.13,2025-10-14,18
+toybox,./toybox netstat,v0.8.13,2025-10-14,11
+toybox,./toybox nice,v0.8.13,2025-10-14,1
+toybox,./toybox nl,v0.8.13,2025-10-14,7
+toybox,./toybox nohup,v0.8.13,2025-10-14,0
+toybox,./toybox nologin,v0.8.13,2025-10-14,0
+toybox,./toybox nproc,v0.8.13,2025-10-14,2
+toybox,./toybox nsenter,v0.8.13,2025-10-14,20
+toybox,./toybox od,v0.8.13,2025-10-14,12
+toybox,./toybox oneit,v0.8.13,2025-10-14,4
+toybox,./toybox openvt,v0.8.13,2025-10-14,3
+toybox,./toybox partprobe,v0.8.13,2025-10-14,0
+toybox,./toybox passwd,v0.8.13,2025-10-14,0
+toybox,./toybox paste,v0.8.13,2025-10-14,2
+toybox,./toybox patch,v0.8.13,2025-10-14,15
+toybox,./toybox pgrep,v0.8.13,2025-10-14,17
+toybox,./toybox pidof,v0.8.13,2025-10-14,3
+toybox,./toybox ping,v0.8.13,2025-10-14,12
+toybox,./toybox ping6,v0.8.13,2025-10-14,12
+toybox,./toybox pivot_root,v0.8.13,2025-10-14,0
+toybox,./toybox pkill,v0.8.13,2025-10-14,14
+toybox,./toybox pmap,v0.8.13,2025-10-14,3
+toybox,./toybox poweroff,v0.8.13,2025-10-14,3
+toybox,./toybox printenv,v0.8.13,2025-10-14,2
+toybox,./toybox printf,v0.8.13,2025-10-14,0
+toybox,./toybox prlimit,v0.8.13,2025-10-14,20
+toybox,./toybox ps,v0.8.13,2025-10-14,25
+toybox,./toybox pwd,v0.8.13,2025-10-14,2
+toybox,./toybox pwdx,v0.8.13,2025-10-14,1
+toybox,./toybox pwgen,v0.8.13,2025-10-14,21
+toybox,./toybox readelf,v0.8.13,2025-10-14,13
+toybox,./toybox readlink,v0.8.13,2025-10-14,8
+toybox,./toybox realpath,v0.8.13,2025-10-14,11
+toybox,./toybox reboot,v0.8.13,2025-10-14,3
+toybox,./toybox renice,v0.8.13,2025-10-14,4
+toybox,./toybox reset,v0.8.13,2025-10-14,0
+toybox,./toybox rev,v0.8.13,2025-10-14,0
+toybox,./toybox rfkill,v0.8.13,2025-10-14,0
+toybox,./toybox rm,v0.8.13,2025-10-14,6
+toybox,./toybox rmdir,v0.8.13,2025-10-14,3
+toybox,./toybox rmmod,v0.8.13,2025-10-14,2
+toybox,./toybox rtcwake,v0.8.13,2025-10-14,17
+toybox,./toybox sed,v0.8.13,2025-10-14,12
+toybox,./toybox seq,v0.8.13,2025-10-14,3
+toybox,./toybox setfattr,v0.8.13,2025-10-14,4
+toybox,./toybox setsid,v0.8.13,2025-10-14,3
+toybox,./toybox sh,v0.8.13,2025-10-14,0
+toybox,./toybox sha1sum,v0.8.13,2025-10-14,5
+toybox,./toybox sha224sum,v0.8.13,2025-10-14,5
+toybox,./toybox sha256sum,v0.8.13,2025-10-14,5
+toybox,./toybox sha384sum,v0.8.13,2025-10-14,5
+toybox,./toybox sha3sum,v0.8.13,2025-10-14,3
+toybox,./toybox sha512sum,v0.8.13,2025-10-14,5
+toybox,./toybox shred,v0.8.13,2025-10-14,7
+toybox,./toybox shuf,v0.8.13,2025-10-14,3
+toybox,./toybox sleep,v0.8.13,2025-10-14,0
+toybox,./toybox sntp,v0.8.13,2025-10-14,11
+toybox,./toybox sort,v0.8.13,2025-10-14,21
+toybox,./toybox split,v0.8.13,2025-10-14,4
+toybox,./toybox stat,v0.8.13,2025-10-14,5
+toybox,./toybox strings,v0.8.13,2025-10-14,5
+toybox,./toybox su,v0.8.13,2025-10-14,7
+toybox,./toybox swapoff,v0.8.13,2025-10-14,2
+toybox,./toybox swapon,v0.8.13,2025-10-14,2
+toybox,./toybox switch_root,v0.8.13,2025-10-14,2
+toybox,./toybox sync,v0.8.13,2025-10-14,0
+toybox,./toybox sysctl,v0.8.13,2025-10-14,8
+toybox,./toybox tac,v0.8.13,2025-10-14,0
+toybox,./toybox tail,v0.8.13,2025-10-14,7
+toybox,./toybox tar,v0.8.13,2025-10-14,73
+toybox,./toybox taskset,v0.8.13,2025-10-14,2
+toybox,./toybox tee,v0.8.13,2025-10-14,2
+toybox,./toybox test,v0.8.13,2025-10-14,0
+toybox,./toybox time,v0.8.13,2025-10-14,2
+toybox,./toybox timeout,v0.8.13,2025-10-14,7
+toybox,./toybox top,v0.8.13,2025-10-14,13
+toybox,./toybox touch,v0.8.13,2025-10-14,8
+toybox,./toybox toysh,v0.8.13,2025-10-14,0
+toybox,./toybox true,v0.8.13,2025-10-14,0
+toybox,./toybox truncate,v0.8.13,2025-10-14,2
+toybox,./toybox ts,v0.8.13,2025-10-14,3
+toybox,./toybox tsort,v0.8.13,2025-10-14,0
+toybox,./toybox tty,v0.8.13,2025-10-14,1
+toybox,./toybox tunctl,v0.8.13,2025-10-14,4
+toybox,./toybox uclampset,v0.8.13,2025-10-14,5
+toybox,./toybox ulimit,v0.8.13,2025-10-14,20
+toybox,./toybox umount,v0.8.13,2025-10-14,10
+toybox,./toybox uname,v0.8.13,2025-10-14,8
+toybox,./toybox unicode,v0.8.13,2025-10-14,0
+toybox,./toybox uniq,v0.8.13,2025-10-14,8
+toybox,./toybox unix2dos,v0.8.13,2025-10-14,0
+toybox,./toybox unlink,v0.8.13,2025-10-14,0
+toybox,./toybox unshare,v0.8.13,2025-10-14,20
+toybox,./toybox uptime,v0.8.13,2025-10-14,2
+toybox,./toybox usleep,v0.8.13,2025-10-14,0
+toybox,./toybox uudecode,v0.8.13,2025-10-14,1
+toybox,./toybox uuencode,v0.8.13,2025-10-14,1
+toybox,./toybox uuidgen,v0.8.13,2025-10-14,2
+toybox,./toybox vconfig,v0.8.13,2025-10-14,0
+toybox,./toybox vmstat,v0.8.13,2025-10-14,1
+toybox,./toybox w,v0.8.13,2025-10-14,0
+toybox,./toybox watch,v0.8.13,2025-10-14,5
+toybox,./toybox watchdog,v0.8.13,2025-10-14,3
+toybox,./toybox wc,v0.8.13,2025-10-14,5
+toybox,./toybox wget,v0.8.13,2025-10-14,7
+toybox,./toybox which,v0.8.13,2025-10-14,1
+toybox,./toybox who,v0.8.13,2025-10-14,1
+toybox,./toybox whoami,v0.8.13,2025-10-14,0
+toybox,./toybox xargs,v0.8.13,2025-10-14,13
+toybox,./toybox xxd,v0.8.13,2025-10-14,9
+toybox,./toybox yes,v0.8.13,2025-10-14,0
+toybox,./toybox zcat,v0.8.13,2025-10-14,14

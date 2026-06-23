@@ -88,9 +88,9 @@ def cmd_latest(args):
 
         latest = df.loc[df["date"].idxmax()]
         results.append({
-            "programme":     latest.get("programme", prog),
-            "commande":      latest.get("commande", prog),
-            "version":       latest.get("version", ""),
+            "programme":     latest["programme"] if "programme" in df.columns else prog,
+            "commande":      latest["commande"]  if "commande"  in df.columns else prog,
+            "version":       latest["version"]   if "version"   in df.columns else "",
             "date":          str(latest["date"].date()),
             "nombre_options": int(latest["nombre_options"]),
         })
@@ -98,7 +98,7 @@ def cmd_latest(args):
 
     # CSV de sortie
     if results:
-        out_df = pd.DataFrame(latest, columns=["programme", "commande", "version", "date", "nombre_options"])
+        out_df = pd.DataFrame(results, columns=["programme", "commande", "version", "date", "nombre_options"])
         out_df.to_csv(args.output, index=False)
         print(f"\n✓ {len(results)} programmes écrits dans '{args.output}'")
     else:
