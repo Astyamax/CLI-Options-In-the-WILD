@@ -148,6 +148,7 @@ def cmd_by_year(args):
         return
 
     all_rows = []
+    all_years = set()
 
     for path in csv_files:
         prog = program_name_from_path(path)
@@ -166,21 +167,23 @@ def cmd_by_year(args):
             print(f"  → Aucune donnée valide depuis {args.since}")
             continue
 
+        row = {
+            "programme": programme,
+            "commande":  commande,
+        }
         for entry in yearly:
-            all_rows.append({
-                "programme":     programme,
-                "commande":      commande,
-                "année":         entry["année"],
-                "nombre_options": entry["nombre_options"],
-                "version":       entry["version"],
-            })
+            row[str(entry["année"])] = entry["nombre_options"]
+            all_years.add(entry["année"])
 
+        all_rows.append(row)
         print(f"  → {len(yearly)} années enregistrées ({yearly[0]['année']}–{yearly[-1]['année']})")
 
     if all_rows:
-        out_df = pd.DataFrame(all_rows, columns=["programme", "commande", "année", "nombre_options", "version"])
+        year_cols = [str(year) for year in sorted(all_years)]
+        columns = ["programme", "commande"] + year_cols
+        out_df = pd.DataFrame(all_rows, columns=columns)
         out_df.to_csv(args.output, index=False)
-        print(f"\n✓ {len(all_rows)} lignes écrites dans '{args.output}'")
+        print(f"\n✓ {len(all_rows)} programmes écrits dans '{args.output}'")
     else:
         print("\nAucun résultat à écrire.")
 
@@ -202,7 +205,7 @@ def build_parser() -> argparse.ArgumentParser:
         help="Nombre d'options de la dernière version de chaque programme",
     )
     p_latest.add_argument("--csv-dir", default="csv",                 help="Dossier CSV source (défaut: csv)")
-    p_latest.add_argument("--output",  default="latest_options.csv",  help="CSV de sortie (défaut: latest_options.csv)")
+    p_latest.add_argument("--output",  default="latest.csv",  help="CSV de sortie (défaut: latest.csv)")
     p_latest.add_argument("--failed",  default="failed_programs.txt", help="Fichier des échecs (défaut: failed_programs.txt)")
 
     # -- by-year --
@@ -211,7 +214,7 @@ def build_parser() -> argparse.ArgumentParser:
         help="Nombre d'options par année pour chaque programme",
     )
     p_year.add_argument("--csv-dir", default="csv",                help="Dossier CSV source (défaut: csv)")
-    p_year.add_argument("--output",  default="options_by_year.csv", help="CSV de sortie (défaut: options_by_year.csv)")
+    p_year.add_argument("--output",  default="history.csv", help="CSV de sortie (défaut: history.csv)")
     p_year.add_argument("--since",   type=int, default=2005,       help="Année de départ (défaut: 2005)")
 
     return parser
