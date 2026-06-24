@@ -1,159 +1,57 @@
-## Suivi Projet Artishow
-## 15 Février 2026 (S0)
-Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puisse nous introduire le projet et nous expliquer ce qu'on doit réaliser.
+# Suivi du projet Options in the Wild
 
-## 16 Février 2026
-*Théophile* : Premier code permettant d'éxécuter pour un programme donné la commande "--help" dans le terminal et de copier la réponse dans un fichier temporaire.
+Ce fichier récapitule les réunions, décisions, travaux réalisés et objectifs du projet. Il est organisé par ordre chronologique.
 
+## Février 2026
 
-## 20 Février 2026 (S1)
-*Tout le monde* : Entretien pour présenter notre première version du planning.
-- Baptiste: 
-    - Ajout du planning au format gantt
+### 15 février 2026 - S0
 
-## 16 mars 2026
-*Tout le monde* : Entretien pour présenter notre première version du compteur
-- Choix de la stratégie de comptage
-- Création d'un document pour instaurer les règles de comptage pour les futurs clients
+**Réunion**
 
+- Rencontre en présentiel avec Xhevahire TËRNAVA à Télécom.
+- Introduction du sujet et clarification des attentes du projet.
 
-## Objectifs prochaine séance
-- Diversification 
-- Début de visualisation du nombre d'options
+### 16 février 2026
 
-## 2 Avril 2026
-- Baptiste : 
-    - Code capable de compter les programmes de base (ls,cat, grep, sed, sort...) avec la commande help 
-- Objectif: améliorer le code pour compter le nombre d'options avec des programmes utilisant autre chose que help
+**Travail réalisé**
 
-## 14 Avril 2026
-- Yoan: Implémentation d'une interface graphique simple pour tester le code 
-- Les codes code_final.py et code_v2.py fonctionnent pour des programmes usuels
-- Objectifs prochaine séance: faire une documentation qui regroupe les sources et tout un tas d'explication, ajouter des features à l'interface graphique (détails, graphes crhonologiques, graphe option actuelle), faire un readme pour users 
+- Théophile : premier code permettant d'exécuter `--help` pour un programme donné et de copier la sortie dans un fichier temporaire.
 
-## 20 Avril 2026
-- Baptiste: 
-    - Tests du code code_final.py 
-    - Ajout de l'option -usage
+### 20 février 2026 - S1
 
-- Implémentation d'une solution pour renvoyer un fichier csv pour les futurs tracés
+**Réunion**
 
-## 28 Avril 2026
-- Yoan: modification visuelle de l'interface, réflexion sur la manière d'intégrer des graphiques à l'interface
+- Présentation de la première version du planning.
 
-## 1 Mai 2026
-- Yoan: création d'un fichier test test_graph.py pour tracer le nombre d'options en fonction des programmes testés 
+**Travail réalisé**
 
-## 4 Mai 2026
--Yoan: succès du tracer pour le code test_graph.py, implémentation du tracer dans l'interface avec comparaison de quelques programmes usuels. Il semble qu'il y ait un problème avec le nombre d'options (cela n'affiche pas la totalité du nombre d'options).
+- Baptiste : ajout du planning au format Gantt.
 
-## 5 Mai 2026
--Baptiste: 
-    - Ajout interface numero 2 
-    - Amelioration de code_v2 et code_final : prise en compte des aides -h all et --help full
+## Mars 2026
 
-## 13 Mai 2026
-- Baptiste:
-    - Restructuration complete du git selon les conseils de l'encadrante.
-- Théophile:
-    - Ajout source
-    - Début programme pour tracer le graphique de l'évolution temporelle du nombre d'options d'un programme
+### 16 mars 2026
 
-*Tout le monde* : Réunion avec Xhevahire TËRNAVA en présentiel à Télécom pour discuter de l'avancement.
-    => Feedbacks :
-        - Bonne interface et graph
-        - Il faut adapter notre algorithme aux programmes qui nécessitent -h full (ex. curl, ...), réfléchir à quoi considérer comme une option (avec les espaces ou dash avant le nom de l'option)
-        - Focus d'abord sur certains programmes à analyser en profondeur avant d'automatiser tout notre algorithme
-        - Tirer des static data (nos résultats qu'on a trouvé) et des dynamic data
-        - Il faut mieux structurer notre projet et notre git (/src/.py et /src/.sh puis /src/script/version....py , /data/.csv , /docs, /codebases/curl et /codebases/cat etc, /analysis-visualisations_UI, presentations/)
-        - Ne pas analyser les programmes installés
-        - Pour Baptiste : télécharger la dernière version de certains programmes et travailler dessus en documentant dans /docs la version, le repo git, etc (CLOC)
-        - Split les tâches pour le poster de présentation
+**Réunion**
 
-*Objectifs pour la prochaine séance :* Adapter notre algorithme pour les programmes qui nécessitent "-h full" et renvoient une liste d'options sans dash.
+- Présentation de la première version du compteur.
 
-## 21 Mai 2026
-- Baptiste:
-    - Renommage et modification des scripts python selon les conseils de l'encadrante.
+**Décisions**
 
-## 26 Mai 2026
-*Tout le monde* : Présentation de notre projet devant d'autres élèves.
-=> Feedbacks des audits : https://grist.r2.enst.fr/o/docs/dxB11dMKKnN4/Artishow-2026/p/16
+- Choix de la stratégie de comptage.
+- Création d'un document de règles de comptage pour les futurs utilisateurs.
 
-## 6 Juin 2026
-- Yoan :
-    - Ajout d'une page statique pour la présentation du projet
-- Baptiste :
-    - Amelioration du regex dans le script compteur
-- Théophile :
-    - Début affiche de présentation du projet avec réflexion sur le contenu et la mise en page
-    => https://canva.link/iry1ais1wmsqqi1 
+**Objectifs**
 
-## 9 Juin 2026
-- Yoan :
-    - Modif de interface2.py pour adopter le nouveau code compteur 
-    - Modif de graph.py pour adopter le nouveau code compteur
-    - Modif de la page statique: 3 menus disponibles (pour l'insant vides) à compléter pour les prochaines séances
-- Loïs :
-    - Création de fichiers csv pour des dizaines de programme de Coreutils contenant le nombre d'options en fonction de la version du programme
-- Théophile et Loïs : 
-    - Tracer le graphe d'évolution temporelle du nombre d'options pour plusieurs programmes (à vérifier avec la prof encadrante car il n'y a pas vraiment d'augmentation globalement)
+- Diversifier les programmes testés.
+- Commencer la visualisation du nombre d'options.
 
-## 10 Juin 2026
-*Tout le monde* : Réunion avec Xhevahire TËRNAVA en présentiel à Télécom
-    - Présentation du programme qui permet de download toutes les versions disponibles et créer le fichier csv avec le nombre d'options selon la version.
-    - Présentation de la modif du code du compteur (modif REGEX)
-    - Présentation des 2 graphes 
-    - Présentation du début du poster
-    - Présentation de la page statique
-    - Feedbacks : 
-        - Essayer le programme avec ffmpeg
-        - Ne pas mettre un tableau sur le poster
-        - Moins de texte
-        - Vendre le projet en disant que c'est le premier outil de ce genre, que c'est super utile
-        - Finir le poster en se posant la question du nombre d'option dans le futur avec l'usage de l'IA qui facilite la programmation
-        - Pour l'évolution faire une moyenne de l'augmentation du nombre d'options dans le temps 
-        - Sur la page statique faire un menu qui propose 2 choses: un outils statique qui permet de rentrer un programme et une version puis renvoie le nombre d'options (en s'appuyant sur notre base de données), ainsi que la possibilité de télécharger notre outils dynamique ainsi qu'un readme pour dire aux utilisateurs comment run notre programme. 
-    - Objectifs:
-        - Loïs: implémenter toybox
-        - Baptiste: aider à rendre le programme dynamique et remplir la base de données des csv files (pour l'outils statique)
-        - Yoan: intégrer les 2 outils dans la page statique (outils statique et dynamique). Faire un menu avec: côté dynamique (proposer le download de l'outil avec readme), côté "pick" (faire un outils où on rentre le nom du programme, l'implémentation (TOYBOX, GNU, BUSYBOX)), côté history (visuels sur l'évolution du nomnbre d'options), côté "about" (poster, pdf expliquant le projet).
-        - Théophile: modifier le poster pour le rendre plus lisible/attractif
-### Travail effectué
-- Baptiste : 
-    - Création de programme créant le fichier zip
-    - Création de la page HTML "téléchargement" pour le site
+## Avril 2026
 
-## 22 Juin 2026
-*Tout le monde* : Réunion avec Xhevahire TËRNAVA en présentiel à Télécom
-    - Objectifs d'ici la fin de semaine : 
-        -   Finir la static page pour qu'elle présente nos résultats et les télécharger dans un fichier .csv, le fonctionnement et permette de télécharger l'outil dans un fichier .zip
-        - Créer un csv avec les données historiques et un csv avce les résultats de la dernière version (exclure les programmes pour lesquels l'outil n'a pas fonctionné ou alors qui ont 0 option). Supprimer tous les csv propres à chaque fichier
-        - Enumérer dans les technical details les programmes qu'on a test et énumérer ceux pour lesquels l'outil n'a pas fonctionné
-        - Préparer la présentation orale + démo (devant les jurys le 26 juin) pour le 25 juin (présentation devant l'encadrante)
-        - Clean le fichier de suivi et l'organiser 
-        - Clean le git
-        
-    - A faire pour la prochaine réunion du 24 juin : 
-        - Finir Static Page
-        - Créer fichiers csv (23 juin minuit)
-        - Réfléchir à la technical demonstration
+### 2 avril 2026
 
-    - Baptiste :
-        - Fix d'un bug du telechargement du fichier zip
-        - Rajout de la page telechargement sur la static page (qui avait été momentanément supprimé)
-    - Yoan : 
-        - Modification de la static page pour accueillir les 3 options: Outil de recherche, téléchargement et présentation des résultats
-## 23 Juin 2026
-    - Baptiste :
-        - Ecriture du pdf : technical details
-        - Ajout de celui ci sur la static page
-    - Théophile : 
-        - Ajout du programme data/create_csv pour créer un csv "latest" avec le nombre d'options de chaque dernière version des programmes ou un csv "history" donnant pour chaque programme le nombre d'option par année
-        - Création du csv "latest" et "history" à partir de la base de données établies dans le dossier csv
-        - Création du fichier texte "failed_programs.txt" qui répertorie les programmes pour lesquels on ne parvient pas à déterminer le nombre d'options avec notre outil
-    - Yoan : modification de la bibliographie en vue de l'implémenter sur la page statique
+**Travail réalisé**
 
+<<<<<<< HEAD
 ## 24 Juin 2026
 *Tout le monde* : Réunion avec Xhevahire TËRNAVA en présentiel à Télécom
     - Objectifs pour le 25 juin :
@@ -165,3 +63,219 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
 ### Travail effectué
     - Yoan :
         - Moification des graphes sur la static page 
+=======
+- Baptiste : code capable de compter les options de programmes usuels (`ls`, `cat`, `grep`, `sed`, `sort`, etc.) à partir de la commande d'aide.
+
+**Objectif**
+
+- Améliorer le compteur pour les programmes qui utilisent autre chose que `--help`.
+
+### 14 avril 2026
+
+**Travail réalisé**
+
+- Yoan : implémentation d'une interface graphique simple pour tester le compteur.
+- Les fichiers `code_final.py` et `code_v2.py` fonctionnent pour plusieurs programmes usuels.
+
+**Objectifs**
+
+- Rédiger une documentation regroupant les sources et les explications.
+- Ajouter des fonctionnalités à l'interface graphique : détails, graphes chronologiques, graphe des options actuelles.
+- Rédiger un README utilisateur.
+
+### 20 avril 2026
+
+**Travail réalisé**
+
+- Baptiste : tests de `code_final.py`.
+- Baptiste : ajout de la prise en charge de l'option `-usage`.
+- Mise en place d'une solution pour générer un fichier CSV utilisable dans les futurs tracés.
+
+### 28 avril 2026
+
+**Travail réalisé**
+
+- Yoan : modifications visuelles de l'interface.
+- Yoan : réflexion sur l'intégration de graphiques dans l'interface.
+
+## Mai 2026
+
+### 1 mai 2026
+
+**Travail réalisé**
+
+- Yoan : création de `test_graph.py` pour tracer le nombre d'options en fonction des programmes testés.
+
+### 4 mai 2026
+
+**Travail réalisé**
+
+- Yoan : premier tracé fonctionnel avec `test_graph.py`.
+- Yoan : intégration du tracé dans l'interface avec comparaison de quelques programmes usuels.
+
+**Problème identifié**
+
+- Le nombre d'options affiché semble incomplet pour certains programmes.
+
+### 5 mai 2026
+
+**Travail réalisé**
+
+- Baptiste : ajout d'une seconde interface.
+- Baptiste : amélioration de `code_v2` et `code_final` avec prise en compte de `-h all` et `--help full`.
+
+### 13 mai 2026
+
+**Travail réalisé**
+
+- Baptiste : restructuration complète du dépôt Git selon les conseils de l'encadrante.
+- Théophile : ajout de sources.
+- Théophile : début du programme de visualisation de l'évolution temporelle du nombre d'options.
+
+**Réunion**
+
+- Réunion en présentiel avec Xhevahire TËRNAVA à Télécom.
+
+**Retours**
+
+- L'interface et les graphes sont encourageants.
+- Adapter l'algorithme aux programmes nécessitant `-h full`, comme `curl`.
+- Clarifier ce qui doit être considéré comme une option, notamment pour les options avec espaces ou tirets.
+- Commencer par analyser certains programmes en profondeur avant de chercher à tout automatiser.
+- Produire des données statiques issues des résultats obtenus, en plus des données dynamiques.
+- Mieux structurer le projet : `src/`, `data/`, `docs/`, `codebases/`, analyses, visualisations, interface et présentations.
+- Ne pas analyser les programmes installés localement.
+- Documenter les versions téléchargées, les dépôts Git et les mesures associées.
+- Répartir les tâches pour le poster.
+
+**Objectif**
+
+- Adapter le compteur aux programmes dont l'aide complète ne renvoie pas forcément une liste d'options commençant par un tiret.
+
+### 21 mai 2026
+
+**Travail réalisé**
+
+- Baptiste : renommage et modification des scripts Python selon les conseils de l'encadrante.
+
+### 26 mai 2026
+
+**Présentation**
+
+- Présentation du projet devant d'autres élèves.
+- Retours d'audit : https://grist.r2.enst.fr/o/docs/dxB11dMKKnN4/Artishow-2026/p/16
+
+## Juin 2026
+
+### 6 juin 2026
+
+**Travail réalisé**
+
+- Yoan : ajout d'une page statique de présentation du projet.
+- Baptiste : amélioration des expressions régulières dans le compteur.
+- Théophile : début de l'affiche de présentation, avec réflexion sur le contenu et la mise en page.
+- Lien Canva : https://canva.link/iry1ais1wmsqqi1
+
+### 9 juin 2026
+
+**Travail réalisé**
+
+- Yoan : adaptation de `interface2.py` au nouveau compteur.
+- Yoan : adaptation de `graph.py` au nouveau compteur.
+- Yoan : modification de la page statique avec trois menus à compléter.
+- Loïs : création de CSV pour plusieurs dizaines de programmes Coreutils, avec le nombre d'options selon la version.
+- Théophile et Loïs : tracé de l'évolution temporelle du nombre d'options pour plusieurs programmes.
+
+**Point à vérifier**
+
+- Les graphes ne montrent pas forcément d'augmentation globale nette ; ce point doit être discuté avec l'encadrante.
+
+### 10 juin 2026
+
+**Réunion**
+
+- Réunion en présentiel avec Xhevahire TËRNAVA à Télécom.
+
+**Présentations**
+
+- Programme de téléchargement des versions disponibles et génération des CSV historiques.
+- Modification du compteur et des expressions régulières.
+- Deux premiers graphes.
+- Début du poster.
+- Page statique.
+
+**Retours**
+
+- Tester le programme avec `ffmpeg`.
+- Éviter les tableaux dans le poster.
+- Réduire la quantité de texte.
+- Mieux valoriser le projet comme un outil original et utile.
+- Conclure le poster sur l'évolution future du nombre d'options, notamment avec l'usage de l'IA.
+- Pour l'évolution, calculer une moyenne de l'augmentation du nombre d'options dans le temps.
+- Sur la page statique, proposer :
+  - un outil statique pour rechercher un programme, une implémentation et une version ;
+  - le téléchargement de l'outil dynamique ;
+  - un README expliquant comment exécuter l'outil.
+
+**Objectifs attribués**
+
+- Loïs : intégrer Toybox.
+- Baptiste : aider à rendre le programme dynamique et remplir la base de CSV pour l'outil statique.
+- Yoan : intégrer les outils dans la page statique.
+- Théophile : rendre le poster plus lisible et plus attractif.
+
+**Travail réalisé après réunion**
+
+- Baptiste : création du programme générant le fichier ZIP.
+- Baptiste : création de la page HTML de téléchargement.
+
+### 22 juin 2026
+
+**Réunion**
+
+- Réunion en présentiel avec Xhevahire TËRNAVA à Télécom.
+
+**Objectifs de fin de semaine**
+
+- Finaliser la page statique avec présentation des résultats, téléchargement des données CSV et téléchargement de l'outil ZIP.
+- Créer un CSV historique et un CSV des dernières versions.
+- Exclure les programmes pour lesquels l'outil échoue ou détecte zéro option.
+- Supprimer les CSV individuels si les fichiers agrégés suffisent.
+- Énumérer dans les détails techniques les programmes testés et ceux pour lesquels l'outil n'a pas fonctionné.
+- Préparer la présentation orale et la démonstration pour le jury du 26 juin.
+- Nettoyer le fichier de suivi.
+- Nettoyer le dépôt Git.
+
+**Objectifs pour le 24 juin**
+
+- Finaliser la page statique.
+- Créer les CSV agrégés.
+- Préparer la démonstration technique.
+
+**Travail réalisé**
+
+- Baptiste : correction d'un bug dans le téléchargement du fichier ZIP.
+- Baptiste : réintégration de la page de téléchargement dans la page statique.
+- Yoan : modification de la page statique pour accueillir trois sections : recherche, téléchargement et présentation des résultats.
+
+### 23 juin 2026
+
+**Travail réalisé**
+
+- Baptiste : rédaction du PDF de détails techniques.
+- Baptiste : ajout du PDF sur la page statique.
+- Théophile : ajout de `data/create_csv.py` pour générer :
+  - un CSV `latest` avec le nombre d'options des dernières versions ;
+  - un CSV `history` avec le nombre d'options par année.
+- Théophile : génération des fichiers `latest` et `history` depuis les CSV du dossier `csv`.
+- Théophile : création de `failed_programs.txt`, qui liste les programmes pour lesquels le nombre d'options n'a pas pu être déterminé.
+- Yoan : modification de la bibliographie pour l'intégrer à la page statique.
+
+### 24 juin 2026
+
+**Travail réalisé**
+
+- Yoan : modification des graphes sur la page statique.
+- Intégration des données de recherche du site dans un fichier JavaScript dédié.
+- Correction du déploiement pour que les scripts de recherche et les données du site soient copiés dans `public/`.
+>>>>>>> e39e151 (Clarifie le fichier de suivi)
