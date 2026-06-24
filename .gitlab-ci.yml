@@ -9,7 +9,9 @@ build_site:
     - mkdir public
     - cp site/index.html public/
     - cp site/telecharger.html public/
-    - cp -r data public/
+    - cp site/search.js public/       # Copy the .js script
+    - cp -r site/data public/         # Copy site/data first
+    - cp -r data/* public/data/       # Then overlay root data (merges directories)
     - cp -r downloads public/
     - cp "docs/technical_details.pdf" public/
     - sed -i 's|src="../data/|src="data/|g' public/index.html

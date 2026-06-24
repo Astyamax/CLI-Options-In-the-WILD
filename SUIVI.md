@@ -93,7 +93,7 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
 - Yoan :
     - Modif de interface2.py pour adopter le nouveau code compteur 
     - Modif de graph.py pour adopter le nouveau code compteur
-    - Modif de la page statique
+    - Modif de la page statique: 3 menus disponibles (pour l'insant vides) à compléter pour les prochaines séances
 - Loïs :
     - Création de fichiers csv pour des dizaines de programme de Coreutils contenant le nombre d'options en fonction de la version du programme
 - Théophile et Loïs : 
@@ -142,7 +142,8 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
     - Baptiste :
         - Fix d'un bug du telechargement du fichier zip
         - Rajout de la page telechargement sur la static page (qui avait été momentanément supprimé)
-
+    - Yoan : 
+        - Modification de la static page pour accueillir les 3 options: Outil de recherche, téléchargement et présentation des résultats
 ## 23 Juin 2026
     - Baptiste :
         - Ecriture du pdf : technical details
@@ -151,3 +152,16 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
         - Ajout du programme data/create_csv pour créer un csv "latest" avec le nombre d'options de chaque dernière version des programmes ou un csv "history" donnant pour chaque programme le nombre d'option par année
         - Création du csv "latest" et "history" à partir de la base de données établies dans le dossier csv
         - Création du fichier texte "failed_programs.txt" qui répertorie les programmes pour lesquels on ne parvient pas à déterminer le nombre d'options avec notre outil
+    - Yoan : modification de la bibliographie en vue de l'implémenter sur la page statique
+
+## 24 Juin 2026
+*Tout le monde* : Réunion avec Xhevahire TËRNAVA en présentiel à Télécom
+    - Objectifs pour le 25 juin :
+        - Rajouter la bibliographie sur le pdf de présentation 
+        - Reprendre un peu la strucuture du pdf de présentation
+        - Clean le projet
+        - Analyser la complexité de quelques programmes
+        - Préparer une sorte de teaser 
+### Travail effectué
+    - Yoan :
+        - Moification des graphes sur la static page 
