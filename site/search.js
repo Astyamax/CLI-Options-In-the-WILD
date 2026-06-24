@@ -1,6 +1,8 @@
 "use strict";
 
-const OPTIONS_HISTORY = window.OPTIONS_HISTORY || [];
+const OPTIONS_HISTORY = Array.isArray(window.OPTIONS_HISTORY)
+    ? window.OPTIONS_HISTORY
+    : [];
 
 const ENV_LABELS = {
     coreutils: "Coreutils",
@@ -168,5 +170,15 @@ programInput.addEventListener("input", updateVersions);
 environmentSelect.addEventListener("change", updateVersions);
 versionSelect.addEventListener("change", showResult);
 
-resetVersions("Choisissez d'abord un programme");
-statusText.textContent = `${OPTIONS_HISTORY.length} programmes disponibles.`;
+function initializeSearch() {
+    if (OPTIONS_HISTORY.length === 0) {
+        resetVersions("Historique indisponible");
+        statusText.textContent = "Donnees du site indisponibles : data/options-history.js n'est pas charge.";
+        return;
+    }
+
+    resetVersions("Choisissez d'abord un programme");
+    statusText.textContent = `${OPTIONS_HISTORY.length} programmes disponibles.`;
+}
+
+initializeSearch();
