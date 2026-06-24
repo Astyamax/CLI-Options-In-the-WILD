@@ -51,7 +51,6 @@ Ce fichier récapitule les réunions, décisions, travaux réalisés et objectif
 
 **Travail réalisé**
 
-<<<<<<< HEAD
 ## 24 Juin 2026
 *Tout le monde* : Réunion avec Xhevahire TËRNAVA en présentiel à Télécom
     - Objectifs pour le 25 juin :
@@ -63,7 +62,7 @@ Ce fichier récapitule les réunions, décisions, travaux réalisés et objectif
 ### Travail effectué
     - Yoan :
         - Moification des graphes sur la static page 
-=======
+
 - Baptiste : code capable de compter les options de programmes usuels (`ls`, `cat`, `grep`, `sed`, `sort`, etc.) à partir de la commande d'aide.
 
 **Objectif**
@@ -278,4 +277,5 @@ Ce fichier récapitule les réunions, décisions, travaux réalisés et objectif
 - Yoan : modification des graphes sur la page statique.
 - Intégration des données de recherche du site dans un fichier JavaScript dédié.
 - Correction du déploiement pour que les scripts de recherche et les données du site soient copiés dans `public/`.
->>>>>>> e39e151 (Clarifie le fichier de suivi)
+- Baptiste : Ajout de la bibliographie sur le pdf : technical_details.pdf
+- Baptiste : Suppresions de fichier pour nettoyer le git
