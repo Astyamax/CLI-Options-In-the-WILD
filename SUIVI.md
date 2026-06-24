@@ -155,5 +155,13 @@ Entretien avec Xhevahire TËRNAVA en présentiel à Télécom pour qu'elle puiss
     - Yoan : modification de la bibliographie en vue de l'implémenter sur la page statique
 
 ## 24 Juin 2026
+*Tout le monde* : Réunion avec Xhevahire TËRNAVA en présentiel à Télécom
+    - Objectifs pour le 25 juin :
+        - Rajouter la bibliographie sur le pdf de présentation 
+        - Reprendre un peu la strucuture du pdf de présentation
+        - Clean le projet
+        - Analyser la complexité de quelques programmes
+        - Préparer une sorte de teaser 
+### Travail effectué
     - Yoan :
         - Moification des graphes sur la static page 
