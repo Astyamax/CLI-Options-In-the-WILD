@@ -264,9 +264,9 @@
 
     <nav class="navbar">
         <a href="#recherche">🔍 Outil de Recherche</a>
-        <a href="#telechargement">⬇️ Téléchargements</a>
-        <a href="#resultats">📈 Résultats</a>
         <a href="#presentation">▶️ Présentation</a>
+        <a href="#resultats">📈 Résultats</a>
+        <a href="#telechargement">⬇️ Téléchargements</a>
     </nav>
 
     <div class="container">
@@ -330,25 +330,28 @@
             </div>
         </section>
 
-        <section id="telechargement" class="card">
-            <h2>Ressources à télécharger</h2>
-            <p>Téléchargez l'interface graphique Python, les données CSV ou le poster scientifique du projet.</p>
+        <section id="presentation" class="card">
+            <h2>▶️ Présentation</h2>
 
-            <p><strong>Interface graphique</strong> — analysez dynamiquement le nombre d'options d'un programme en ligne de commande.</p>
-            <a href="telecharger.html" class="btn btn-blue">
-                ⬇ Page de téléchargement de l'interface
-            </a>
+            <h3 style="color:#2c3e50; margin-bottom:10px;">Vidéo de présentation</h3>
+            <video class="video-frame" controls preload="metadata">
+                <source src="data/options-in-the-wild.mp4" type="video/mp4">
+                Votre navigateur ne peut pas lire cette vidéo.
+            </video>
 
-            <hr style="margin: 24px 0; border: 1px solid #eee;">
+            <hr style="margin: 36px 0; border: 1px solid #eee;">
 
-            <p><strong>Données CSV</strong> — historique des versions et dernières mesures pour tous les programmes analysés.</p>
-            <a href="data/csv.zip" class="btn btn-blue" download>
-                ⬇ Télécharger les CSV (.zip)
-            </a>
+            <h3 style="color:#2c3e50; margin-bottom:10px;">Rapport de recherche</h3>
+            <p>Détail de la méthodologie de l'analyse dynamique des interfaces en ligne de commande.</p>
+            <iframe class="pdf-viewer" src="../docs/technical_details.pdf" title="Présentation PDF"></iframe>
+            <p style="text-align: center;">
+                <em>Si le PDF ne s'affiche pas, <a href="../docs/technical_details.pdf" download>cliquez ici pour le télécharger</a>.</em>
+            </p>
 
-            <hr style="margin: 24px 0; border: 1px solid #eee;">
+            <hr style="margin: 36px 0; border: 1px solid #eee;">
 
-            <p><strong>Poster scientifique</strong> — présentation de la méthodologie et des résultats principaux.</p>
+            <h3 style="color:#2c3e50; margin-bottom:10px;">Poster scientifique</h3>
+            <p>Aperçu visuel de la présentation de la méthodologie et des résultats principaux.</p>
             <iframe class="pdf-viewer" src="data/poster-CLI-options-in-the-wild.pdf" title="Poster CLI Options in the Wild"></iframe>
             <p style="text-align: center; margin-top: 12px;">
                 <a href="data/poster-CLI-options-in-the-wild.pdf" class="btn" download>
@@ -376,39 +379,27 @@
                 <h3 style="margin: 40px 0 8px;">15 programmes &mdash; Boxplot</h3>
                 <img class="graph-img" src="../data/figures/latest_15_programmes_boxplot.png"
                     alt="15 programmes boxplot">
-
-                <h3 style="margin: 40px 0 8px;">Tous les programmes &mdash; Violin plot</h3>
-                <img class="graph-img" src="../data/figures/latest_all_programmes_violinplot.png"
-                    alt="Tous les programmes violin plot">
-
-                <h3 style="margin: 40px 0 8px;">Options par année</h3>
-                <img class="graph-img" src="../data/figures/options_par_annee.png"
-                    alt="Options par année">
-
-                <h3 style="margin: 40px 0 8px;">Comparaison générale</h3>
-                <img class="graph-img" src="../data/figures/comparaison.png"
-                    alt="Comparaison générale">
             </div>
         </section>
 
-        <section id="presentation" class="card">
-            <h2>▶️ Présentation</h2>
+        <section id="telechargement" class="card">
+            <h2>Ressources à télécharger</h2>
+            <p>Téléchargez l'interface graphique Python ou les données CSV du projet.</p>
 
-            <h3 style="color:#2c3e50; margin-bottom:10px;">Vidéo de présentation</h3>
-            <video class="video-frame" controls preload="metadata">
-                <source src="data/options-in-the-wild.mp4" type="video/mp4">
-                Votre navigateur ne peut pas lire cette vidéo.
-            </video>
+            <p><strong>Interface graphique</strong> — analysez dynamiquement le nombre d'options d'un programme en ligne de commande.</p>
+            <a href="telecharger.html" class="btn btn-blue">
+                ⬇ Page de téléchargement de l'interface
+            </a>
 
-            <hr style="margin: 36px 0; border: 1px solid #eee;">
+            <hr style="margin: 24px 0; border: 1px solid #eee;">
 
-            <h3 style="color:#2c3e50; margin-bottom:10px;">Rapport de recherche</h3>
-            <p>Détail de la méthodologie de l'analyse dynamique des interfaces en ligne de commande.</p>
-            <iframe class="pdf-viewer" src="../docs/technical_details.pdf" title="Présentation PDF"></iframe>
-            <p style="text-align: center;">
-                <em>Si le PDF ne s'affiche pas, <a href="../docs/technical_details.pdf" download>cliquez ici pour le télécharger</a>.</em>
-            </p>
+            <p><strong>Données CSV</strong> — historique des versions et dernières mesures pour tous les programmes analysés.</p>
+            <a href="data/csv.zip" class="btn btn-blue" download>
+                ⬇ Télécharger les CSV (.zip)
+            </a>
         </section>
+
+
 
     </div>
     <script src="data/options-history.js?v=20260624-public-assets"></script>
