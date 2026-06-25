@@ -284,4 +284,7 @@ Ce fichier récapitule les réunions, décisions, travaux réalisés et objectif
 
 **Travail réalisé**
 
-- Yoan : ajout des logos utilisés pour le poster 
+- Yoan : ajout des logos utilisés pour le poster
+- Baptiste : ajout poster sur le site
+- Baptiste : Refonte de la naviguation du site web
+
