@@ -282,10 +282,15 @@ Ce fichier récapitule les réunions, décisions, travaux réalisés et objectif
 
 ### 25 juin 2026
 
+**Réunion**
+
+- Réunion en présentiel avec Xhevahire TËRNAVA à Télécom.
+- Discussion sur la présentation pour la journée de vendredi 
+- Derniers conseils pour la page statique 
 
 **Travail réalisé**
 
-- Yoan : ajout des logos utilisés pour le poster, modification de graphes pour le site
+- Yoan : ajout des logos utilisés pour le poster, modification de graphes pour le site, modification de la vidéo teaser
 - Baptiste : ajout poster sur le site
 - Baptiste : Refonte de la naviguation du site web
 
