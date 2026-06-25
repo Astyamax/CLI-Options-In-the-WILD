@@ -3,6 +3,96 @@
 window.OPTIONS_HISTORY = [
     {
         "aliases": [
+            "./curl",
+            "curl"
+        ],
+        "environment": "autre",
+        "name": "curl",
+        "versions": {
+            "2022": 316,
+            "2023": 325,
+            "2024": 333,
+            "2025": 340,
+            "2026": 341
+        }
+    },
+    {
+        "aliases": [
+            "./ffmpeg",
+            "ffmpeg"
+        ],
+        "environment": "autre",
+        "name": "ffmpeg",
+        "versions": {
+            "2019": 874,
+            "2021": 932,
+            "2022": 951,
+            "2023": 977,
+            "2024": 983
+        }
+    },
+    {
+        "aliases": [
+            "./git",
+            "git"
+        ],
+        "environment": "autre",
+        "name": "git",
+        "versions": {
+            "2022": 20,
+            "2023": 22,
+            "2024": 25,
+            "2025": 25,
+            "2026": 25
+        }
+    },
+    {
+        "aliases": [
+            "./nano",
+            "nano"
+        ],
+        "environment": "autre",
+        "name": "nano",
+        "versions": {
+            "2022": 112,
+            "2023": 112,
+            "2024": 117,
+            "2025": 117,
+            "2026": 119
+        }
+    },
+    {
+        "aliases": [
+            "./sqlite3",
+            "sqlite3"
+        ],
+        "environment": "autre",
+        "name": "sqlite3",
+        "versions": {
+            "2022": 45,
+            "2023": 48,
+            "2024": 51,
+            "2025": 54,
+            "2026": 56
+        }
+    },
+    {
+        "aliases": [
+            "./vim",
+            "vim"
+        ],
+        "environment": "autre",
+        "name": "vim",
+        "versions": {
+            "2022": 42,
+            "2023": 42,
+            "2024": 42,
+            "2025": 54,
+            "2026": 54
+        }
+    },
+    {
+        "aliases": [
             "./basename",
             "basename"
         ],
@@ -2609,21 +2699,6 @@ window.OPTIONS_HISTORY = [
             "2024": 2,
             "2025": 2,
             "2026": 3
-        }
-    },
-    {
-        "aliases": [
-            "./ffmpeg",
-            "ffmpeg"
-        ],
-        "environment": "autre",
-        "name": "ffmpeg",
-        "versions": {
-            "2019": 874,
-            "2021": 932,
-            "2022": 951,
-            "2023": 977,
-            "2024": 983
         }
     },
     {
