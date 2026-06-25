@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,9 +23,10 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             text-align: center;
         }
+
         .navbar a {
             color: white;
             text-decoration: none;
@@ -34,6 +36,7 @@
             border-radius: 5px;
             transition: background-color 0.3s;
         }
+
         .navbar a:hover {
             background-color: #4ECDC4;
             color: #2c3e50;
@@ -52,16 +55,32 @@
             border-bottom: 2px solid #4ECDC4;
             margin-bottom: 40px;
         }
-        h1 { color: #2c3e50; font-size: 2.5em; margin-bottom: 10px; }
-        h2 { color: #2c3e50; border-left: 4px solid #FF6B6B; padding-left: 10px; margin-top: 40px; }
-        .subtitle { color: #7f8c8d; font-size: 1.2em; font-style: italic; }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            border-left: 4px solid #FF6B6B;
+            padding-left: 10px;
+            margin-top: 40px;
+        }
+
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            font-style: italic;
+        }
 
         /* Style des boîtes (cartes) */
         .card {
             background: white;
             border-radius: 8px;
             padding: 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             margin-bottom: 30px;
         }
 
@@ -75,40 +94,50 @@
             border-radius: 8px;
             align-items: end;
         }
+
         .form-group {
             display: flex;
             flex-direction: column;
         }
+
         .form-group label {
             font-weight: bold;
             margin-bottom: 5px;
             color: #2c3e50;
         }
-        .form-group input, .form-group select {
+
+        .form-group input,
+        .form-group select {
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
             font-size: 1em;
             background: white;
         }
-        .form-group input:disabled, .form-group select:disabled {
+
+        .form-group input:disabled,
+        .form-group select:disabled {
             background: #e9edf3;
             color: #6b7280;
             cursor: not-allowed;
         }
+
         .form-group.full-width {
             grid-column: span 2;
         }
+
         .form-actions {
             display: flex;
             align-items: center;
             gap: 12px;
         }
+
         .search-status {
             color: #5f6c7b;
             font-size: 0.95em;
             margin: 18px 0 0;
         }
+
         .search-result {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -120,12 +149,15 @@
             border-radius: 8px;
             background: #ffffff;
         }
+
         .search-result[hidden] {
             display: none;
         }
+
         .result-item {
             min-width: 0;
         }
+
         .result-label {
             display: block;
             color: #667085;
@@ -134,6 +166,7 @@
             text-transform: uppercase;
             letter-spacing: 0.04em;
         }
+
         .result-value {
             display: block;
             color: #1f2937;
@@ -141,6 +174,7 @@
             font-weight: 700;
             overflow-wrap: anywhere;
         }
+
         .result-value.large {
             color: #FF6B6B;
             font-size: 1.65em;
@@ -162,9 +196,19 @@
             transition: background-color 0.3s;
             text-align: center;
         }
-        .btn:hover { background-color: #ff5252; }
-        .btn-blue { background-color: #4ECDC4; color: #2c3e50; }
-        .btn-blue:hover { background-color: #45b7af; }
+
+        .btn:hover {
+            background-color: #ff5252;
+        }
+
+        .btn-blue {
+            background-color: #4ECDC4;
+            color: #2c3e50;
+        }
+
+        .btn-blue:hover {
+            background-color: #45b7af;
+        }
 
         /* Visionneuse PDF et images */
         .pdf-viewer {
@@ -174,6 +218,7 @@
             border-radius: 8px;
             margin-bottom: 20px;
         }
+
         .graph-img {
             max-width: 100%;
             height: auto;
@@ -183,22 +228,28 @@
         }
 
         @media (max-width: 720px) {
-            .search-form, .search-result {
+
+            .search-form,
+            .search-result {
                 grid-template-columns: 1fr;
             }
+
             .form-group.full-width {
                 grid-column: auto;
             }
+
             .form-actions {
                 align-items: stretch;
                 flex-direction: column;
             }
+
             .btn {
                 width: 100%;
             }
         }
     </style>
 </head>
+
 <body>
 
     <nav class="navbar">
@@ -215,19 +266,14 @@
 
         <section id="recherche" class="card">
             <h2>Base de données : Recherche d'options</h2>
-            <p>Interrogez notre base de données pour connaître la complexité d'un programme selon son environnement et sa version.</p>
-            
+            <p>Interrogez notre base de données pour connaître la complexité d'un programme selon son environnement et
+                sa version.</p>
+
             <form class="search-form" id="search-form">
-                
+
                 <div class="form-group">
                     <label for="programme">Nom du programme :</label>
-                    <input
-                        type="text"
-                        id="programme"
-                        placeholder="Ex: ls, grep, ffmpeg"
-                        autocomplete="off"
-                        required
-                    >
+                    <input type="text" id="programme" placeholder="Ex: ls, grep, ffmpeg" autocomplete="off" required>
                 </div>
 
                 <div class="form-group">
@@ -275,10 +321,11 @@
 
         <section id="telechargement" class="card">
             <h2>Ressources à télécharger</h2>
-            <p>Téléchargez l'interface graphique Python pour analyser dynamiquement le nombre d'options d'un programme en ligne de commande directement depuis votre machine.</p>
-            
+            <p>Téléchargez l'interface graphique Python pour analyser dynamiquement le nombre d'options d'un programme
+                en ligne de commande directement depuis votre machine.</p>
+
             <a href="telecharger.html" class="btn btn-blue">
-                ⬇ Télécharger l'interface (.zip)
+                ⬇ Page de téléchargement
             </a>
             <a href="data/csv.zip" class="btn btn-blue" download>
                 ⬇ Télécharger les CSV (.zip)
@@ -287,11 +334,13 @@
 
         <section id="presentation" class="card">
             <h2>Présentation du projet</h2>
-            <p>Consultez notre rapport de recherche détaillant la méthodologie de l'analyse dynamique des interfaces en ligne de commande.</p>
-            
+            <p>Consultez notre rapport de recherche détaillant la méthodologie de l'analyse dynamique des interfaces en
+                ligne de commande.</p>
+
             <iframe class="pdf-viewer" src="../docs/technical_details.pdf" title="Présentation PDF"></iframe>
             <p style="text-align: center;">
-                <em>Si le PDF ne s'affiche pas, <a href="../docs/technical_details.pdf" download>cliquez ici pour le télécharger</a>.</em>
+                <em>Si le PDF ne s'affiche pas, <a href="../docs/technical_details.pdf" download>cliquez ici pour le
+                        télécharger</a>.</em>
             </p>
 
             <hr style="margin: 40px 0; border: 1px solid #eee;">
@@ -299,10 +348,12 @@
             <h3>Aperçu de l'analyse comparative</h3>
             <div style="text-align: center;">
                 <p>Analyse de l'évolution<strong> TOYBOX VS GNU</strong></p>
-                <img class="graph-img" src="../data/figures/Evolution_Toybox_vs%20_GNU.png" alt="Evolution Toybox vs GNU">
-                
+                <img class="graph-img" src="../data/figures/Evolution_Toybox_vs%20_GNU.png"
+                    alt="Evolution Toybox vs GNU">
+
                 <p style="margin-top: 30px;">Analyse de 15 programmes <strong>boxplot</strong></p>
-                <img class="graph-img" src="../data/figures/latest_15_programmes_boxplot.png" alt="Evolution Toybox vs GNU">
+                <img class="graph-img" src="../data/figures/latest_15_programmes_boxplot.png"
+                    alt="Evolution Toybox vs GNU">
             </div>
         </section>
 
@@ -310,4 +361,5 @@
     <script src="data/options-history.js?v=20260624-public-assets"></script>
     <script src="search.js?v=20260624-public-assets"></script>
 </body>
+
 </html>
