@@ -1,0 +1,6 @@
+programme,version,date,commande,nombre_options,erreur
+autre,curl-7_87_0,2022-12-21,./curl,316,
+autre,curl-8_5_0,2023-12-06,./curl,325,
+autre,curl-8_11_1,2024-12-11,./curl,333,
+autre,curl-8_17_0,2025-11-05,./curl,340,
+autre,curl-8_21_0,2026-06-24,./curl,341,
