@@ -282,9 +282,10 @@ Ce fichier récapitule les réunions, décisions, travaux réalisés et objectif
 
 ### 25 juin 2026
 
+
 **Travail réalisé**
 
-- Yoan : ajout des logos utilisés pour le poster
+- Yoan : ajout des logos utilisés pour le poster, modification de graphes pour le site
 - Baptiste : ajout poster sur le site
 - Baptiste : Refonte de la naviguation du site web
 
