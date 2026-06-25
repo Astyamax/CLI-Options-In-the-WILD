@@ -1,0 +1,40 @@
+<svg width="1040" height="300" viewBox="0 0 1040 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="compteur logo">
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#103049"/>
+      <stop offset="1" stop-color="#0a1a28"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== icon mark (terminal tile) ===== -->
+  <g transform="translate(10,10) scale(0.547)">
+    <rect x="20" y="20" width="472" height="472" rx="112" fill="url(#tile)"/>
+    <rect x="20" y="20" width="472" height="472" rx="112" fill="none" stroke="#2bb3e3" stroke-width="8" stroke-opacity="0.85"/>
+
+    <!-- prompt chevron: the command line -->
+    <path d="M150 168 L214 256 L150 344" fill="none" stroke="#2bb3e3"
+          stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- counted option flags: dash (flag prefix) + bar, decreasing like a tally -->
+    <g stroke-linecap="round">
+      <line x1="252" y1="192" x2="284" y2="192" stroke="#f3722c" stroke-width="22"/>
+      <line x1="300" y1="192" x2="392" y2="192" stroke="#e6f3fb" stroke-width="22"/>
+      <line x1="252" y1="256" x2="284" y2="256" stroke="#f3722c" stroke-width="22"/>
+      <line x1="300" y1="256" x2="368" y2="256" stroke="#cfe6f4" stroke-width="22"/>
+      <line x1="252" y1="320" x2="284" y2="320" stroke="#f3722c" stroke-width="22"/>
+      <line x1="300" y1="320" x2="344" y2="320" stroke="#a9cfe4" stroke-width="22"/>
+    </g>
+  </g>
+
+  <!-- ===== wordmark ===== -->
+  <text x="300" y="168" font-family="'DejaVu Sans Mono','Liberation Mono',monospace"
+        font-size="128" font-weight="700" letter-spacing="-2" fill="#103049">compteur</text>
+
+  <!-- blinking-cursor accent right after the name -->
+  <rect x="918" y="70" width="36" height="100" rx="6" fill="#f3722c"/>
+
+  <!-- tagline: orange flag-dash prefix + label -->
+  <rect x="302" y="214" width="54" height="12" rx="6" fill="#f3722c"/>
+  <text x="372" y="230" font-family="'DejaVu Sans','Liberation Sans',sans-serif"
+        font-size="38" font-weight="600" letter-spacing="6" fill="#1c93c4">CLI OPTION COUNTER</text>
+</svg>

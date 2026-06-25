@@ -279,3 +279,9 @@ Ce fichier récapitule les réunions, décisions, travaux réalisés et objectif
 - Correction du déploiement pour que les scripts de recherche et les données du site soient copiés dans `public/`.
 - Baptiste : Ajout de la bibliographie sur le pdf : technical_details.pdf
 - Baptiste : Suppresions de fichier pour nettoyer le git
+
+### 25 juin 2026
+
+**Travail réalisé**
+
+- Yoan : ajout des logos utilisés pour le poster 

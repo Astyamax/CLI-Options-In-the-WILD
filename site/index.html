@@ -226,6 +226,15 @@
             border: 1px solid #eee;
             margin-top: 15px;
         }
+        .video-frame {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border: 1px solid #d9e2ec;
+            border-radius: 8px;
+            background: #111827;
+            display: block;
+            margin-top: 15px;
+        }
 
         @media (max-width: 720px) {
 
@@ -255,6 +264,7 @@
     <nav class="navbar">
         <a href="#recherche">🔍 Outil de Recherche</a>
         <a href="#telechargement">⬇️ Téléchargements</a>
+        <a href="#video">▶️ Vidéo</a>
         <a href="#presentation">📊 Présentation & Résultats</a>
     </nav>
 
@@ -330,6 +340,14 @@
             <a href="data/csv.zip" class="btn btn-blue" download>
                 ⬇ Télécharger les CSV (.zip)
             </a>
+        </section>
+
+        <section id="video" class="card">
+            <h2>vidéo de présentation</h2>
+            <video class="video-frame" controls preload="metadata">
+                <source src="data/options-in-the-wild.mp4" type="video/mp4">
+                Votre navigateur ne peut pas lire cette vidéo.
+            </video>
         </section>
 
         <section id="presentation" class="card">
