@@ -473,6 +473,10 @@ class OptionsInTheWildTeaser(Scene):
             self.make_badge("coreutils", "#60a5fa", 22),
             self.make_badge("toybox", "#34d399", 22),
             self.make_badge("ffmpeg", AMBER, 22),
+            self.make_badge("git", "#f472b6", 22),
+            self.make_badge("curl", "#facc15", 22),
+            self.make_badge("nano", "#38bdf8", 22),
+            self.make_badge("etc", "#f97316", 22),
         ).arrange(RIGHT, buff=0.2)
         badges.next_to(title_group, DOWN, buff=0.55)
 
