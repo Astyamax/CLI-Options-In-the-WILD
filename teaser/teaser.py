@@ -113,7 +113,7 @@ def top_program_counts(limit: int = 8) -> list[tuple[str, int]]:
 
             command = normalize_command(row.get("commande", ""))
             if not command:
-                command = row.get("programme", "unknown")
+                command = row.get("programme", "inconnu")
             rows.append((command, values[-1]))
 
     rows = sorted(rows, key=lambda item: item[1], reverse=True)
@@ -185,19 +185,19 @@ class OptionsInTheWildTeaser(Scene):
         question_mark.shift(0.15 * DOWN)
 
         question = VGroup(
-            title_text("How many command-line options", 62),
-            title_text("does a single program have?", 62, color=CYAN),
+            title_text("Combien d'options en ligne de commande", 58),
+            title_text("un seul programme peut-il avoir ?", 58, color=CYAN),
         ).arrange(DOWN, buff=0.18).move_to(ORIGIN)
 
         underline = Line([-3.65, -1.05, 0], [3.65, -1.05, 0], stroke_color=AMBER, stroke_width=5)
 
         counted = VGroup(
-            title_text("Nobody had really counted.", 62, color=WHITE),
-            label_text("No answer.", 30, color=MUTED),
+            title_text("Personne ne les avait vraiment comptées.", 56, color=WHITE),
+            label_text("Pas de réponse claire.", 30, color=MUTED),
         ).arrange(DOWN, buff=0.25).move_to(ORIGIN)
 
         did = VGroup(
-            title_text("So we did.", 82, color=GREEN)
+            title_text("Alors on l'a fait.", 82, color=GREEN)
         ).arrange(DOWN, buff=0.25).move_to(ORIGIN)
 
         self.play(FadeIn(question_mark, scale=0.92), FadeIn(question, shift=0.18 * UP), run_time=0.9)
@@ -244,7 +244,7 @@ class OptionsInTheWildTeaser(Scene):
         ).arrange(RIGHT, buff=0.16)
         dots.move_to(header.get_left() + 0.55 * RIGHT)
 
-        badge = self.make_badge("counter.py", CYAN, 20)
+        badge = self.make_badge("compteur.py", CYAN, 20)
         badge.move_to(header.get_right() + 0.9 * LEFT)
 
         command = body_text("$ python src/compteur/compteur.py ./ffmpeg", 24, color="#86efac")
@@ -266,7 +266,7 @@ class OptionsInTheWildTeaser(Scene):
             "-ar", "-ac", "-an", "-c:s", "-sn", "-vf", "-af", "-preset",
             "-crf", "-profile:v", "-level", "-threads", "-progress",
         ]
-        classes = ["global", "format", "video", "audio", "stream", "filter"]
+        classes = ["globale", "format", "vidéo", "audio", "flux", "filtre"]
 
         def build_option_window(start_index: int) -> VGroup:
             window = VGroup()
@@ -275,7 +275,7 @@ class OptionsInTheWildTeaser(Scene):
                 category = classes[(start_index + offset) % len(classes)]
                 window.add(
                     body_text(
-                        f"{index + 1:03d}  {option_names[index]:<16} {category:<7} detected",
+                        f"{index + 1:03d}  {option_names[index]:<16} {category:<7} détectée",
                         17,
                         color="#d6e4ff",
                     )
@@ -309,7 +309,7 @@ class OptionsInTheWildTeaser(Scene):
         counter = DecimalNumber(0, num_decimal_places=0, font_size=72, color=AMBER)
         counter.next_to(progress_label, DOWN, buff=0.15)
 
-        found = label_text("detected", 22, color=MUTED)
+        found = label_text("détectées", 22, color=MUTED)
         found.next_to(counter, DOWN, buff=0.06)
 
         bar_outline = RoundedRectangle(width=0.58, height=2.55, corner_radius=0.12, stroke_color=WHITE, stroke_width=2)
@@ -368,7 +368,7 @@ class OptionsInTheWildTeaser(Scene):
         self.remove(rows, *rows, scan_line)
 
     def ffmpeg_reveal(self, ffmpeg_options: int) -> None:
-        intro = label_text("ffmpeg exposes", 42, color=MUTED)
+        intro = label_text("ffmpeg expose", 42, color=MUTED)
         number = DecimalNumber(0, num_decimal_places=0, font_size=154, color=AMBER)
         unit = title_text("OPTIONS", 78, color=WHITE)
         group = VGroup(intro, number, unit).arrange(DOWN, buff=0.05).move_to(ORIGIN)
@@ -400,7 +400,7 @@ class OptionsInTheWildTeaser(Scene):
         number.set_value(ffmpeg_options)
         self.wait(0.55)
 
-        second = title_text("but it is not only ffmpeg", 54, color=CYAN)
+        second = title_text("mais ffmpeg n'est pas le seul", 54, color=CYAN)
         second.move_to(ORIGIN)
         self.play(FadeOut(VGroup(group, burst), scale=1.05), run_time=0.55)
         self.play(FadeIn(second, scale=0.92), run_time=0.65)
@@ -411,7 +411,7 @@ class OptionsInTheWildTeaser(Scene):
         data = top_program_counts(limit=8)
         max_value = max(value for _, value in data)
 
-        headline = title_text("Thousands of flags. Hundreds of choices.", 40, color=WHITE)
+        headline = title_text("Des milliers d'options. Des centaines de choix.", 40, color=WHITE)
         headline.to_edge(UP, buff=0.42)
 
         chart_width = 11.0
@@ -453,7 +453,7 @@ class OptionsInTheWildTeaser(Scene):
             value_label.next_to(bar, UP, buff=0.12)
             values.add(value_label)
 
-        caption = title_text("More flags than people will ever use", 44, color=AMBER)
+        caption = title_text("Plus d'options que personne n'en utilisera jamais", 40, color=AMBER)
         caption.to_edge(DOWN, buff=0.38)
 
         self.play(FadeIn(headline, shift=0.2 * DOWN), run_time=0.65)
@@ -466,7 +466,7 @@ class OptionsInTheWildTeaser(Scene):
 
     def final_title(self) -> None:
         title = title_text("Options in the Wild", 92, color=WHITE)
-        subtitle = title_text("Measuring options people never counted", 38, color="#cbd5e1")
+        subtitle = title_text("Mesurer des options que personne ne comptait", 38, color="#cbd5e1")
         title_group = VGroup(title, subtitle).arrange(DOWN, buff=0.22).move_to(0.35 * UP)
 
         badges = VGroup(
