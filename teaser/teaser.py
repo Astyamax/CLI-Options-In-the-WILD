@@ -193,12 +193,11 @@ class OptionsInTheWildTeaser(Scene):
 
         counted = VGroup(
             title_text("Nobody had really counted.", 62, color=WHITE),
-            label_text("No benchmark. No catalog. No answer.", 30, color=MUTED),
+            label_text("No answer.", 30, color=MUTED),
         ).arrange(DOWN, buff=0.25).move_to(ORIGIN)
 
         did = VGroup(
-            title_text("So we did.", 82, color=GREEN),
-            label_text("across versions, environments, and years", 30, color=CYAN),
+            title_text("So we did.", 82, color=GREEN)
         ).arrange(DOWN, buff=0.25).move_to(ORIGIN)
 
         self.play(FadeIn(question_mark, scale=0.92), FadeIn(question, shift=0.18 * UP), run_time=0.9)
@@ -454,7 +453,7 @@ class OptionsInTheWildTeaser(Scene):
             value_label.next_to(bar, UP, buff=0.12)
             values.add(value_label)
 
-        caption = title_text("flags that people will NEVER use", 44, color=AMBER)
+        caption = title_text("More flags than people will ever use", 44, color=AMBER)
         caption.to_edge(DOWN, buff=0.38)
 
         self.play(FadeIn(headline, shift=0.2 * DOWN), run_time=0.65)
