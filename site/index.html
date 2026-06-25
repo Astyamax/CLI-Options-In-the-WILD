@@ -56,10 +56,24 @@
             margin-bottom: 40px;
         }
 
+        .site-title {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 10px;
+        }
+
+        .site-logo {
+            width: 84px;
+            height: auto;
+            display: block;
+        }
+
         h1 {
             color: #2c3e50;
             font-size: 2.5em;
-            margin-bottom: 10px;
+            margin: 0;
         }
 
         h2 {
@@ -238,6 +252,14 @@
         }
 
         @media (max-width: 720px) {
+            .site-title {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .site-logo {
+                width: 72px;
+            }
 
             .search-form,
             .search-result {
@@ -271,7 +293,10 @@
 
     <div class="container">
         <header>
-            <h1>Options in the Wild</h1>
+            <div class="site-title">
+                <img class="site-logo" src="../docs/poster/compteur_logo_wordmark.png" alt="Logo compteur">
+                <h1>Options in the Wild</h1>
+            </div>
             <p class="subtitle">Cartographie et analyse des lignes de commande</p>
         </header>
 
