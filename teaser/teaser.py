@@ -368,7 +368,7 @@ class OptionsInTheWildTeaser(Scene):
         self.remove(rows, *rows, scan_line)
 
     def ffmpeg_reveal(self, ffmpeg_options: int) -> None:
-        intro = label_text("ffmpeg propose", 42, color=MUTED)
+        intro = label_text("ffmpeg expose", 42, color=MUTED)
         number = DecimalNumber(0, num_decimal_places=0, font_size=154, color=AMBER)
         unit = title_text("OPTIONS", 78, color=WHITE)
         group = VGroup(intro, number, unit).arrange(DOWN, buff=0.05).move_to(ORIGIN)
@@ -453,7 +453,7 @@ class OptionsInTheWildTeaser(Scene):
             value_label.next_to(bar, UP, buff=0.12)
             values.add(value_label)
 
-        caption = title_text("Des options que personne n'utilisera jamais", 40, color=AMBER)
+        caption = title_text("Plus d'options que personne n'en utilisera jamais", 40, color=AMBER)
         caption.to_edge(DOWN, buff=0.38)
 
         self.play(FadeIn(headline, shift=0.2 * DOWN), run_time=0.65)
@@ -466,7 +466,7 @@ class OptionsInTheWildTeaser(Scene):
 
     def final_title(self) -> None:
         title = title_text("Options in the Wild", 92, color=WHITE)
-        subtitle = title_text("Mesurer les options que personne n'avait comptées", 38, color="#cbd5e1")
+        subtitle = title_text("Mesurer des options que personne ne comptait", 38, color="#cbd5e1")
         title_group = VGroup(title, subtitle).arrange(DOWN, buff=0.22).move_to(0.35 * UP)
 
         badges = VGroup(
@@ -485,9 +485,7 @@ class OptionsInTheWildTeaser(Scene):
         self.play(LaggedStart(*[FadeIn(badge, shift=0.12 * UP) for badge in badges], lag_ratio=0.12), run_time=0.6)
         self.wait(3.4)
         self.play(FadeOut(VGroup(title_group, badges, self.background)), run_time=1.15)
-        self.clear()
-        self.camera.background_color = BLACK
-        self.wait(0.75)
+        self.wait(0.25)
 
     def make_badge(self, text: str, color: str, font_size: int) -> VGroup:
         label = label_text(text, font_size, color=color)
