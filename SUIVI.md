@@ -37,7 +37,7 @@ Ce fichier récapitule les réunions, décisions, travaux réalisés et objectif
 
 **Décisions**
 
-- Choix de la stratégie de comptage.
+- Choix de la stratégie de comptage : on compte une option courte et une option longue comme 2 options même si elles font la même chose
 - Création d'un document de règles de comptage pour les futurs utilisateurs.
 
 **Objectifs**
@@ -51,29 +51,23 @@ Ce fichier récapitule les réunions, décisions, travaux réalisés et objectif
 
 **Travail réalisé**
 
-## 24 Juin 2026
-*Tout le monde* : Réunion avec Xhevahire TËRNAVA en présentiel à Télécom
-    - Objectifs pour le 25 juin :
-        - Rajouter la bibliographie sur le pdf de présentation 
-        - Reprendre un peu la strucuture du pdf de présentation
-        - Clean le projet
-        - Analyser la complexité de quelques programmes
-        - Préparer une sorte de teaser 
-### Travail effectué
-    - Yoan :
-        - Moification des graphes sur la static page 
-
 - Baptiste : code capable de compter les options de programmes usuels (`ls`, `cat`, `grep`, `sed`, `sort`, etc.) à partir de la commande d'aide.
 
 **Objectif**
 
 - Améliorer le compteur pour les programmes qui utilisent autre chose que `--help`.
 
+### 10 avril 2026
+
+**Travail réalisé**
+
+- Yoan : readme complété pour mettre à jour les commandes utilisées pour le test du compteur sur différents programmes
+
 ### 14 avril 2026
 
 **Travail réalisé**
 
-- Yoan : implémentation d'une interface graphique simple pour tester le compteur.
+- Yoan : implémentation d'une interface graphique simple pour tester le compteur, correction d'erreurs.
 - Les fichiers `code_final.py` et `code_v2.py` fonctionnent pour plusieurs programmes usuels.
 
 **Objectifs**
@@ -81,6 +75,18 @@ Ce fichier récapitule les réunions, décisions, travaux réalisés et objectif
 - Rédiger une documentation regroupant les sources et les explications.
 - Ajouter des fonctionnalités à l'interface graphique : détails, graphes chronologiques, graphe des options actuelles.
 - Rédiger un README utilisateur.
+
+### 15 avril 2026
+
+**Travail réalisé**
+
+- Yoan : ajout de sources pour la bibliographie.
+
+### 17 avril 2026
+
+**Travail réalisé**
+
+- Yoan : test de code_final.py après détection d'erreurs dans le nombre d'options trouvées par le compteur et le nombre d'options comptées manuellement. Traitement des sous-commandes et affichage du détail des options listées. 
 
 ### 20 avril 2026
 
@@ -105,12 +111,18 @@ Ce fichier récapitule les réunions, décisions, travaux réalisés et objectif
 
 - Yoan : création de `test_graph.py` pour tracer le nombre d'options en fonction des programmes testés.
 
+## 2 mai 2026
+
+**Travail réalisé**
+
+- Yoan : modification de test_graph.py en vue de l'implémenter dans l'interface graphique
+
 ### 4 mai 2026
 
 **Travail réalisé**
 
 - Yoan : premier tracé fonctionnel avec `test_graph.py`.
-- Yoan : intégration du tracé dans l'interface avec comparaison de quelques programmes usuels.
+- Yoan : intégration du tracé dans l'interface avec comparaison de quelques programmes usuels. Ajout de sources dans la bibliographie 
 
 **Problème identifié**
 
@@ -271,6 +283,14 @@ Ce fichier récapitule les réunions, décisions, travaux réalisés et objectif
 - Yoan : modification de la bibliographie pour l'intégrer à la page statique.
 
 ### 24 juin 2026
+
+*Tout le monde* : Réunion avec Xhevahire TËRNAVA en présentiel à Télécom
+    - Objectifs pour le 25 juin :
+        - Rajouter la bibliographie sur le pdf de présentation 
+        - Reprendre un peu la strucuture du pdf de présentation
+        - Clean le projet
+        - Analyser la complexité de quelques programmes
+        - Préparer une sorte de teaser 
 
 **Travail réalisé**
 
